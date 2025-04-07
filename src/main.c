@@ -15,14 +15,11 @@ int main(int argc, char* argv[]) {
 	printf("Good Compile");
 
 	// Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) <0) {
+	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL could not initialize, Error: %s\n",
 				SDL_GetError());
 		return 1;
 	}
-
-	// Call map creation here
-	
 
 	// Create Window
 	SDL_Window* window = SDL_CreateWindow("SDL2 Test",
@@ -64,8 +61,17 @@ int main(int argc, char* argv[]) {
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
+
+		// Test Rect
+		SDL_Rect testRect = {100, 100, 250, 250};
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+		SDL_RenderFillRect(renderer, &testRect);
+
+		// Update
+		SDL_RenderPresent(renderer);
 	}
 
+	// Clean
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();

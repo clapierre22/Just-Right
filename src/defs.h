@@ -2,8 +2,8 @@
 #pragma once
 
 // Sceen
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1360
+#define SCREEN_HEIGHT 900
 
 // Map
 #define TILE_SIZE 32
