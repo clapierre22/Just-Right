@@ -1,0 +1,3 @@
+C:/Users/calvi/Just-Right/build/CMakeFiles/Just-Right.dir
+C:/Users/calvi/Just-Right/build/CMakeFiles/edit_cache.dir
+C:/Users/calvi/Just-Right/build/CMakeFiles/rebuild_cache.dir
