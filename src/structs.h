@@ -9,7 +9,6 @@ typedef struct {
 	int velocityX, velocityY, facing;
 	int health, damage;
 	EntityType type;
-	bool onGround;
 } Entity;
 
 typedef struct {
@@ -22,13 +21,15 @@ typedef struct {
 typedef struct {
 	int tile;
 	int visible;
-	int revealed;
 } RoomTile;
 
 typedef struct {
-	int entityId;
-	// Includes player entity
-	RoomTile map[MAP_WIDTH][MAP_HEIGHT];
-	SDL_Point camera;
+	int map[MAP_WIDTH][MAP_HEIGHT];
+} Map;
+
+typedef struct {
+	SDL_Point renderOffset;
+	// Include player entity
+	Map room; 
 } Level;
 

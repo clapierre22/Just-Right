@@ -10,10 +10,13 @@
 #define MAP_WIDTH 33 // 32 (Floor) + 1 (Walls)
 #define MAP_HEIGHT 33
 
+#define GROUND 1
+#define WALL 0
+#define AIR -1
+
 // Render
 #define RENDER_WIDTH 32
 #define RENDER_HEIGHT 32
-
 // Camera
 #define MAP_REN_X ((SCREEN_WIDTH - (RENDER_WIDTH * TILE_SIZE)) / 2)
 #define MAP_REN_Y ((SCREEN_HEIGHT - (RENDER_HEIGHT * TILE_SIZE)) / 2)

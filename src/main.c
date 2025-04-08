@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <SDL2/SDL.h>
-#include <stdbool.h>
 
 #include "structs.h"
 #include "defs.h"
@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL could not initialize, Error: %s\n",
 				SDL_GetError());
-		return 1;
+		exit(1);
 	}
 
 	// Create Window
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 		printf("Window did not initialize, Error: %s\n",
 				SDL_GetError());
 		SDL_Quit();
-		return 1;
+		exit(1);
 	}
 
 	// Create Renderer
@@ -45,17 +45,34 @@ int main(int argc, char* argv[]) {
 				SDL_GetError());
 		SDL_DestroyWindow(window);
 		SDL_Quit();
-		return 1;
+		exit(1);
+	}
+
+	// Demo Map
+	int map[MAP_WIDTH][MAP_HEIGHT];
+
+	for (int y = 0; y < MAP_HEIGHT; y++) {
+		for (int x = 0; x < MAP_WIDTH; x++) {
+			// Walls
+			if (x == 0
+				|| y == 0
+				|| x == MAP_WIDTH - 1
+				|| y == MAP_HEIGHT - 1) {
+				map[x][y] = WALL;
+			} else {
+				map[x][y] = GROUND;
+			}
+		}
 	}
 
 	// Game Loop
-	bool running = true;
+	int running = 1;
 	SDL_Event event;
 
 	while (running) {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
-				running = false;
+				running = 0;
 			}
 		}
 
@@ -63,9 +80,56 @@ int main(int argc, char* argv[]) {
 		SDL_RenderClear(renderer);
 
 		// Test Rect
-		SDL_Rect testRect = {100, 100, 250, 250};
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-		SDL_RenderFillRect(renderer, &testRect);
+		// SDL_Rect testRect = {100, 100, 250, 250};
+		// SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+		// SDL_RenderFillRect(renderer, &testRect);
+		
+		// Render Map
+		for (int y = 0; y < RENDER_HEIGHT; y++) {
+			for (int x = 0; x < RENDER_WIDTH; x++) {
+				SDL_Rect tile = {
+					MAP_REN_X + (x * TILE_SIZE),
+					MAP_REN_Y + (y * TILE_SIZE),
+					TILE_SIZE,
+					TILE_SIZE,
+				};
+
+				if (map[x][y] == WALL) {
+					SDL_SetRenderDrawColor(
+						renderer,
+						100,
+						100,
+						100,
+						255);
+				} else if (map[x][y] == GROUND) {
+					SDL_SetRenderDrawColor(
+						renderer,
+						200,
+						200,
+						100,
+						255);
+				} else {
+					SDL_SetRenderDrawColor(
+						renderer,
+						0,
+						0,
+						200,
+						255);
+				}
+
+				SDL_RenderFillRect(renderer, &tile);
+
+				// Outline
+				SDL_SetRenderDrawColor(
+					renderer,
+					50,
+					50,
+					50,
+					255);
+
+				SDL_RenderDrawRect(renderer, &tile);
+			}
+		}
 
 		// Update
 		SDL_RenderPresent(renderer);
