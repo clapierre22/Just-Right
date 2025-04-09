@@ -4,7 +4,7 @@
 
 typedef struct {
 	char id[32];
-	SDL_Texture* sprite;
+	// SDL_Texture* sprite;
 	int x, y, width, height;
 	int velocityX, velocityY, facing;
 	int health, damage;

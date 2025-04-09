@@ -65,6 +65,8 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
+
+
 	// Game Loop
 	int running = 1;
 	SDL_Event event;
@@ -85,36 +87,43 @@ int main(int argc, char* argv[]) {
 		// SDL_RenderFillRect(renderer, &testRect);
 		
 		// Render Map
-		for (int y = 0; y < RENDER_HEIGHT; y++) {
-			for (int x = 0; x < RENDER_WIDTH; x++) {
+		for (int y = 0; y < MAP_HEIGHT; y++) {
+			for (int x = 0; x < MAP_WIDTH; x++) {
 				SDL_Rect tile = {
 					MAP_REN_X + (x * TILE_SIZE),
 					MAP_REN_Y + (y * TILE_SIZE),
 					TILE_SIZE,
 					TILE_SIZE,
 				};
-
-				if (map[x][y] == WALL) {
-					SDL_SetRenderDrawColor(
-						renderer,
-						100,
-						100,
-						100,
-						255);
-				} else if (map[x][y] == GROUND) {
-					SDL_SetRenderDrawColor(
-						renderer,
-						200,
-						200,
-						100,
-						255);
-				} else {
-					SDL_SetRenderDrawColor(
-						renderer,
-						0,
-						0,
-						200,
-						255);
+				
+				switch(map[x][y]) {
+					case WALL: {
+						SDL_SetRenderDrawColor(
+							renderer,
+							100,
+							100,
+							100,
+							255);
+						break;
+					}
+					case GROUND: {
+						SDL_SetRenderDrawColor(
+							renderer,
+							200,
+							200,
+							100,
+							255);	
+						break;
+					}
+					default: {
+						SDL_SetRenderDrawColor(
+							renderer,
+							0,
+							0,
+							200,
+							255);	
+						break;
+					}
 				}
 
 				SDL_RenderFillRect(renderer, &tile);
@@ -134,6 +143,29 @@ int main(int argc, char* argv[]) {
 		// Update
 		SDL_RenderPresent(renderer);
 	}
+
+	// Spawn Player Entity
+	Entity player = {
+		"player1", // id
+		100, // x
+		100, // y
+		100, // width
+		100, // height
+		0, // VX
+		0, // VY
+		0, // Facing
+		100, // health
+		10, // damage
+		ENTITY_PLAYER};
+
+	SDL_Rect playerTile = {
+		player.x,
+		player.y,
+		player.width,
+		player.height};
+
+	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	SDL_RenderFillRect(renderer, &playerTile);
 
 	// Clean
 	SDL_DestroyRenderer(renderer);
