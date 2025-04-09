@@ -3,71 +3,92 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 
-void initMap(void);
-static void loadTiles(void);
-static void loadMap(void);
-void drawMap(void);
+Map initMap(void);
+// static void loadTiles(void);
+static void loadMap(Map* map);
+void drawMap(SDL_Renderer* renderer, Map* map);
 
-void initMap(void) {
+Map initMap(void) {
 
 	// memset(&level.map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
+	
+	Map currentMap;
 
-	loadTiles();
+	loadMap(&currentMap);
 
-	loadMap();
+	// drawMap();
+	
+	return currentMap;
 }
 
-static void loadTiles(void) {
-    for (int i = 0; i < MAP_WIDTH; i++) {
-        for (int j = 0; j < MAP_HEIGHT; j++) {
-            level.room.map[x][y] = GROUND;
-        }
-    }
-}d
+static void loadMap(Map* map) {
+	// int currentMap.map;
 
-static void loadMap(const char *filename) {
-	char *data = readFile(filename); 
-	char *p;
-	int x, y;
-
-	if (!data) {
-		printf(
-			stderr, 
-			"Failed to load map file: %s\n", 
-			filename);
-		return 1;
-	}
-
-	p = data;
-
-	for (y = 0; y < MAP_HEIGHT; y++) {
-		for (x = 0; x < MAP_WIDTH; x++) {
-			if (sscanf(p, "%d", &level.map[x][y]) != 1) {
-				printf(
-					stderr,
-					"Error parsing at (%d, %d)\n",
-					x, y);
+	for (int y = 0; y < MAP_HEIGHT; y++) {
+		for(int x = 0; x < MAP_WIDTH; x++) {
+			// Check Walls
+			if (x == 0
+				|| y == 0
+				|| x == MAP_WIDTH - 1
+				|| y == MAP_HEIGHT - 1)
+				{ map->map[x][y] = WALL;
+			} else {
+				map->map[x][y] = GROUND;
 			}
-
-			while (*p && *p != ' ' && *p != '\n') p++;
-			// This skips delimiter
-			if (*p) p++;
-			
 		}
 	}
-
-	free(data);
 }
 
-void drawMap(void) {
+void drawMap(SDL_Renderer* renderer, Map* map) {
+
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
-			// Draw each tile here
-			// Based on level.map[x][y]
-			// Debug Output:
-			printf("%d", level.map[x][y]);
-		}
-		printf("\n");
-	}
+			SDL_Rect tile = {
+				MAP_REN_X + (x * TILE_SIZE),
+				MAP_REN_Y + (y * TILE_SIZE),
+				TILE_SIZE,
+				TILE_SIZE
+			};
 
+			switch(map->map[x][y]) {
+				case WALL: {
+					SDL_SetRenderDrawColor(
+						renderer,
+						100,
+						100,
+						100,
+						255);
+					break;
+				} case GROUND: {
+					SDL_SetRenderDrawColor(
+						renderer,
+						200,
+						200,
+						100,
+						255);
+					break;
+				} default: {
+					SDL_SetRenderDrawColor(
+						renderer,
+						0,
+						0,
+						200,
+						255);
+					break;
+				}
+			}
+
+				SDL_RenderFillRect(renderer, &tile);
+
+				// Outline
+				SDL_SetRenderDrawColor(
+					renderer,
+					50,
+					50,
+					50,
+					255);
+				
+				SDL_RenderDrawRect(renderer, &tile);
+		}
+	}
 }

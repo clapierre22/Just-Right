@@ -195,4 +195,4 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: \
  C:/msys64/mingw64/include/SDL2/SDL_locale.h \
  C:/msys64/mingw64/include/SDL2/SDL_misc.h \
  C:\Users\calvi\Just-Right\src\structs.h \
- C:\Users\calvi\Just-Right\src\defs.h
+ C:\Users\calvi\Just-Right\src\defs.h C:\Users\calvi\Just-Right\src\map.c

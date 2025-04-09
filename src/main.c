@@ -5,6 +5,8 @@
 #include "structs.h"
 #include "defs.h"
 
+#include "map.c"
+
 // This holds the Game Loop, SDL Setup
 // TEST FILE
 // Final "main" will be in "JustRight.c"
@@ -49,24 +51,9 @@ int main(int argc, char* argv[]) {
 	}
 
 	// Demo Map
-	int map[MAP_WIDTH][MAP_HEIGHT];
-
-	for (int y = 0; y < MAP_HEIGHT; y++) {
-		for (int x = 0; x < MAP_WIDTH; x++) {
-			// Walls
-			if (x == 0
-				|| y == 0
-				|| x == MAP_WIDTH - 1
-				|| y == MAP_HEIGHT - 1) {
-				map[x][y] = WALL;
-			} else {
-				map[x][y] = GROUND;
-			}
-		}
-	}
-
-
-
+	
+	Map demo = initMap();
+	
 	// Game Loop
 	int running = 1;
 	SDL_Event event;
@@ -87,59 +74,9 @@ int main(int argc, char* argv[]) {
 		// SDL_RenderFillRect(renderer, &testRect);
 		
 		// Render Map
-		for (int y = 0; y < MAP_HEIGHT; y++) {
-			for (int x = 0; x < MAP_WIDTH; x++) {
-				SDL_Rect tile = {
-					MAP_REN_X + (x * TILE_SIZE),
-					MAP_REN_Y + (y * TILE_SIZE),
-					TILE_SIZE,
-					TILE_SIZE,
-				};
-				
-				switch(map[x][y]) {
-					case WALL: {
-						SDL_SetRenderDrawColor(
-							renderer,
-							100,
-							100,
-							100,
-							255);
-						break;
-					}
-					case GROUND: {
-						SDL_SetRenderDrawColor(
-							renderer,
-							200,
-							200,
-							100,
-							255);	
-						break;
-					}
-					default: {
-						SDL_SetRenderDrawColor(
-							renderer,
-							0,
-							0,
-							200,
-							255);	
-						break;
-					}
-				}
+		drawMap(renderer, &demo);
 
-				SDL_RenderFillRect(renderer, &tile);
-
-				// Outline
-				SDL_SetRenderDrawColor(
-					renderer,
-					50,
-					50,
-					50,
-					255);
-
-				SDL_RenderDrawRect(renderer, &tile);
-			}
-		}
-
+		
 		// Update
 		SDL_RenderPresent(renderer);
 	}

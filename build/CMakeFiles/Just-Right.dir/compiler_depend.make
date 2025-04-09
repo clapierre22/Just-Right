@@ -204,6 +204,7 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: C:/Users/calvi/Just-Right/src/main.c \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h \
   C:/Users/calvi/Just-Right/src/defs.h \
+  C:/Users/calvi/Just-Right/src/map.c \
   C:/Users/calvi/Just-Right/src/structs.h
 
 
@@ -240,6 +241,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/shaintrin.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/sgxintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/rtmintrin.h:
+
+C:/Users/calvi/Just-Right/src/map.c:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/rdseedintrin.h:
 
