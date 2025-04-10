@@ -18,10 +18,12 @@
 // Render
 #define RENDER_WIDTH 16
 #define RENDER_HEIGHT 16
+
 // Camera
 #define MAP_REN_X ((SCREEN_WIDTH - (RENDER_WIDTH * TILE_SIZE)) / 2)
 #define MAP_REN_Y ((SCREEN_HEIGHT - (RENDER_HEIGHT * TILE_SIZE)) / 2)
 
+// Entity
 typedef enum {
 	ENTITY_PLAYER,
 	ENTITY_ENEMY,
@@ -31,4 +33,5 @@ typedef enum {
 #define GRAVITY 1
 #define JUMP = -12
 #define PLAYER_SPEED 4
+#define ENTITY_STOP 0
 

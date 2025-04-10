@@ -50,20 +50,92 @@ int main(int argc, char* argv[]) {
 		exit(1);
 	}
 
-	// Demo Map
-	
+	// Demo Map	
 	Map demo = initMap();
 	
+	// Spawn Player Entity
+	Entity player = {
+		"player1", // id
+		SCREEN_WIDTH / 2, // x
+		SCREEN_HEIGHT / 2, // y
+		16, // width
+		16, // height
+		0, // VX
+		0, // VY
+		0, // Facing
+		100, // health
+		10, // damage
+		ENTITY_PLAYER
+	};
+
 	// Game Loop
 	int running = 1;
 	SDL_Event event;
 
 	while (running) {
 		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				running = 0;
+			switch (event.type) {
+
+				case SDL_QUIT: {
+					running = 0;
+					break;
+				}
+				case SDL_KEYDOWN: {
+					switch (event.key.keysym.sym) {
+						case SDLK_w: {
+							player.velocityY
+							= -PLAYER_SPEED;
+							break;
+						}
+						case SDLK_s: {
+							player.velocityY
+							= PLAYER_SPEED;
+							break;
+						}
+						case SDLK_a: {
+							player.velocityX
+							= -PLAYER_SPEED;
+							break;
+						}
+						case SDLK_d: {
+							player.velocityX
+							= PLAYER_SPEED;
+							break;
+						}
+					}
+					break;
+				}
+				case SDL_KEYUP: {
+					switch (event.key.keysym.sym) {
+						case SDLK_w: {
+							player.velocityY
+							= ENTITY_STOP;
+							break;
+						}
+						case SDLK_s: {
+							player.velocityY
+							= ENTITY_STOP;
+							break;
+						}
+						case SDLK_a: {
+							player.velocityX
+							= ENTITY_STOP;
+							break;
+						}
+						case SDLK_d: {
+							player.velocityX
+							= ENTITY_STOP;
+							break;
+						}
+					}
+					break;
+				}
 			}
 		}
+
+		// Update Player Position
+		player.x += player.velocityX;
+		player.y += player.velocityY;
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
@@ -75,34 +147,22 @@ int main(int argc, char* argv[]) {
 		
 		// Render Map
 		drawMap(renderer, &demo);
-
 		
+		// Render Player
+		SDL_Rect playerTile = {
+			player.x,
+			player.y,
+			player.width,
+			player.height
+		};
+
+		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+		SDL_RenderFillRect(renderer, &playerTile);
+
 		// Update
 		SDL_RenderPresent(renderer);
+		SDL_Delay(16); // 60 FPS
 	}
-
-	// Spawn Player Entity
-	Entity player = {
-		"player1", // id
-		100, // x
-		100, // y
-		100, // width
-		100, // height
-		0, // VX
-		0, // VY
-		0, // Facing
-		100, // health
-		10, // damage
-		ENTITY_PLAYER};
-
-	SDL_Rect playerTile = {
-		player.x,
-		player.y,
-		player.width,
-		player.height};
-
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-	SDL_RenderFillRect(renderer, &playerTile);
 
 	// Clean
 	SDL_DestroyRenderer(renderer);
