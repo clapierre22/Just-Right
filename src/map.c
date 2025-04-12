@@ -12,18 +12,22 @@ Map initMap(void) {
 
 	// memset(&level.map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
 	
+	// Make this dyanmically allocated - now declared in map struct
+	// SDL_Rect solidTiles[SOLID_TILES];
+	
 	Map currentMap;
 
 	loadMap(&currentMap);
+	printf("Good Map Load\n");
 
 	// drawMap();
-	
+
 	return currentMap;
 }
 
 static void loadMap(Map* map) {
 	// int currentMap.map;
-
+	
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for(int x = 0; x < MAP_WIDTH; x++) {
 			// Check Walls
@@ -35,11 +39,16 @@ static void loadMap(Map* map) {
 			} else {
 				map->map[x][y] = GROUND;
 			}
+			
+			// Add all Walls to solidTiles
+
 		}
 	}
 }
 
 void drawMap(SDL_Renderer* renderer, Map* map) {
+
+	int i = 0;
 
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
@@ -52,12 +61,17 @@ void drawMap(SDL_Renderer* renderer, Map* map) {
 
 			switch(map->map[x][y]) {
 				case WALL: {
+					if (i >= SOLID_TILES) printf(
+						"ERROR, OOB\n");
 					SDL_SetRenderDrawColor(
 						renderer,
 						100,
 						100,
 						100,
 						255);
+					map->solidTiles[i] = tile;
+					i++;
+					//printf("Map Tile (%d, %d) listed as Solid Tile\n", x, y);
 					break;
 				} case GROUND: {
 					SDL_SetRenderDrawColor(
@@ -77,18 +91,19 @@ void drawMap(SDL_Renderer* renderer, Map* map) {
 					break;
 				}
 			}
-
-				SDL_RenderFillRect(renderer, &tile);
-
-				// Outline
-				SDL_SetRenderDrawColor(
-					renderer,
-					50,
-					50,
-					50,
-					255);
 				
-				SDL_RenderDrawRect(renderer, &tile);
+			//printf("Drawing Tile at (%d, %d)\n", x, y);
+			SDL_RenderFillRect(renderer, &tile);
+
+			// Outline
+			SDL_SetRenderDrawColor(
+				renderer,
+				50,
+				50,
+				50,
+				255);
+				
+			SDL_RenderDrawRect(renderer, &tile);
 		}
 	}
 }

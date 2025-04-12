@@ -12,12 +12,50 @@
 // Final "main" will be in "JustRight.c"
 // (CmakeLists.txt will need an update when this happens)
 
+int collision(SDL_Rect a, SDL_Rect b);
 
+int collision(SDL_Rect a, SDL_Rect b) {
+	int AL, AR, AT, AB;
+	int BL, BR, BT, BB;
+
+	// Rect A Left, Right, Top, Bottom
+	AL = a.x;
+	AR = a.x + a.w;
+	AT = a.y;
+	AB = a.y + a.h;
+
+	// Rect B Left, Right, Top, Bottom
+	BL = b.x;
+	BR = b.x + b.w;
+	BT = b.y;
+	BB = b.y + b.h;
+
+	return !(AL >= BR || AR <= BL || AT >= BB || AB <= BT);
+}
+
+int checkMapCollision(Entity *player, Map *map) {
+	SDL_Rect playerBox = {
+		player->x,
+		player->y,
+		player->width,
+		player->height
+	};
+
+	for (int i = 0; i < SOLID_TILES; i++) {
+		if (collision(playerBox, map->solidTiles[i])) {
+			printf("Collision Detected\n");
+			return 1;
+		}
+	}
+
+	return 0;
+}
+		
 int main(int argc, char* argv[]) {
 	printf("Good Compile");
 
 	// Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
 		printf("SDL could not initialize, Error: %s\n",
 				SDL_GetError());
 		exit(1);
@@ -50,9 +88,22 @@ int main(int argc, char* argv[]) {
 		exit(1);
 	}
 
+	printf("Good Initialize\n");
+
 	// Demo Map	
 	Map demo = initMap();
+
+	// if (demo.solidTiles[0]) {
+	//	printf("Map did not Initialize\n");
+	//	SDL_DestroyRenderer(renderer);
+	//	SDL_DestroyWindow(window);
+        //	SDL_Quit();
+	//	exit(1);
+	// }
+
+	printf("Good Map Initialize\n");
 	
+
 	// Spawn Player Entity
 	Entity player = {
 		"player1", // id
@@ -67,12 +118,14 @@ int main(int argc, char* argv[]) {
 		10, // damage
 		ENTITY_PLAYER
 	};
+	printf("Good Entity Spawn\n");
 
 	// Game Loop
 	int running = 1;
 	SDL_Event event;
 
 	while (running) {
+		// printf("Running\n");
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
 
@@ -132,10 +185,9 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
+		
+	
 
-		// Update Player Position
-		player.x += player.velocityX;
-		player.y += player.velocityY;
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
@@ -147,7 +199,25 @@ int main(int argc, char* argv[]) {
 		
 		// Render Map
 		drawMap(renderer, &demo);
+		// printf("Good Map Draw\n");	
 		
+		// Store Old PP (For Collisions)
+		int oldX = player.x;
+		int oldY = player.y;
+
+		// Update Player Position
+		player.x += player.velocityX;
+		player.y += player.velocityY;
+
+		// Check Collisions
+		if (checkMapCollision(&player, &demo)) {
+			printf("Moving Player Back\n");
+			player.x = oldX;
+			player.y = oldY;
+			//player.x += player.velocityX;
+			//player.y += player.velocityY;
+		}
+
 		// Render Player
 		SDL_Rect playerTile = {
 			player.x,
@@ -155,19 +225,34 @@ int main(int argc, char* argv[]) {
 			player.width,
 			player.height
 		};
+		// printf("Good Player Render\n");
+
+		const char* sdl_error = SDL_GetError();
+		if (sdl_error && sdl_error[0] != '\0') {
+			printf("Error Detected: %s\n", sdl_error);
+			SDL_DestroyRenderer(renderer);
+			SDL_DestroyWindow(window);
+			SDL_Quit();
+			exit(1);
+		}
 
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 		SDL_RenderFillRect(renderer, &playerTile);
+		// printf("Good Player Draw\n");
+
+		// Check Bounding Box
+		
 
 		// Update
 		SDL_RenderPresent(renderer);
 		SDL_Delay(16); // 60 FPS
 	}
-
+	
 	// Clean
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
+	printf("Clean Destroy\n");
 	return(0);
 }

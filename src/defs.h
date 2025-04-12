@@ -10,7 +10,9 @@
 #define TILE_SIZE (SCREEN_HEIGHT/MAP_HEIGHT)
 #define MAP_WIDTH 17 // 32 (Floor) + 1 (Walls)
 #define MAP_HEIGHT 17
+#define SOLID_TILES (2 * MAP_WIDTH + 2 * (MAP_HEIGHT - 2))
 
+// Tile Type
 #define GROUND 1
 #define WALL 0
 #define AIR -1

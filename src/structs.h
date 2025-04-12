@@ -20,11 +20,14 @@ typedef struct {
 
 typedef struct {
 	int tile;
-	int visible;
+	int tileType;
+	// 1 = Solid, 0 = Passable
+	int solid;
 } RoomTile;
 
 typedef struct {
 	int map[MAP_WIDTH][MAP_HEIGHT];
+	SDL_Rect solidTiles[SOLID_TILES];
 } Map;
 
 typedef struct {
