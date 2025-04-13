@@ -203,6 +203,7 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: C:/Users/calvi/Just-Right/src/main.c \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveoptintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h \
+  C:/Users/calvi/Just-Right/src/collision.c \
   C:/Users/calvi/Just-Right/src/defs.h \
   C:/Users/calvi/Just-Right/src/map.c \
   C:/Users/calvi/Just-Right/src/structs.h
@@ -475,6 +476,8 @@ C:/msys64/mingw64/include/SDL2/SDL_version.h:
 C:/msys64/mingw64/include/stdlib.h:
 
 C:/msys64/mingw64/include/SDL2/SDL_metal.h:
+
+C:/Users/calvi/Just-Right/src/collision.c:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/float.h:
 

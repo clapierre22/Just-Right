@@ -13,6 +13,21 @@
 // Final "main" will be in "JustRight.c"
 // (CmakeLists.txt will need an update when this happens)
 
+// TODO:
+// player.c
+// camera
+// enemies
+// fighting logic
+// spawn logic
+// better level sprites
+// better entity sprites
+// loot logic
+// level logic and changing levels (portals?)
+// better level design
+// local second player
+// online second player
+// gameplay
+
 int main(int argc, char* argv[]) {
 	printf("Good Compile");
 
@@ -172,12 +187,19 @@ int main(int argc, char* argv[]) {
 		player.y += player.velocityY;
 
 		// Check Collisions
-		if (checkMapCollision(&player, &demo)) {
+		//if (checkMapCollision(&player, &demo)) {
+		//	printf("Moving Player Back\n");
+		//	player.x = oldX;
+		//	player.y = oldY;
+			//player.x += player.velocityX;
+			//player.y += player.velocityY;
+		//}
+
+		// Debug Collisions
+		if (checkMapCollisionDebug(renderer, &player, &demo)) {
 			printf("Moving Player Back\n");
 			player.x = oldX;
 			player.y = oldY;
-			//player.x += player.velocityX;
-			//player.y += player.velocityY;
 		}
 
 		// Render Player
