@@ -1,33 +1,39 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include <string.h>
 
 #include "structs.h"
 #include "defs.h"
 
 Entity initPlayer(void);
+static void loadPlayer(Entity *player);
 SDL_Rect drawPlayer(Entity *player);
 //void movePlayer(int vX, int vY);
 
 Entity initPlayer(void) {
 	// TODO: Correct spawning and drawing of player
 	
-	Entity player = {
-		"player_entity",
-		SCREEN_WIDTH / 2,
-		SCREEN_HEIGHT / 2,
-		28,
-		32,
-		0,
-		0,
-		0,
-		100,
-		10,
-		ENTITY_PLAYER
-	};
+	Entity player;
 
-	printf("Good Player Spawn\n");
+	loadPlayer(&player);
+	printf("Good Player Load\n");
 
 	return player;
+}
+
+static void loadPlayer(Entity *player) {
+	// TODO: Add spawn input as parameters taken by initPlayer
+	strcpy(player->id, "player_entity");
+	player->x = SCREEN_WIDTH/2;
+	player->y = SCREEN_WIDTH/2;
+	player->width = PLAYER_WIDTH;
+	player->height = PLAYER_HEIGHT;
+	player->velocityX = ENTITY_STOP;
+	player->velocityY = ENTITY_STOP;
+	player->facing = 0; // TODO: Finish implementing binary for directions
+	player->health = PLAYER_BASE_HEALTH;
+	player->damage = PLAYER_BASE_DAMAGE;
+	player->type = ENTITY_PLAYER;
 }
 
 SDL_Rect drawPlayer(Entity *player) {

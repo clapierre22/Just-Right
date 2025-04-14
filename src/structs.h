@@ -13,7 +13,6 @@ typedef struct {
 
 typedef struct {
 	SDL_Window* window;
-	SDL_Renderer* renderer;
 	Entity player;
 	Entity enemy[32];
 } Game;

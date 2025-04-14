@@ -7,6 +7,7 @@
 
 #include "map.c"
 #include "collision.c"
+#include "player.c"
 
 // This holds the Game Loop, SDL Setup
 // TEST FILE
@@ -14,7 +15,7 @@
 // (CmakeLists.txt will need an update when this happens)
 
 // TODO:
-// player.c
+// player.c <<
 // camera
 // enemies
 // fighting logic
@@ -24,6 +25,7 @@
 // loot logic
 // level logic and changing levels (portals?)
 // better level design
+// ---Split into Chess Game and JR here---
 // local second player
 // online second player
 // gameplay
@@ -82,19 +84,8 @@ int main(int argc, char* argv[]) {
 	
 
 	// Spawn Player Entity
-	Entity player = {
-		"player1", // id
-		SCREEN_WIDTH / 2, // x
-		SCREEN_HEIGHT / 2, // y
-		16, // width
-		16, // height
-		0, // VX
-		0, // VY
-		0, // Facing
-		100, // health
-		10, // damage
-		ENTITY_PLAYER
-	};
+	Entity player = initPlayer();
+
 	printf("Good Entity Spawn\n");
 
 	// Game Loop
@@ -203,12 +194,8 @@ int main(int argc, char* argv[]) {
 		}
 
 		// Render Player
-		SDL_Rect playerTile = {
-			player.x,
-			player.y,
-			player.width,
-			player.height
-		};
+		SDL_Rect playerTile = drawPlayer(&player);
+		
 		// printf("Good Player Render\n");
 
 		const char* sdl_error = SDL_GetError();
@@ -222,10 +209,7 @@ int main(int argc, char* argv[]) {
 
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 		SDL_RenderFillRect(renderer, &playerTile);
-		// printf("Good Player Draw\n");
-
-		// Check Bounding Box
-		
+		// printf("Good Player Draw\n");	
 
 		// Update
 		SDL_RenderPresent(renderer);
