@@ -6,7 +6,7 @@
 #include "defs.h"
 
 Entity initPlayer(void);
-static void loadPlayer(Entity *player);
+void loadPlayer(Entity *player);
 SDL_Rect drawPlayer(Entity *player);
 //void movePlayer(int vX, int vY);
 
@@ -21,7 +21,7 @@ Entity initPlayer(void) {
 	return player;
 }
 
-static void loadPlayer(Entity *player) {
+void loadPlayer(Entity *player) {
 	// TODO: Add spawn input as parameters taken by initPlayer
 	strcpy(player->id, "player_entity");
 	player->x = SCREEN_WIDTH/2;
@@ -30,7 +30,7 @@ static void loadPlayer(Entity *player) {
 	player->height = PLAYER_HEIGHT;
 	player->velocityX = ENTITY_STOP;
 	player->velocityY = ENTITY_STOP;
-	player->facing = 0; // TODO: Finish implementing binary for directions
+	player->facing = NORTH; // TODO: Finish implementing binary for directions
 	player->health = PLAYER_BASE_HEALTH;
 	player->damage = PLAYER_BASE_DAMAGE;
 	player->type = ENTITY_PLAYER;

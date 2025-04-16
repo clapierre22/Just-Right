@@ -1,6 +1,10 @@
 // defs.h
 #pragma once
 
+// Base
+#define TRUE 1
+#define FALSE 0
+
 // Sceen
 #define SCREEN_WIDTH 1360
 #define SCREEN_HEIGHT 768
@@ -38,14 +42,15 @@ typedef enum {
 
 // Directions
 // TODO: Finish implementing directions
-#define NORTH 0000
-#define NORTHEAST 0001 
-#define EAST 0011
-#define SOUTHEAST 0111
-#define SOUTH 1111
-#define SOUTHWEST 1110
-#define WEST 1100
-#define NORTHWEST 1000
+#define NORTH (1 << 0) // 0001
+#define EAST (1 << 1) // 0010
+#define SOUTH (1 << 2) // 0100
+#define WEST (1 << 3) // 1000
+
+#define NORTHEAST (NORTH | EAST)
+#define SOUTHEAST (SOUTH | EAST)
+#define SOUTHWEST (SOUTH | WEST)
+#define NORTHWEST (NORTH | WEST)
 
 // Player
 #define PLAYER_BASE_HEALTH 100
@@ -54,3 +59,4 @@ typedef enum {
 #define PLAYER_WIDTH 16
 #define PLAYER_HEIGHT 28
 
+#define PADDING 1

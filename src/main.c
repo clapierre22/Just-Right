@@ -15,7 +15,7 @@
 // (CmakeLists.txt will need an update when this happens)
 
 // TODO:
-// player.c <<
+// when colliding with walls at angle, player keeps moving in non wall angle <<
 // camera
 // enemies
 // fighting logic
@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
 	printf("Good Entity Spawn\n");
 
 	// Game Loop
-	int running = 1;
+	int running = TRUE;
 	SDL_Event event;
 
 	while (running) {
@@ -98,29 +98,33 @@ int main(int argc, char* argv[]) {
 			switch (event.type) {
 
 				case SDL_QUIT: {
-					running = 0;
+					running = FALSE;
 					break;
 				}
 				case SDL_KEYDOWN: {
 					switch (event.key.keysym.sym) {
 						case SDLK_w: {
-							player.velocityY
-							= -PLAYER_SPEED;
+							player.facing = NORTH;
+							player.velocityY = -PLAYER_SPEED;
+
 							break;
 						}
 						case SDLK_s: {
-							player.velocityY
-							= PLAYER_SPEED;
+							player.facing = SOUTH;
+							player.velocityY = PLAYER_SPEED;
+
 							break;
 						}
 						case SDLK_a: {
-							player.velocityX
-							= -PLAYER_SPEED;
+							player.facing = WEST;
+							player.velocityX = -PLAYER_SPEED;
+
 							break;
 						}
 						case SDLK_d: {
-							player.velocityX
-							= PLAYER_SPEED;
+							player.facing = EAST;
+							player.velocityX = PLAYER_SPEED;
+
 							break;
 						}
 					}
@@ -129,23 +133,30 @@ int main(int argc, char* argv[]) {
 				case SDL_KEYUP: {
 					switch (event.key.keysym.sym) {
 						case SDLK_w: {
-							player.velocityY
-							= ENTITY_STOP;
+							if (player.velocityY < ENTITY_STOP) {
+								player.velocityY = ENTITY_STOP;
+							}
+
 							break;
 						}
 						case SDLK_s: {
-							player.velocityY
-							= ENTITY_STOP;
+							if (player.velocityY > ENTITY_STOP) {
+								player.velocityY = ENTITY_STOP;
+							}
+
 							break;
 						}
 						case SDLK_a: {
-							player.velocityX
-							= ENTITY_STOP;
+							if (player.velocityX < ENTITY_STOP) {
+								player.velocityX = ENTITY_STOP;
+							}
+
 							break;
 						}
 						case SDLK_d: {
-							player.velocityX
-							= ENTITY_STOP;
+							if (player.velocityX > ENTITY_STOP) {
+								player.velocityX = ENTITY_STOP;
+							}
 							break;
 						}
 					}
@@ -169,29 +180,41 @@ int main(int argc, char* argv[]) {
 		drawMap(renderer, &demo);
 		// printf("Good Map Draw\n");	
 		
-		// Store Old PP (For Collisions)
+		// Store Old Player Position (For Collisions)
 		int oldX = player.x;
 		int oldY = player.y;
 
-		// Update Player Position
+		// Move to new Player X Position
 		player.x += player.velocityX;
+		
+		// Check X Collision
+		if (checkMapCollision(&player, &demo, player.velocityX > 0 ? EAST : WEST)) {
+			printf("Moving Player Back, X axis\n");
+			player.x = oldX;
+			player.velocityX = ENTITY_STOP;
+			//player.x += player.velocityX;
+			//player.y += player.velocityY;
+		}
+		
+		// Move to new Player Y Position
 		player.y += player.velocityY;
 
-		// Check Collisions
-		//if (checkMapCollision(&player, &demo)) {
+		// Check Y Collision
+		if (checkMapCollision(&player, &demo, player.velocityY > 0 ? SOUTH : NORTH)) {
+			printf("Moving Player Back, Y axis\n");
+			player.y = oldY;
+			player.velocityY = ENTITY_STOP;
+		}
+
+		// Check Diagonal (X + Y) Collision
+		// TODO
+
+		// Debug Collisions
+		//if (checkMapCollisionDebug(renderer, &player, &demo)) {
 		//	printf("Moving Player Back\n");
 		//	player.x = oldX;
 		//	player.y = oldY;
-			//player.x += player.velocityX;
-			//player.y += player.velocityY;
 		//}
-
-		// Debug Collisions
-		if (checkMapCollisionDebug(renderer, &player, &demo)) {
-			printf("Moving Player Back\n");
-			player.x = oldX;
-			player.y = oldY;
-		}
 
 		// Render Player
 		SDL_Rect playerTile = drawPlayer(&player);
