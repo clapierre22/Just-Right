@@ -205,7 +205,9 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: C:/Users/calvi/Just-Right/src/main.c \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h \
   C:/Users/calvi/Just-Right/src/collision.c \
   C:/Users/calvi/Just-Right/src/defs.h \
+  C:/Users/calvi/Just-Right/src/main.h \
   C:/Users/calvi/Just-Right/src/map.c \
+  C:/Users/calvi/Just-Right/src/map.h \
   C:/Users/calvi/Just-Right/src/player.c \
   C:/Users/calvi/Just-Right/src/structs.h
 
@@ -231,6 +233,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/tmmintrin.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/tbmintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h:
+
+C:/Users/calvi/Just-Right/src/main.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/sm3intrin.h:
 
@@ -267,6 +271,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitintrin.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/movdirintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h:
+
+C:/Users/calvi/Just-Right/src/map.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/lzcntintrin.h:
 

@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-
-#include "structs.h"
-#include "defs.h"
-
-#include "map.c"
-#include "collision.c"
-#include "player.c"
+#include "main.h"
 
 // This holds the Game Loop, SDL Setup
 // TEST FILE
@@ -15,8 +6,7 @@
 // (CmakeLists.txt will need an update when this happens)
 
 // TODO:
-// when colliding with walls at angle, player keeps moving in non wall angle <<
-// camera
+// camera <<
 // enemies
 // fighting logic
 // spawn logic
