@@ -8,7 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/calvi/Just-Right/src/camera.c" "CMakeFiles/Just-Right.dir/src/camera.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/camera.c.obj.d"
+  "C:/Users/calvi/Just-Right/src/collision.c" "CMakeFiles/Just-Right.dir/src/collision.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/collision.c.obj.d"
   "C:/Users/calvi/Just-Right/src/main.c" "CMakeFiles/Just-Right.dir/src/main.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/main.c.obj.d"
+  "C:/Users/calvi/Just-Right/src/map.c" "CMakeFiles/Just-Right.dir/src/map.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/map.c.obj.d"
+  "C:/Users/calvi/Just-Right/src/player.c" "CMakeFiles/Just-Right.dir/src/player.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/player.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

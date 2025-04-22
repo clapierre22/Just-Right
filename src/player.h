@@ -8,3 +8,4 @@
 Entity initPlayer(void);
 void loadPlayer(Entity *player);
 SDL_Rect drawPlayer(Entity *player);
+void render(SDL_Renderer *renderer, Entity *entity);

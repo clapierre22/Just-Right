@@ -18,8 +18,8 @@ void loadPlayer(Entity *player) {
 	strcpy(player->id, "player_entity");
 	player->x = SCREEN_WIDTH/2;
 	player->y = SCREEN_WIDTH/2;
-	player->width = PLAYER_WIDTH;
-	player->height = PLAYER_HEIGHT;
+	player->w = PLAYER_WIDTH;
+	player->h = PLAYER_HEIGHT;
 	player->velocityX = ENTITY_STOP;
 	player->velocityY = ENTITY_STOP;
 	player->facing = NORTH; // TODO: Finish implementing binary for directions
@@ -32,11 +32,20 @@ SDL_Rect drawPlayer(Entity *player) {
 	SDL_Rect playerTile = {
 		player->x,
 		player->y,
-		player->width,
-		player->height
+		player->w,
+		player->h
 	};
 
 	return playerTile;
+}
+
+// This should be moved to its own file, still takes in *entity to read the sprite info
+void render(SDL_Renderer *renderer, Entity *entity) {
+// TODO: Switch to use sprite sheet instead of playerTile (which is for bounding box)
+	SDL_Rect playerTile = drawPlayer(entity);
+	
+	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	SDL_RenderFillRect(renderer, &playerTile);
 }
 
 //void movePlayer(int vX, int vY) {

@@ -39,8 +39,8 @@ int checkMapCollision(Entity *entity, Map *map, int direction) {
 	SDL_Rect entityBox = {
 		entity->x,
 		entity->y,
-		entity->width,
-		entity->height
+		entity->w,
+		entity->h
 	};
 	
 	switch (direction) { 

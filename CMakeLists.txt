@@ -12,6 +12,10 @@ include_directories(${SDL2_INCLUDE_DIRS})
 # Add executable
 add_executable(Just-Right
     src/main.c
+    src/camera.c
+    src/player.c
+    src/map.c
+    src/collision.c
 )
 
 # Link SDL2

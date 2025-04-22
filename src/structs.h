@@ -5,7 +5,8 @@
 typedef struct {
 	char id[32];
 	// SDL_Texture* sprite;
-	int x, y, width, height;
+	// TODO: Change all instances of "width, height" with 'w, h'
+	int x, y, w, h;
 	int velocityX, velocityY, facing;
 	int health, damage;
 	EntityType type;
@@ -28,6 +29,11 @@ typedef struct {
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	SDL_Rect solidTiles[SOLID_TILES];
 } Map;
+
+typedef struct {
+	int x, y;
+	int w, h;
+} Camera;
 
 typedef struct {
 	SDL_Point renderOffset;

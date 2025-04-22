@@ -86,21 +86,89 @@ CMakeFiles/Just-Right.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Just-Right.dir/src/main.c.s"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\calvi\Just-Right\src\main.c -o CMakeFiles\Just-Right.dir\src\main.c.s
 
+CMakeFiles/Just-Right.dir/src/camera.c.obj: CMakeFiles/Just-Right.dir/flags.make
+CMakeFiles/Just-Right.dir/src/camera.c.obj: CMakeFiles/Just-Right.dir/includes_C.rsp
+CMakeFiles/Just-Right.dir/src/camera.c.obj: C:/Users/calvi/Just-Right/src/camera.c
+CMakeFiles/Just-Right.dir/src/camera.c.obj: CMakeFiles/Just-Right.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Just-Right.dir/src/camera.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Just-Right.dir/src/camera.c.obj -MF CMakeFiles\Just-Right.dir\src\camera.c.obj.d -o CMakeFiles\Just-Right.dir\src\camera.c.obj -c C:\Users\calvi\Just-Right\src\camera.c
+
+CMakeFiles/Just-Right.dir/src/camera.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Just-Right.dir/src/camera.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\calvi\Just-Right\src\camera.c > CMakeFiles\Just-Right.dir\src\camera.c.i
+
+CMakeFiles/Just-Right.dir/src/camera.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Just-Right.dir/src/camera.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\calvi\Just-Right\src\camera.c -o CMakeFiles\Just-Right.dir\src\camera.c.s
+
+CMakeFiles/Just-Right.dir/src/player.c.obj: CMakeFiles/Just-Right.dir/flags.make
+CMakeFiles/Just-Right.dir/src/player.c.obj: CMakeFiles/Just-Right.dir/includes_C.rsp
+CMakeFiles/Just-Right.dir/src/player.c.obj: C:/Users/calvi/Just-Right/src/player.c
+CMakeFiles/Just-Right.dir/src/player.c.obj: CMakeFiles/Just-Right.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Just-Right.dir/src/player.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Just-Right.dir/src/player.c.obj -MF CMakeFiles\Just-Right.dir\src\player.c.obj.d -o CMakeFiles\Just-Right.dir\src\player.c.obj -c C:\Users\calvi\Just-Right\src\player.c
+
+CMakeFiles/Just-Right.dir/src/player.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Just-Right.dir/src/player.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\calvi\Just-Right\src\player.c > CMakeFiles\Just-Right.dir\src\player.c.i
+
+CMakeFiles/Just-Right.dir/src/player.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Just-Right.dir/src/player.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\calvi\Just-Right\src\player.c -o CMakeFiles\Just-Right.dir\src\player.c.s
+
+CMakeFiles/Just-Right.dir/src/map.c.obj: CMakeFiles/Just-Right.dir/flags.make
+CMakeFiles/Just-Right.dir/src/map.c.obj: CMakeFiles/Just-Right.dir/includes_C.rsp
+CMakeFiles/Just-Right.dir/src/map.c.obj: C:/Users/calvi/Just-Right/src/map.c
+CMakeFiles/Just-Right.dir/src/map.c.obj: CMakeFiles/Just-Right.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Just-Right.dir/src/map.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Just-Right.dir/src/map.c.obj -MF CMakeFiles\Just-Right.dir\src\map.c.obj.d -o CMakeFiles\Just-Right.dir\src\map.c.obj -c C:\Users\calvi\Just-Right\src\map.c
+
+CMakeFiles/Just-Right.dir/src/map.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Just-Right.dir/src/map.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\calvi\Just-Right\src\map.c > CMakeFiles\Just-Right.dir\src\map.c.i
+
+CMakeFiles/Just-Right.dir/src/map.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Just-Right.dir/src/map.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\calvi\Just-Right\src\map.c -o CMakeFiles\Just-Right.dir\src\map.c.s
+
+CMakeFiles/Just-Right.dir/src/collision.c.obj: CMakeFiles/Just-Right.dir/flags.make
+CMakeFiles/Just-Right.dir/src/collision.c.obj: CMakeFiles/Just-Right.dir/includes_C.rsp
+CMakeFiles/Just-Right.dir/src/collision.c.obj: C:/Users/calvi/Just-Right/src/collision.c
+CMakeFiles/Just-Right.dir/src/collision.c.obj: CMakeFiles/Just-Right.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Just-Right.dir/src/collision.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Just-Right.dir/src/collision.c.obj -MF CMakeFiles\Just-Right.dir\src\collision.c.obj.d -o CMakeFiles\Just-Right.dir\src\collision.c.obj -c C:\Users\calvi\Just-Right\src\collision.c
+
+CMakeFiles/Just-Right.dir/src/collision.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Just-Right.dir/src/collision.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\calvi\Just-Right\src\collision.c > CMakeFiles\Just-Right.dir\src\collision.c.i
+
+CMakeFiles/Just-Right.dir/src/collision.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Just-Right.dir/src/collision.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\calvi\Just-Right\src\collision.c -o CMakeFiles\Just-Right.dir\src\collision.c.s
+
 # Object files for target Just-Right
 Just__Right_OBJECTS = \
-"CMakeFiles/Just-Right.dir/src/main.c.obj"
+"CMakeFiles/Just-Right.dir/src/main.c.obj" \
+"CMakeFiles/Just-Right.dir/src/camera.c.obj" \
+"CMakeFiles/Just-Right.dir/src/player.c.obj" \
+"CMakeFiles/Just-Right.dir/src/map.c.obj" \
+"CMakeFiles/Just-Right.dir/src/collision.c.obj"
 
 # External object files for target Just-Right
 Just__Right_EXTERNAL_OBJECTS =
 
 Just-Right.exe: CMakeFiles/Just-Right.dir/src/main.c.obj
+Just-Right.exe: CMakeFiles/Just-Right.dir/src/camera.c.obj
+Just-Right.exe: CMakeFiles/Just-Right.dir/src/player.c.obj
+Just-Right.exe: CMakeFiles/Just-Right.dir/src/map.c.obj
+Just-Right.exe: CMakeFiles/Just-Right.dir/src/collision.c.obj
 Just-Right.exe: CMakeFiles/Just-Right.dir/build.make
 Just-Right.exe: C:/msys64/mingw64/lib/libSDL2main.a
 Just-Right.exe: C:/msys64/mingw64/lib/libSDL2.dll.a
 Just-Right.exe: CMakeFiles/Just-Right.dir/linkLibs.rsp
 Just-Right.exe: CMakeFiles/Just-Right.dir/objects1.rsp
 Just-Right.exe: CMakeFiles/Just-Right.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Just-Right.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\calvi\Just-Right\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Just-Right.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Just-Right.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

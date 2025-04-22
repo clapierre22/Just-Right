@@ -3,7 +3,9 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 
+#include "camera.h"
+
 Map initMap(void);
 // static void loadTiles(void);
-static void loadMap(Map* map);
-void drawMap(SDL_Renderer* renderer, Map* map);
+// static void loadMap(Map *map);
+void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map);

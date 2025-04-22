@@ -78,6 +78,11 @@ int main(int argc, char* argv[]) {
 
 	printf("Good Entity Spawn\n");
 
+	// Initizalize Camera
+	Camera camera = initCamera();
+
+	printf("Good Camera Init\n");
+
 	// Game Loop
 	int running = TRUE;
 	SDL_Event event;
@@ -167,7 +172,9 @@ int main(int argc, char* argv[]) {
 		// SDL_RenderFillRect(renderer, &testRect);
 		
 		// Render Map
-		drawMap(renderer, &demo);
+		// Switch to use Camera, only load tiles within camera
+		drawMap(renderer, &camera, &demo);
+		//drawMap(renderer, &demo);
 		// printf("Good Map Draw\n");	
 		
 		// Store Old Player Position (For Collisions)
@@ -196,20 +203,35 @@ int main(int argc, char* argv[]) {
 			player.velocityY = ENTITY_STOP;
 		}
 
-		// Check Diagonal (X + Y) Collision
-		// TODO
-
 		// Debug Collisions
 		//if (checkMapCollisionDebug(renderer, &player, &demo)) {
 		//	printf("Moving Player Back\n");
 		//	player.x = oldX;
 		//	player.y = oldY;
 		//}
+		
+		// Move Camera to Player Center
+		moveCamera(&camera, &player);
 
-		// Render Player
-		SDL_Rect playerTile = drawPlayer(&player);
+		// Render Player, Only when within Camera
+		// TODO: For loop for each entity (seperate loops for entity, object)
+		// 	Camera is called, camera.c add withinCamera (int bool)
+		// 	If withinCamera, call render on that Entity
+		SDL_Rect playerTile = drawPlayer(&player);	
+		
+		// Move SDL_Renderer init and render func to new file renderHelper.c/.h
+		if (withinCamera(&camera, &player)) {
+			//player.render(renderer, camera.x, camera.y);
+			render(renderer, &player);
+		}
 		
 		// printf("Good Player Render\n");
+		
+		// Render Entities
+		//testEnemy.render(renderer, camera.x, camera.y);
+
+		// Render Objects
+		//testObject.render(renderer, camera.x, camera.y);
 
 		const char* sdl_error = SDL_GetError();
 		if (sdl_error && sdl_error[0] != '\0') {

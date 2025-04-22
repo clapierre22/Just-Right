@@ -5,6 +5,7 @@
 #include "structs.h"
 #include "defs.h"
 
-#include "map.c"
-#include "collision.c"
-#include "player.c"
+#include "map.h"
+#include "collision.h"
+#include "player.h"
+#include "camera.h"

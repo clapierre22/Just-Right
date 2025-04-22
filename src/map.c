@@ -1,23 +1,6 @@
 #include "map.h"
 
-Map initMap(void) {
-
-	// memset(&level.map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
-	
-	// Make this dyanmically allocated - now declared in map struct
-	// SDL_Rect solidTiles[SOLID_TILES];
-	
-	Map currentMap;
-
-	loadMap(&currentMap);
-	printf("Good Map Load\n");
-
-	// drawMap();
-
-	return currentMap;
-}
-
-static void loadMap(Map* map) {
+static void loadMap(Map *map) {
 	// int currentMap.map;
 	
 	for (int y = 0; y < MAP_HEIGHT; y++) {
@@ -38,7 +21,24 @@ static void loadMap(Map* map) {
 	}
 }
 
-void drawMap(SDL_Renderer* renderer, Map* map) {
+Map initMap(void) {
+
+	// memset(&level.map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
+	
+	// Make this dyanmically allocated - now declared in map struct
+	// SDL_Rect solidTiles[SOLID_TILES];
+	
+	Map currentMap;
+
+	loadMap(&currentMap);
+	printf("Good Map Load\n");
+
+	// drawMap();
+
+	return currentMap;
+}
+
+void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 
 	int i = 0;
 
@@ -53,8 +53,8 @@ void drawMap(SDL_Renderer* renderer, Map* map) {
 
 			switch(map->map[x][y]) {
 				case WALL: {
-					if (i >= SOLID_TILES) printf(
-						"ERROR, OOB\n");
+					if (i >= SOLID_TILES) printf("ERROR, OOB\n");
+
 					SDL_SetRenderDrawColor(
 						renderer,
 						100,
@@ -85,17 +85,25 @@ void drawMap(SDL_Renderer* renderer, Map* map) {
 			}
 				
 			//printf("Drawing Tile at (%d, %d)\n", x, y);
-			SDL_RenderFillRect(renderer, &tile);
+			
+			// PROBLEM: withinCamera takes Camera, Entity
+			if (withinCameraTile(camera, &tile)) {
+				// If within Camera, then draw Tile
+				SDL_RenderFillRect(renderer, &tile);
 
-			// Outline
-			SDL_SetRenderDrawColor(
-				renderer,
-				50,
-				50,
-				50,
-				255);
-				
-			SDL_RenderDrawRect(renderer, &tile);
+				// Outline
+				SDL_SetRenderDrawColor(
+					renderer,
+					50,
+					50,
+					50,
+					255
+				);
+					
+				SDL_RenderDrawRect(renderer, &tile);
+			}
+
+			
 		}
 	}
 }

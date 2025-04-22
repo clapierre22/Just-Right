@@ -128,6 +128,54 @@ Just-Right/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/build
 .PHONY : Just-Right/fast
 
+src/camera.obj: src/camera.c.obj
+.PHONY : src/camera.obj
+
+# target to build an object file
+src/camera.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/camera.c.obj
+.PHONY : src/camera.c.obj
+
+src/camera.i: src/camera.c.i
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/camera.c.i
+.PHONY : src/camera.c.i
+
+src/camera.s: src/camera.c.s
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/camera.c.s
+.PHONY : src/camera.c.s
+
+src/collision.obj: src/collision.c.obj
+.PHONY : src/collision.obj
+
+# target to build an object file
+src/collision.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/collision.c.obj
+.PHONY : src/collision.c.obj
+
+src/collision.i: src/collision.c.i
+.PHONY : src/collision.i
+
+# target to preprocess a source file
+src/collision.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/collision.c.i
+.PHONY : src/collision.c.i
+
+src/collision.s: src/collision.c.s
+.PHONY : src/collision.s
+
+# target to generate assembly for a file
+src/collision.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/collision.c.s
+.PHONY : src/collision.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -152,6 +200,54 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/map.obj: src/map.c.obj
+.PHONY : src/map.obj
+
+# target to build an object file
+src/map.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/map.c.obj
+.PHONY : src/map.c.obj
+
+src/map.i: src/map.c.i
+.PHONY : src/map.i
+
+# target to preprocess a source file
+src/map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/map.c.i
+.PHONY : src/map.c.i
+
+src/map.s: src/map.c.s
+.PHONY : src/map.s
+
+# target to generate assembly for a file
+src/map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/map.c.s
+.PHONY : src/map.c.s
+
+src/player.obj: src/player.c.obj
+.PHONY : src/player.obj
+
+# target to build an object file
+src/player.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/player.c.obj
+.PHONY : src/player.c.obj
+
+src/player.i: src/player.c.i
+.PHONY : src/player.i
+
+# target to preprocess a source file
+src/player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/player.c.i
+.PHONY : src/player.c.i
+
+src/player.s: src/player.c.s
+.PHONY : src/player.s
+
+# target to generate assembly for a file
+src/player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/player.c.s
+.PHONY : src/player.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,9 +257,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Just-Right
+	@echo ... src/camera.obj
+	@echo ... src/camera.i
+	@echo ... src/camera.s
+	@echo ... src/collision.obj
+	@echo ... src/collision.i
+	@echo ... src/collision.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/map.obj
+	@echo ... src/map.i
+	@echo ... src/map.s
+	@echo ... src/player.obj
+	@echo ... src/player.i
+	@echo ... src/player.s
 .PHONY : help
 
 
