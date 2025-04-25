@@ -23,6 +23,7 @@ typedef struct {
 	int tileType;
 	// 1 = Solid, 0 = Passable
 	int solid;
+	SDL_Rect tileBounds;
 } RoomTile;
 
 typedef struct {
@@ -31,8 +32,10 @@ typedef struct {
 } Map;
 
 typedef struct {
+	// TODO: Change x,y to float
 	int x, y;
 	int w, h;
+	float zoom;
 } Camera;
 
 typedef struct {

@@ -44,12 +44,16 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
-			SDL_Rect tile = {
+			RoomTile *tile = malloc(sizeof(RoomTile));
+			
+			SDL_Rect tileRect = {
 				MAP_REN_X + (x * TILE_SIZE),
 				MAP_REN_Y + (y * TILE_SIZE),
 				TILE_SIZE,
 				TILE_SIZE
 			};
+			
+			tile->tileBounds = tileRect;
 
 			switch(map->map[x][y]) {
 				case WALL: {
@@ -61,7 +65,8 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 						100,
 						100,
 						255);
-					map->solidTiles[i] = tile;
+					// Just changed this to hold RoomTiles instead of SDL_Rect objects 
+					map->solidTiles[i] = tile->tileBounds;
 					i++;
 					//printf("Map Tile (%d, %d) listed as Solid Tile\n", x, y);
 					break;
@@ -86,23 +91,8 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 				
 			//printf("Drawing Tile at (%d, %d)\n", x, y);
 			
-			// PROBLEM: withinCamera takes Camera, Entity
-			if (withinCameraTile(camera, &tile)) {
-				// If within Camera, then draw Tile
-				SDL_RenderFillRect(renderer, &tile);
-
-				// Outline
-				SDL_SetRenderDrawColor(
-					renderer,
-					50,
-					50,
-					50,
-					255
-				);
-					
-				SDL_RenderDrawRect(renderer, &tile);
-			}
-
+			// PROBLEM: Even when should be True, is False (Black Screen)
+			renderTile(renderer, camera, tile);
 			
 		}
 	}

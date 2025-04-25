@@ -1,6 +1,6 @@
-CMakeFiles/Just-Right.dir/src/map.c.obj: \
- C:\Users\calvi\Just-Right\src\map.c C:\Users\calvi\Just-Right\src\map.h \
- C:/msys64/mingw64/include/stdio.h \
+CMakeFiles/Just-Right.dir/src/render.c.obj: \
+ C:\Users\calvi\Just-Right\src\render.c \
+ C:\Users\calvi\Just-Right\src\render.h C:/msys64/mingw64/include/stdio.h \
  C:/msys64/mingw64/include/corecrt_stdio_config.h \
  C:/msys64/mingw64/include/corecrt.h C:/msys64/mingw64/include/_mingw.h \
  C:/msys64/mingw64/include/_mingw_mac.h \
@@ -10,16 +10,6 @@ CMakeFiles/Just-Right.dir/src/map.c.obj: \
  C:/msys64/mingw64/include/_mingw_off_t.h \
  C:/msys64/mingw64/include/swprintf.inl \
  C:/msys64/mingw64/include/sec_api/stdio_s.h \
- C:/msys64/mingw64/include/stdlib.h \
- C:/msys64/mingw64/include/corecrt_wstdlib.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
- C:/msys64/mingw64/include/limits.h C:/msys64/mingw64/include/crtdefs.h \
- C:/msys64/mingw64/include/sec_api/stdlib_s.h \
- C:/msys64/mingw64/include/malloc.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
- C:/msys64/mingw64/include/errno.h C:/msys64/mingw64/include/string.h \
- C:/msys64/mingw64/include/sec_api/string_s.h \
  C:/msys64/mingw64/include/SDL2/SDL.h \
  C:/msys64/mingw64/include/SDL2/SDL_main.h \
  C:/msys64/mingw64/include/SDL2/SDL_stdinc.h \
@@ -28,11 +18,22 @@ CMakeFiles/Just-Right.dir/src/map.c.obj: \
  C:/msys64/mingw64/include/SDL2/begin_code.h \
  C:/msys64/mingw64/include/SDL2/close_code.h \
  C:/msys64/mingw64/include/sys/types.h \
+ C:/msys64/mingw64/include/crtdefs.h C:/msys64/mingw64/include/stdlib.h \
+ C:/msys64/mingw64/include/corecrt_wstdlib.h \
+ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
+ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
+ C:/msys64/mingw64/include/limits.h \
+ C:/msys64/mingw64/include/sec_api/stdlib_s.h \
+ C:/msys64/mingw64/include/malloc.h \
+ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
+ C:/msys64/mingw64/include/errno.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
  C:/msys64/mingw64/include/stddef.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
  C:/msys64/mingw64/include/stdarg.h \
  C:/msys64/mingw64/include/_mingw_stdarg.h \
+ C:/msys64/mingw64/include/string.h \
+ C:/msys64/mingw64/include/sec_api/string_s.h \
  C:/msys64/mingw64/include/strings.h C:/msys64/mingw64/include/wchar.h \
  C:/msys64/mingw64/include/corecrt_wctype.h \
  C:/msys64/mingw64/include/_mingw_stat64.h \
@@ -197,5 +198,4 @@ CMakeFiles/Just-Right.dir/src/map.c.obj: \
  C:/msys64/mingw64/include/SDL2/SDL_misc.h \
  C:\Users\calvi\Just-Right\src\camera.h \
  C:\Users\calvi\Just-Right\src\defs.h \
- C:\Users\calvi\Just-Right\src\structs.h \
- C:\Users\calvi\Just-Right\src\render.h
+ C:\Users\calvi\Just-Right\src\structs.h

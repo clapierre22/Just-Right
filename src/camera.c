@@ -6,6 +6,7 @@ static void loadCamera(Camera *camera) {
 	camera->y = CAMERA_START_Y;
 	camera->w = CAMERA_WIDTH;
 	camera->h = CAMERA_HEIGHT;
+	camera->zoom = CAMERA_ZOOM;
 }
 
 Camera initCamera(void) {
@@ -17,35 +18,62 @@ Camera initCamera(void) {
 	return camera;
 }
 
-int withinCamera(Camera *camera, Entity *entity) {
+int withinCamera(const Camera *camera, const Entity *entity) {
 	// TODO: Returns TRUE if 
 	// 	entity.x within camera.w and camera.x
 	// 	and
 	// 	entity.y within camera.h and camera.y
 	// 	else Returns FALSE
-
-	// Check all boundaries
-	// TODO CHANGE TO POINTERS
-	int boundX = (camera->x - entity->x) 
-		| ((entity->x + entity->w) - (camera->x + camera->w));
-
-	int boundY = (camera->y - entity->y)
-		| ((entity->y + entity->h) - (camera->y + camera->h));
 		
-	// Returns 0 if boundX or boundY is negative (entity not within camera)
-	return !((boundX | boundY) >> (sizeof(int) * 8 - 1));
+	// Calculate effective width, height of Camera
+	float eW = camera->w / camera->zoom;
+	float eH = camera->h / camera->zoom;
+
+	// Calculate Camera bounds
+	float cL = camera->x - eW / 2;
+	float cR = camera->x + eW / 2;
+	float cT = camera->y - eH / 2;
+	float cB = camera->y + eH / 2;
+
+	// Calculate Entity bounds
+	float eL = entity->x;
+	float eR = entity->x + entity->w;
+	float eT = entity->y;
+	float eB = entity->y + entity->h;
+
+	return !(eR < cL
+		|| eL > cR
+		|| eB < cT
+		|| eT > cB);
 }
 
-int withinCameraTile(Camera *camera, SDL_Rect *tile) {
+int withinCameraTile(const Camera *camera, const RoomTile *tile) {
 	// TODO: Create a seperate func to use with tiles
-	int boundX = (camera->x - tile->x) | ((tile->x + tile->w) - (camera->x + camera->w));
+	
+	// Calculate effective width, height of Camera
+	float eW = camera->w / camera->zoom;
+	float eH = camera->h / camera->zoom;
 
-	int boundY = (camera->y - tile->y) | ((tile->y + tile->h) - (camera->y + camera->h));
+	// Calculate Camera bounds
+	float cL = camera->x - eW / 2;
+	float cR = camera->x + eW / 2;
+	float cT = camera->y - eH / 2;
+	float cB = camera->y + eH / 2;
 
-	return !((boundX | boundY) >> (sizeof(int) * 8 - 1));
+	// Calculate Tile bounds
+	float tL = tile->tileBounds.x;
+	float tR = tile->tileBounds.x + tile->tileBounds.w;
+	float tT = tile->tileBounds.y;
+	float tB = tile->tileBounds.y + tile->tileBounds.h;
+
+	return !(tR < cL
+		|| tL > cR
+		|| tB < cT
+		|| tT > cB);
+
 }
 
-void moveCamera(Camera *camera, Entity *player) {
+void moveCamera(Camera *camera, const Entity *player) {
 	// TODO: moves the camera x,y when
 	// 	player is moved (call after updating player x,y
 	// These two find the mid point of the player, could add to player.c
@@ -64,4 +92,10 @@ void moveCamera(Camera *camera, Entity *player) {
 	if (camera->y > SCREEN_HEIGHT - camera->h) {
 		camera->y = SCREEN_WIDTH - camera->h;
 	}	
+}
+
+void worldToScreen(const Camera *camera, float worldX, float worldY, int *screenX, int *screenY) {
+	// TODO: Implement conversion from given x, y to camera zoom adjusted x, y
+	*screenX = (int)((worldX - (camera->x - camera->w / (2 * camera->zoom))) * camera->zoom);
+	*screenY = (int)((worldY - (camera->y - camera->h / (2 * camera->zoom))) * camera->zoom);	
 }

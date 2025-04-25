@@ -248,6 +248,30 @@ src/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/player.c.s
 .PHONY : src/player.c.s
 
+src/render.obj: src/render.c.obj
+.PHONY : src/render.obj
+
+# target to build an object file
+src/render.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/render.c.obj
+.PHONY : src/render.c.obj
+
+src/render.i: src/render.c.i
+.PHONY : src/render.i
+
+# target to preprocess a source file
+src/render.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/render.c.i
+.PHONY : src/render.c.i
+
+src/render.s: src/render.c.s
+.PHONY : src/render.s
+
+# target to generate assembly for a file
+src/render.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/render.c.s
+.PHONY : src/render.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -272,6 +296,9 @@ help:
 	@echo ... src/player.obj
 	@echo ... src/player.i
 	@echo ... src/player.s
+	@echo ... src/render.obj
+	@echo ... src/render.i
+	@echo ... src/render.s
 .PHONY : help
 
 

@@ -21,7 +21,7 @@
 // gameplay
 
 int main(int argc, char* argv[]) {
-	printf("Good Compile");
+	printf("Good Compile\n");
 
 	// Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
@@ -62,18 +62,10 @@ int main(int argc, char* argv[]) {
 	// Demo Map	
 	Map demo = initMap();
 
-	// if (demo.solidTiles[0]) {
-	//	printf("Map did not Initialize\n");
-	//	SDL_DestroyRenderer(renderer);
-	//	SDL_DestroyWindow(window);
-        //	SDL_Quit();
-	//	exit(1);
-	// }
-
 	printf("Good Map Initialize\n");
 	
 
-	// Spawn Player Entity
+	// Spawn Player En282032tity
 	Entity player = initPlayer();
 
 	printf("Good Entity Spawn\n");
@@ -88,7 +80,6 @@ int main(int argc, char* argv[]) {
 	SDL_Event event;
 
 	while (running) {
-		// printf("Running\n");
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
 
@@ -166,17 +157,8 @@ int main(int argc, char* argv[]) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
-		// Test Rect
-		// SDL_Rect testRect = {100, 100, 250, 250};
-		// SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-		// SDL_RenderFillRect(renderer, &testRect);
-		
-		// Render Map
-		// Switch to use Camera, only load tiles within camera
 		drawMap(renderer, &camera, &demo);
-		//drawMap(renderer, &demo);
-		// printf("Good Map Draw\n");	
-		
+
 		// Store Old Player Position (For Collisions)
 		int oldX = player.x;
 		int oldY = player.y;
@@ -189,8 +171,6 @@ int main(int argc, char* argv[]) {
 			printf("Moving Player Back, X axis\n");
 			player.x = oldX;
 			player.velocityX = ENTITY_STOP;
-			//player.x += player.velocityX;
-			//player.y += player.velocityY;
 		}
 		
 		// Move to new Player Y Position
@@ -202,14 +182,7 @@ int main(int argc, char* argv[]) {
 			player.y = oldY;
 			player.velocityY = ENTITY_STOP;
 		}
-
-		// Debug Collisions
-		//if (checkMapCollisionDebug(renderer, &player, &demo)) {
-		//	printf("Moving Player Back\n");
-		//	player.x = oldX;
-		//	player.y = oldY;
-		//}
-		
+	
 		// Move Camera to Player Center
 		moveCamera(&camera, &player);
 
@@ -217,14 +190,10 @@ int main(int argc, char* argv[]) {
 		// TODO: For loop for each entity (seperate loops for entity, object)
 		// 	Camera is called, camera.c add withinCamera (int bool)
 		// 	If withinCamera, call render on that Entity
-		SDL_Rect playerTile = drawPlayer(&player);	
 		
 		// Move SDL_Renderer init and render func to new file renderHelper.c/.h
-		if (withinCamera(&camera, &player)) {
-			//player.render(renderer, camera.x, camera.y);
-			render(renderer, &player);
-		}
-		
+		renderEntity(renderer, &camera, &player);
+
 		// printf("Good Player Render\n");
 		
 		// Render Entities
@@ -233,18 +202,6 @@ int main(int argc, char* argv[]) {
 		// Render Objects
 		//testObject.render(renderer, camera.x, camera.y);
 
-		const char* sdl_error = SDL_GetError();
-		if (sdl_error && sdl_error[0] != '\0') {
-			printf("Error Detected: %s\n", sdl_error);
-			SDL_DestroyRenderer(renderer);
-			SDL_DestroyWindow(window);
-			SDL_Quit();
-			exit(1);
-		}
-
-		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-		SDL_RenderFillRect(renderer, &playerTile);
-		// printf("Good Player Draw\n");	
 
 		// Update
 		SDL_RenderPresent(renderer);

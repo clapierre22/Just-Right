@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 
 #include "camera.h"
+#include "render.h"
 
 Map initMap(void);
 // static void loadTiles(void);

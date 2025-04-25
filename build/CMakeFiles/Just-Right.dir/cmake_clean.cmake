@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Just-Right.dir/src/map.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/player.c.obj"
   "CMakeFiles/Just-Right.dir/src/player.c.obj.d"
+  "CMakeFiles/Just-Right.dir/src/render.c.obj"
+  "CMakeFiles/Just-Right.dir/src/render.c.obj.d"
   "Just-Right.exe"
   "Just-Right.exe.manifest"
   "Just-Right.pdb"

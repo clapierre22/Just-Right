@@ -9,3 +9,4 @@
 #include "collision.h"
 #include "player.h"
 #include "camera.h"
+#include "render.h"
