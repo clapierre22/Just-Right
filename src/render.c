@@ -38,7 +38,7 @@ void renderTile(SDL_Renderer *renderer, const Camera *camera, const RoomTile *ti
 		};
 
 		SDL_RenderFillRect(renderer, &tileBox);
-		printf("Tile within camera\n");
+		//printf("Tile within camera\n");
 		
 		// Outline
 		SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);

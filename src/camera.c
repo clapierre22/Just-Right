@@ -79,19 +79,21 @@ void moveCamera(Camera *camera, const Entity *player) {
 	// These two find the mid point of the player, could add to player.c
 	//
 	// TODO: SAME HERE, USER POINTERS AS WELL
-	camera->x = (player->x + (player->w / 2)) - (CAMERA_WIDTH / 2);
-	camera->y = (player->y + (player->h / 2)) - (CAMERA_HEIGHT / 2);
+	camera->x = (player->x + (player->w / 2));
+	camera->y = (player->y + (player->h / 2));
+
+	// PROBLEM: Camera is spawning off of player, too far top right
 
 	// Keep Camera in Bounds
-	if (camera->x < 0) { camera->x = 0; }
-	if (camera->y < 0) { camera->y = 0; }
+	//if (camera->x < 0) { camera->x = 0; }
+	//if (camera->y < 0) { camera->y = 0; }
 
-	if (camera->x > SCREEN_WIDTH - camera->w) { 
-		camera->x = SCREEN_WIDTH - camera->w; 
-	}
-	if (camera->y > SCREEN_HEIGHT - camera->h) {
-		camera->y = SCREEN_WIDTH - camera->h;
-	}	
+	//if (camera->x > SCREEN_WIDTH - camera->w) { 
+	//	camera->x = SCREEN_WIDTH - camera->w; 
+	//}
+	//if (camera->y > SCREEN_HEIGHT - camera->h) {
+	//	camera->y = SCREEN_WIDTH - camera->h;
+	//}	
 }
 
 void worldToScreen(const Camera *camera, float worldX, float worldY, int *screenX, int *screenY) {

@@ -17,7 +17,7 @@ void loadPlayer(Entity *player) {
 	// TODO: Add spawn input as parameters taken by initPlayer
 	strcpy(player->id, "player_entity");
 	player->x = SCREEN_WIDTH/2;
-	player->y = SCREEN_WIDTH/2;
+	player->y = SCREEN_HEIGHT/2;
 	player->w = PLAYER_WIDTH;
 	player->h = PLAYER_HEIGHT;
 	player->velocityX = ENTITY_STOP;

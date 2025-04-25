@@ -35,7 +35,7 @@
 #define CAMERA_HEIGHT 640
 
 #define CAMERA_START_X SCREEN_WIDTH / 2
-#define CAMERA_START_Y SCREEN_WIDTH / 2
+#define CAMERA_START_Y SCREEN_HEIGHT / 2
 
 // Entity
 typedef enum {
