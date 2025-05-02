@@ -6,6 +6,8 @@
 #include "camera.h"
 #include "render.h"
 
+#define RAND_TOP 5
+
 Map initMap(void);
 // static void loadTiles(void);
 // static void loadMap(Map *map);

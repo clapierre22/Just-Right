@@ -28,7 +28,7 @@ typedef struct {
 } RoomTile;
 
 typedef struct {
-	int map[MAP_WIDTH][MAP_HEIGHT];
+	RoomTile map[MAP_WIDTH][MAP_HEIGHT];
 	SDL_Rect solidTiles[SOLID_TILES];
 	SDL_Rect spawnTiles[SPAWN_TILES];
 } Map;

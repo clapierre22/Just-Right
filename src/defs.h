@@ -22,6 +22,7 @@
 #define GROUND 1
 #define WALL 0
 #define AIR 2
+
 // Render
 #define RENDER_WIDTH 16
 #define RENDER_HEIGHT 16
