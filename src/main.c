@@ -10,18 +10,18 @@
 // enemies
 // fighting logic
 // spawn logic
+// ---Split into Chess Game and JR here---
 // better level sprites
 // better entity sprites
 // loot logic
 // level logic and changing levels (portals?)
 // better level design
-// ---Split into Chess Game and JR here---
 // local second player
 // online second player
 // gameplay
 
 int main(int argc, char* argv[]) {
-	printf("Good Compile\n");
+	printf("Good Build Compile\n");
 
 	// Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
 	printf("Good Map Initialize\n");
 	
 
-	// Spawn Player En282032tity
+	// Spawn Player Entity
 	Entity player = initPlayer();
 
 	printf("Good Entity Spawn\n");

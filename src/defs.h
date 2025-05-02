@@ -31,8 +31,8 @@
 
 #define CAMERA_ZOOM 1.5f
 
-#define CAMERA_WIDTH 1280
-#define CAMERA_HEIGHT 640
+#define CAMERA_WIDTH SCREEN_WIDTH // was 1280, but this would cause popping
+#define CAMERA_HEIGHT SCREEN_HEIGHT // was 640, same issue as above
 
 #define CAMERA_START_X SCREEN_WIDTH / 2
 #define CAMERA_START_Y SCREEN_HEIGHT / 2
@@ -61,6 +61,8 @@ typedef enum {
 #define NORTHWEST (NORTH | WEST)
 
 // Player
+#define PLAYER_BASE_X SCREEN_WIDTH/2 - PLAYER_WIDTH/2
+#define PLAYER_BASE_Y SCREEN_HEIGHT/2 - PLAYER_HEIGHT/2
 #define PLAYER_BASE_HEALTH 100
 #define PLAYER_BASE_DAMAGE 10
 #define PLAYER_SPEED 4

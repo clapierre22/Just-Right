@@ -73,6 +73,8 @@ int withinCameraTile(const Camera *camera, const RoomTile *tile) {
 
 }
 
+// PROBLEM: The camera still does not render bottom right tiles in time (popping in)
+
 void moveCamera(Camera *camera, const Entity *player) {
 	// TODO: moves the camera x,y when
 	// 	player is moved (call after updating player x,y
@@ -98,6 +100,13 @@ void moveCamera(Camera *camera, const Entity *player) {
 
 void worldToScreen(const Camera *camera, float worldX, float worldY, int *screenX, int *screenY) {
 	// TODO: Implement conversion from given x, y to camera zoom adjusted x, y
-	*screenX = (int)((worldX - (camera->x - camera->w / (2 * camera->zoom))) * camera->zoom);
-	*screenY = (int)((worldY - (camera->y - camera->h / (2 * camera->zoom))) * camera->zoom);	
+	
+	float eW = camera->w / camera->zoom;
+	float eH = camera->h / camera->zoom;
+
+	float cX = camera->x - eW / 2;
+	float cY = camera->y - eH / 2;
+
+	*screenX = (int)((worldX - cX) * camera->zoom);
+	*screenY = (int)((worldY - cY) * camera->zoom);	
 }
