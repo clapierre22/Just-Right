@@ -14,13 +14,14 @@
 #define TILE_SIZE (SCREEN_HEIGHT/MAP_HEIGHT)
 #define MAP_WIDTH 17 // 32 (Floor) + 1 (Walls)
 #define MAP_HEIGHT 17
+#define TOTAL_TILES MAP_WIDTH * MAP_HEIGHT
 #define SOLID_TILES (2 * MAP_WIDTH + 2 * (MAP_HEIGHT - 2))
+#define SPAWN_TILES TOTAL_TILES/4
 
 // Tile Type
 #define GROUND 1
 #define WALL 0
-#define AIR -1
-
+#define AIR 2
 // Render
 #define RENDER_WIDTH 16
 #define RENDER_HEIGHT 16

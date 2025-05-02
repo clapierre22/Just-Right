@@ -5,7 +5,6 @@
 typedef struct {
 	char id[32];
 	// SDL_Texture* sprite;
-	// TODO: Change all instances of "width, height" with 'w, h'
 	int x, y, w, h;
 	int velocityX, velocityY, facing;
 	int health, damage;
@@ -23,12 +22,15 @@ typedef struct {
 	int tileType;
 	// 1 = Solid, 0 = Passable
 	int solid;
+	// 1 = Spawn, 0 = Normal
+	int spawn;
 	SDL_Rect tileBounds;
 } RoomTile;
 
 typedef struct {
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	SDL_Rect solidTiles[SOLID_TILES];
+	SDL_Rect spawnTiles[SPAWN_TILES];
 } Map;
 
 typedef struct {

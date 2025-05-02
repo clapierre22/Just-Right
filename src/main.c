@@ -6,8 +6,8 @@
 // (CmakeLists.txt will need an update when this happens)
 
 // TODO:
-// camera <<
-// enemies
+// camera (works, only render stuff in camera (screen))
+// enemies <<<
 // fighting logic
 // spawn logic
 // ---Split into Chess Game and JR here---

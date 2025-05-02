@@ -39,8 +39,12 @@ Map initMap(void) {
 }
 
 void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
-
-	int i = 0;
+	// TODO: Add another attribute "Spawn Tile" to RoomTile
+	// 	-> Make the Spawn attribute random, ~20% chance per tile
+	// 	-> -> Add Random
+	
+	int i = 0; // For walls
+	int j = 0; // For spawns
 
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
@@ -77,6 +81,17 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 						200,
 						100,
 						255);
+					if (j < SPAWN_TILES) {
+						map->spawnTiles[j] = tile->tileBounds;
+						j++;
+						SDL_SetRenderDrawColor(
+							renderer,
+							255,
+							0,
+							0,
+							255);
+					}
+
 					break;
 				} default: {
 					SDL_SetRenderDrawColor(
