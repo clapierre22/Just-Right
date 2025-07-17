@@ -39,14 +39,6 @@ SDL_Rect drawPlayer(Entity *player) {
 	return playerTile;
 }
 
-// This should be moved to its own file, still takes in *entity to read the sprite info
-void render(SDL_Renderer *renderer, Entity *entity) {
-// TODO: Switch to use sprite sheet instead of playerTile (which is for bounding box)
-	SDL_Rect playerTile = drawPlayer(entity);
-	
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-	SDL_RenderFillRect(renderer, &playerTile);
-}
 
 //void movePlayer(int vX, int vY) {
 	//player

@@ -1,6 +1,6 @@
-CMakeFiles/Just-Right.dir/src/main.c.obj: \
- C:\Users\calvi\Just-Right\src\main.c \
- C:\Users\calvi\Just-Right\src\main.h C:/msys64/mingw64/include/stdio.h \
+CMakeFiles/Just-Right.dir/src/enemy.c.obj: \
+ C:\Users\calvi\Just-Right\src\enemy.c \
+ C:\Users\calvi\Just-Right\src\enemy.h C:/msys64/mingw64/include/stdio.h \
  C:/msys64/mingw64/include/corecrt_stdio_config.h \
  C:/msys64/mingw64/include/corecrt.h C:/msys64/mingw64/include/_mingw.h \
  C:/msys64/mingw64/include/_mingw_mac.h \
@@ -18,7 +18,9 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: \
  C:/msys64/mingw64/include/sec_api/stdlib_s.h \
  C:/msys64/mingw64/include/malloc.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
- C:/msys64/mingw64/include/errno.h C:/msys64/mingw64/include/SDL2/SDL.h \
+ C:/msys64/mingw64/include/errno.h \
+ C:\Users\calvi\Just-Right\src\structs.h \
+ C:/msys64/mingw64/include/SDL2/SDL.h \
  C:/msys64/mingw64/include/SDL2/SDL_main.h \
  C:/msys64/mingw64/include/SDL2/SDL_stdinc.h \
  C:/msys64/mingw64/include/SDL2/SDL_config.h \
@@ -195,10 +197,4 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: \
  C:/msys64/mingw64/include/SDL2/SDL_version.h \
  C:/msys64/mingw64/include/SDL2/SDL_locale.h \
  C:/msys64/mingw64/include/SDL2/SDL_misc.h \
- C:\Users\calvi\Just-Right\src\structs.h \
- C:\Users\calvi\Just-Right\src\defs.h C:\Users\calvi\Just-Right\src\map.h \
- C:\Users\calvi\Just-Right\src\camera.h \
- C:\Users\calvi\Just-Right\src\render.h \
- C:\Users\calvi\Just-Right\src\collision.h \
- C:\Users\calvi\Just-Right\src\player.h \
- C:\Users\calvi\Just-Right\src\enemy.h
+ C:\Users\calvi\Just-Right\src\defs.h

@@ -17,6 +17,7 @@ add_executable(Just-Right
     src/map.c
     src/collision.c
     src/render.c
+    src/enemy.c
 )
 
 # Link SDL2

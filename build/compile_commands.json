@@ -1,0 +1,44 @@
+[
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\main.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\main.c",
+  "file": "C:/Users/calvi/Just-Right/src/main.c",
+  "output": "CMakeFiles/Just-Right.dir/src/main.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\camera.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\camera.c",
+  "file": "C:/Users/calvi/Just-Right/src/camera.c",
+  "output": "CMakeFiles/Just-Right.dir/src/camera.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\player.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\player.c",
+  "file": "C:/Users/calvi/Just-Right/src/player.c",
+  "output": "CMakeFiles/Just-Right.dir/src/player.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\map.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\map.c",
+  "file": "C:/Users/calvi/Just-Right/src/map.c",
+  "output": "CMakeFiles/Just-Right.dir/src/map.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\collision.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\collision.c",
+  "file": "C:/Users/calvi/Just-Right/src/collision.c",
+  "output": "CMakeFiles/Just-Right.dir/src/collision.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\render.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\render.c",
+  "file": "C:/Users/calvi/Just-Right/src/render.c",
+  "output": "CMakeFiles/Just-Right.dir/src/render.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\enemy.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\enemy.c",
+  "file": "C:/Users/calvi/Just-Right/src/enemy.c",
+  "output": "CMakeFiles/Just-Right.dir/src/enemy.c.obj"
+}
+]

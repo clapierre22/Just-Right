@@ -86,6 +86,7 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 					//printf("Map Tile (%d, %d) listed as Solid Tile\n", x, y);
 					break;
 				} case GROUND: {
+					// NOTE: The commented out code shows debugging for spawn tiles (draws them in red)
 					if (map->map[x][y].spawn) {
 						SDL_SetRenderDrawColor(
 							renderer,

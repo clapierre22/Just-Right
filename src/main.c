@@ -70,6 +70,9 @@ int main(int argc, char* argv[]) {
 
 	printf("Good Entity Spawn\n");
 
+	//Spawn Enemy Entities
+	Entity enemy = initEnemy();
+
 	// Initizalize Camera
 	Camera camera = initCamera();
 
@@ -198,6 +201,7 @@ int main(int argc, char* argv[]) {
 		
 		// Render Entities
 		//testEnemy.render(renderer, camera.x, camera.y);
+		renderEntity(renderer, &camera, &enemy);
 
 		// Render Objects
 		//testObject.render(renderer, camera.x, camera.y);

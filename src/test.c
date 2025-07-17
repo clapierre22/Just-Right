@@ -1,9 +1,10 @@
 #include "test.h"
 
-void testCamera(void) {
-
+int testCamera(void) {
+	return 0;
 }
 
-int main(void) {
+int runTest(void) {
 	testCamera();
+	return 0;
 }

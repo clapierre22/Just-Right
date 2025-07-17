@@ -10,3 +10,4 @@
 #include "player.h"
 #include "camera.h"
 #include "render.h"
+#include "enemy.h"

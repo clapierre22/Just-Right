@@ -1,6 +1,6 @@
-CMakeFiles/Just-Right.dir/src/main.c.obj: \
- C:\Users\calvi\Just-Right\src\main.c \
- C:\Users\calvi\Just-Right\src\main.h C:/msys64/mingw64/include/stdio.h \
+CMakeFiles/Just-Right.dir/src/test.c.obj: \
+ C:\Users\calvi\Just-Right\src\test.c \
+ C:\Users\calvi\Just-Right\src\test.h C:/msys64/mingw64/include/stdio.h \
  C:/msys64/mingw64/include/corecrt_stdio_config.h \
  C:/msys64/mingw64/include/corecrt.h C:/msys64/mingw64/include/_mingw.h \
  C:/msys64/mingw64/include/_mingw_mac.h \
@@ -10,11 +10,12 @@ CMakeFiles/Just-Right.dir/src/main.c.obj: \
  C:/msys64/mingw64/include/_mingw_off_t.h \
  C:/msys64/mingw64/include/swprintf.inl \
  C:/msys64/mingw64/include/sec_api/stdio_s.h \
- C:/msys64/mingw64/include/stdlib.h \
+ C:/msys64/mingw64/include/assert.h C:/msys64/mingw64/include/crtdefs.h \
+ C:\Users\calvi\Just-Right\src\main.h C:/msys64/mingw64/include/stdlib.h \
  C:/msys64/mingw64/include/corecrt_wstdlib.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
- C:/msys64/mingw64/include/limits.h C:/msys64/mingw64/include/crtdefs.h \
+ C:/msys64/mingw64/include/limits.h \
  C:/msys64/mingw64/include/sec_api/stdlib_s.h \
  C:/msys64/mingw64/include/malloc.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \

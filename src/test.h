@@ -5,4 +5,4 @@
 
 void testCamera(void);
 
-
+int runTest(void);

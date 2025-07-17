@@ -24,6 +24,7 @@ typedef struct {
 	int solid;
 	// 1 = Spawn, 0 = Normal
 	int spawn;
+	// Turn Spawn to Normal when enemy Spawns (prevent stacking)
 	SDL_Rect tileBounds;
 } RoomTile;
 
@@ -34,6 +35,12 @@ typedef struct {
 } Map;
 
 typedef struct {
+	Map map; 
+	Entity player;
+	Entity enemies[MAX_ENEMIES];
+} Level;
+
+typedef struct {
 	// TODO: Change x,y to float
 	int x, y;
 	int w, h;
@@ -41,8 +48,5 @@ typedef struct {
 } Camera;
 
 typedef struct {
-	SDL_Point renderOffset;
-	// Include player entity
-	Map room; 
-} Level;
-
+	int x, y;
+} Location;

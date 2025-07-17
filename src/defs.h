@@ -14,6 +14,8 @@
 #define TILE_SIZE (SCREEN_HEIGHT/MAP_HEIGHT)
 #define MAP_WIDTH 17 // 32 (Floor) + 1 (Walls)
 #define MAP_HEIGHT 17
+#define MAP_MID_X SCREEN_WIDTH/2
+#define MAP_MID_Y SCREEN_HEIGHT/2
 #define TOTAL_TILES MAP_WIDTH * MAP_HEIGHT
 #define SOLID_TILES (2 * MAP_WIDTH + 2 * (MAP_HEIGHT - 2))
 #define SPAWN_TILES TOTAL_TILES/4
@@ -22,6 +24,10 @@
 #define GROUND 1
 #define WALL 0
 #define AIR 2
+
+// Level
+#define MAX_ENEMIES 10
+#define ENEMY_ID 64
 
 // Render
 #define RENDER_WIDTH 16
@@ -72,3 +78,8 @@ typedef enum {
 #define PLAYER_HEIGHT 28
 
 #define PADDING 1
+
+// Enemy
+#define ENEMY_BASE_HEALTH 10
+#define ENEMY_BASE_DAMAGE 10
+#define ENEMY_SPEED 3

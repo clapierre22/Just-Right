@@ -176,6 +176,30 @@ src/collision.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/collision.c.s
 .PHONY : src/collision.c.s
 
+src/enemy.obj: src/enemy.c.obj
+.PHONY : src/enemy.obj
+
+# target to build an object file
+src/enemy.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/enemy.c.obj
+.PHONY : src/enemy.c.obj
+
+src/enemy.i: src/enemy.c.i
+.PHONY : src/enemy.i
+
+# target to preprocess a source file
+src/enemy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/enemy.c.i
+.PHONY : src/enemy.c.i
+
+src/enemy.s: src/enemy.c.s
+.PHONY : src/enemy.s
+
+# target to generate assembly for a file
+src/enemy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/enemy.c.s
+.PHONY : src/enemy.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -287,6 +311,9 @@ help:
 	@echo ... src/collision.obj
 	@echo ... src/collision.i
 	@echo ... src/collision.s
+	@echo ... src/enemy.obj
+	@echo ... src/enemy.i
+	@echo ... src/enemy.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
