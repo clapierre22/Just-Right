@@ -8,8 +8,8 @@
 // TODO:
 // camera (works, only render stuff in camera (screen))
 // enemies <<<
-// // example spawn
-// // test following player
+// // example spawn DONE
+// // test following player DONE 
 // // check collision between player and enemy
 // fighting logic
 // spawn logic

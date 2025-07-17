@@ -68,6 +68,12 @@ void updateEnemy(Entity *enemy, Entity *player) {
 		enemy->velocityX = ENTITY_STOP;
 		enemy->velocityY = ENTITY_STOP;
 	}
+
+	// Check for collision with player
+	if (checkEntityCollision(enemy, player)) {
+		enemy->velocityX = ENTITY_STOP;
+		enemy->velocityY = ENTITY_STOP;
+	}
 	
 	moveEnemy(enemy);
 }

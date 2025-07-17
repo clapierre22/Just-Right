@@ -16,6 +16,7 @@
 //}
 
 int collision(SDL_Rect a, SDL_Rect b) {
+	// Detect whether SDL_Rect a and SDL_Rect b are "touching" (position of one or more rect side on both rects have the same coordinate value)
 	int AL, AR, AT, AB;
 	int BL, BR, BT, BB;
 
@@ -35,7 +36,7 @@ int collision(SDL_Rect a, SDL_Rect b) {
 }
 
 int checkMapCollision(Entity *entity, Map *map, int direction) {
-
+	// Using collision(SDL_Rect a, SDL_Rect b); detect if entity collides with a wall/boundary
 	SDL_Rect entityBox = {
 		entity->x,
 		entity->y,
@@ -75,6 +76,24 @@ int checkMapCollision(Entity *entity, Map *map, int direction) {
 	}
 
 	return FALSE;
+}
+
+int checkEntityCollision(Entity *a, Entity *b){
+	SDL_Rect aBox = {
+		a->x,
+		a->y,
+		a->w,
+		a->h
+	};
+
+	SDL_Rect bBox = {
+		b->x,
+		b->y,
+		b->w,
+		b->h
+	};
+
+	return collision(aBox, bBox);
 }
 
 // Draws additional outline around the colliding Rectangles

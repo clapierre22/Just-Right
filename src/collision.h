@@ -7,4 +7,5 @@
 
 int collision(SDL_Rect a, SDL_Rect b);
 int checkMapCollision(Entity *entity, Map *map, int direction);
+int checkEntityCollision(Entity *a, Entity *b);
 void collisionDebug(SDL_Renderer *renderer, SDL_Rect a, SDL_Rect b);

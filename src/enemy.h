@@ -4,6 +4,8 @@
 #include "structs.h"
 #include "defs.h"
 
+#include "collision.h"
+
 Entity initEnemy(void);
 void spawnEnemy(Entity *enemy, Map *map);
 void loadEnemy(Entity *enemy);
