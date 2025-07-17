@@ -189,6 +189,9 @@ int main(int argc, char* argv[]) {
 		// Move Camera to Player Center
 		moveCamera(&camera, &player);
 
+		// Update enemies with players current location
+		updateEnemy(&enemy, &player);
+
 		// Render Player, Only when within Camera
 		// TODO: For loop for each entity (seperate loops for entity, object)
 		// 	Camera is called, camera.c add withinCamera (int bool)

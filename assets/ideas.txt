@@ -1,0 +1,57 @@
+Players can throw a frisbee between them
+	The frisbee is thrown on player holding command in direction of current x,y for player recieve
+	The frisbee does damage to every entity on its path
+	It does not track p2's position, only instant thrown p2 x,y
+	Frisbee moves quickly (minimum 2x player speed)
+
+
+Chess Game:
+	Overview
+		Rouge-Like 2D shooter very similar to brotato but chess themed
+	
+	Map
+		Looks like a chess board
+		Crab Champions like portal choices that give certain items
+			ex: damage, health, crits, elemental, etc.
+		Boss level every 5 rooms, Shop before fighting boss
+
+	Enemies
+		Different pieces of chess board, with variations
+		Like Crab game, every level has "budget" that can be filled by different priced pieces
+		Noble Pieces and Corrupt Pieces are tags on in addition to type
+		Lesser is a tag only applied to mini bosses (lesser queen, lesser king)
+		
+		Piece
+			Type (Health/Damage) (Price) - Description
+
+		Standard Enemies
+		Pawn
+			Base (10/10) (1) - moves one square at a time
+			Elemental (10/10) (10) - same as base, but attacks with a equal chance random element (ex: fire pawn)
+		Knight
+			Base (20/20) (5) - "Jumps" (cannot be hit) in air and lands on square that is consistent with irl chess knight movement
+			Elemental (20/20) (15) - elemental version of base
+		Bishop
+			Base (30/10ps) (10) - contant AOE ring that deals 10dps to player when player within range
+			Cannonized (30/10) (10) - shoots projectile at last player position (or implement ai tracking), also ai tracking is reversed so it runs away from player (moves slower and limited run away distance max)
+			Ordained (20/0) (15) - same as base, but instead of 10dps against player, 5hps to all enemies within range, same reversed movement as cannonized
+		Rook
+			Base (50/25) (15) - moves in straight line at player (akin to a charge) stunned for 2 seconds when hitting wall, does not stun when hitting player
+			Elemental (50/25) (25) - same as base, elemental
+			Sacrificial (50/50) (40) - same as base, but when hit wall/player, explode for 50 damage and dies instantly
+
+		Bosses
+		Queen 
+			Base (1000/50) (Boss) - Movement same as rook, but stun is only .5 seconds. Alt move is spraying projectiles in a circle
+			Lesser (500/20) (100) - same as boss, less health and damage, slower with 1 second stun on wall hit
+		King
+			Base (2500/50) (Boss) - basically a cannonized bishop with more damage and more projectiles, spawns with one time "castle" of two rooks and three pawns
+			Lesser (1000/20) (150) - same as boss, less health and damage, slower firing speed and no castle
+		Grandmaster Isidore
+			Stage 1 (2500/50) (Boss) - disembodied hand that places pieces that come attack you
+			Stage 2 (3000/75) (Boss) - hand tries to physically sweep the player off the board
+			Final Stage (1000/100) (Boss) - something cool and eldritch
+
+	Gameplay
+		Very similar to bortato, but with aiming, and tougher rather than more numerous enemies
+
