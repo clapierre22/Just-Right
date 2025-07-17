@@ -3,6 +3,6 @@
 
 #include "main.h"
 
-void testCamera(void);
+int testCamera(void);
 
 int runTest(void);
