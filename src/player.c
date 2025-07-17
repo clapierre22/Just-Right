@@ -39,6 +39,28 @@ SDL_Rect drawPlayer(Entity *player) {
 	return playerTile;
 }
 
+void movePlayer(Entity *player) {
+	player->x += player->velocityX;
+	player->y += player->velocityY;
+}
 
-//void movePlayer(int vX, int vY) {
-	//player
+void updatePlayer(Entity *player, Map *map) {
+	// Checks player position, updates player position based on velocity, cehcks for collisions	
+	// Check X Collision
+	if (checkMapCollision(player, map, player->velocityX > 0 ? EAST : WEST)) {
+		printf("Moving Player Back, X axis\n");
+		player->velocityX = ENTITY_STOP;
+	}
+
+	// Check Y Collision
+	if (checkMapCollision(player, map, player->velocityY > 0 ? SOUTH : NORTH)) {
+		printf("Moving Player Back, Y axis\n");
+		player->velocityY = ENTITY_STOP;
+	}
+
+	// Update player position based on velocity
+	// player->x += player->velocityX;
+	// player->y += player->velocityY;
+
+	movePlayer(player);
+}

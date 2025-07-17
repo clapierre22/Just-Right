@@ -615,6 +615,7 @@ CMakeFiles/Just-Right.dir/src/enemy.c.obj: C:/Users/calvi/Just-Right/src/enemy.c
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveoptintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h \
+  C:/Users/calvi/Just-Right/src/collision.h \
   C:/Users/calvi/Just-Right/src/defs.h \
   C:/Users/calvi/Just-Right/src/enemy.h \
   C:/Users/calvi/Just-Right/src/structs.h
@@ -1241,8 +1242,12 @@ CMakeFiles/Just-Right.dir/src/player.c.obj: C:/Users/calvi/Just-Right/src/player
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveoptintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h \
+  C:/Users/calvi/Just-Right/src/camera.h \
+  C:/Users/calvi/Just-Right/src/collision.h \
   C:/Users/calvi/Just-Right/src/defs.h \
+  C:/Users/calvi/Just-Right/src/map.h \
   C:/Users/calvi/Just-Right/src/player.h \
+  C:/Users/calvi/Just-Right/src/render.h \
   C:/Users/calvi/Just-Right/src/structs.h
 
 CMakeFiles/Just-Right.dir/src/render.c.obj: C:/Users/calvi/Just-Right/src/render.c \

@@ -10,7 +10,7 @@
 // enemies <<<
 // // example spawn DONE
 // // test following player DONE 
-// // check collision between player and enemy
+// // check collision between player and enemy DONE
 // fighting logic
 // spawn logic
 // ---Split into Chess Game and JR here---
@@ -153,38 +153,14 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
-		
-	
-
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
 		drawMap(renderer, &camera, &demo);
 
-		// Store Old Player Position (For Collisions)
-		int oldX = player.x;
-		int oldY = player.y;
-
-		// Move to new Player X Position
-		player.x += player.velocityX;
-		
-		// Check X Collision
-		if (checkMapCollision(&player, &demo, player.velocityX > 0 ? EAST : WEST)) {
-			printf("Moving Player Back, X axis\n");
-			player.x = oldX;
-			player.velocityX = ENTITY_STOP;
-		}
-		
-		// Move to new Player Y Position
-		player.y += player.velocityY;
-
-		// Check Y Collision
-		if (checkMapCollision(&player, &demo, player.velocityY > 0 ? SOUTH : NORTH)) {
-			printf("Moving Player Back, Y axis\n");
-			player.y = oldY;
-			player.velocityY = ENTITY_STOP;
-		}
+		// Update player 
+		updatePlayer(&player, &demo);
 	
 		// Move Camera to Player Center
 		moveCamera(&camera, &player);
