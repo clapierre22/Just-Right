@@ -25,6 +25,10 @@ void loadEnemy(Entity *enemy) {
 	enemy->health = ENEMY_BASE_HEALTH;
 	enemy->damage = ENEMY_BASE_DAMAGE;
 	enemy->type = ENTITY_ENEMY;
+
+	// Remove the below line when spawn.c is implemented
+	enemy->x = PLAYER_BASE_X + 64;
+	enemy->y = PLAYER_BASE_Y + 64;
 }
 
 SDL_Rect drawEntity(Entity *enemy, SDL_Renderer *renderer) {

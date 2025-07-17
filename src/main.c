@@ -8,6 +8,9 @@
 // TODO:
 // camera (works, only render stuff in camera (screen))
 // enemies <<<
+// // example spawn
+// // test following player
+// // check collision between player and enemy
 // fighting logic
 // spawn logic
 // ---Split into Chess Game and JR here---
@@ -61,21 +64,18 @@ int main(int argc, char* argv[]) {
 
 	// Demo Map	
 	Map demo = initMap();
-
 	printf("Good Map Initialize\n");
 	
-
 	// Spawn Player Entity
 	Entity player = initPlayer();
-
 	printf("Good Entity Spawn\n");
 
 	//Spawn Enemy Entities
 	Entity enemy = initEnemy();
+	printf("Good Enemy Spawn\n");
 
 	// Initizalize Camera
 	Camera camera = initCamera();
-
 	printf("Good Camera Init\n");
 
 	// Game Loop
