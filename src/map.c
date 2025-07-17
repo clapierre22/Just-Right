@@ -87,21 +87,21 @@ void drawMap(SDL_Renderer *renderer, Camera *camera, Map *map) {
 					break;
 				} case GROUND: {
 					// NOTE: The commented out code shows debugging for spawn tiles (draws them in red)
-					if (map->map[x][y].spawn) {
-						SDL_SetRenderDrawColor(
-							renderer,
-							255,
-							0,
-							0,
-							255);
-					} else {
+					// if (map->map[x][y].spawn) {
+					// 	SDL_SetRenderDrawColor(
+					// 		renderer,
+					// 		255,
+					// 		0,
+					// 		0,
+					// 		255);
+					// } else {
 						SDL_SetRenderDrawColor(
 							renderer,
 							200,
 							200,
 							100,
 							255);
-					}
+					// }
 					break;
 				} default: {
 					SDL_SetRenderDrawColor(
