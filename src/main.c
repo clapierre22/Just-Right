@@ -12,6 +12,8 @@
 // // test following player DONE 
 // // check collision between player and enemy DONE
 // fighting logic <<
+// // hit detection DONE
+// // kill enemies 
 // spawn logic
 // ---Split into Chess Game and JR here---
 // better level sprites
