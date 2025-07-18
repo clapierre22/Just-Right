@@ -11,3 +11,4 @@
 #include "camera.h"
 #include "render.h"
 #include "enemy.h"
+#include "fighting.h"

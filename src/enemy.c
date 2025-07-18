@@ -24,6 +24,7 @@ void loadEnemy(Entity *enemy) {
 	enemy->facing = NORTH;
 	enemy->health = ENEMY_BASE_HEALTH;
 	enemy->damage = ENEMY_BASE_DAMAGE;
+	enemy->attacking = FALSE; // Default is not attacking
 	enemy->type = ENTITY_ENEMY;
 
 	// Remove the below line when spawn.c is implemented

@@ -25,6 +25,7 @@ void loadPlayer(Entity *player) {
 	player->facing = NORTH; // TODO: Finish implementing binary for directions
 	player->health = PLAYER_BASE_HEALTH;
 	player->damage = PLAYER_BASE_DAMAGE;
+	player->attacking = FALSE; // Defualt is not attacking
 	player->type = ENTITY_PLAYER;
 }
 
@@ -45,22 +46,19 @@ void movePlayer(Entity *player) {
 }
 
 void updatePlayer(Entity *player, Map *map) {
-	// Checks player position, updates player position based on velocity, cehcks for collisions	
-	// Check X Collision
-	if (checkMapCollision(player, map, player->velocityX > 0 ? EAST : WEST)) {
-		printf("Moving Player Back, X axis\n");
-		player->velocityX = ENTITY_STOP;
-	}
+    // Move X axis and check collision
+    player->x += player->velocityX;
+    if (checkMapCollision(player, map, player->velocityX > 0 ? EAST : WEST)) {
+        // Undo X movement if collided
+        player->x -= player->velocityX;
+        player->velocityX = ENTITY_STOP;
+    }
 
-	// Check Y Collision
-	if (checkMapCollision(player, map, player->velocityY > 0 ? SOUTH : NORTH)) {
-		printf("Moving Player Back, Y axis\n");
-		player->velocityY = ENTITY_STOP;
-	}
-
-	// Update player position based on velocity
-	// player->x += player->velocityX;
-	// player->y += player->velocityY;
-
-	movePlayer(player);
+    // Move Y axis and check collision
+    player->y += player->velocityY;
+    if (checkMapCollision(player, map, player->velocityY > 0 ? SOUTH : NORTH)) {
+        // Undo Y movement if collided
+        player->y -= player->velocityY;
+        player->velocityY = ENTITY_STOP;
+    }
 }

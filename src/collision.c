@@ -96,6 +96,17 @@ int checkEntityCollision(Entity *a, Entity *b){
 	return collision(aBox, bBox);
 }
 
+int checkHitCollision(SDL_Rect swingBox, Entity *attackTo) {
+	SDL_Rect hitBox = {
+		attackTo->x,
+		attackTo->y,
+		attackTo->w,
+		attackTo->h
+	};
+
+	return collision(swingBox, hitBox);
+}
+
 // Draws additional outline around the colliding Rectangles
 void collisionDebug(SDL_Renderer *renderer, SDL_Rect a, SDL_Rect b) {
 	// TODO: Draw outline around both rectangles that are colliding

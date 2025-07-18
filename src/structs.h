@@ -8,6 +8,7 @@ typedef struct {
 	int x, y, w, h;
 	int velocityX, velocityY, facing;
 	int health, damage;
+	int attacking;
 	EntityType type;
 } Entity;
 

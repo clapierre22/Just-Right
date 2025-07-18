@@ -7,11 +7,11 @@
 
 // TODO:
 // camera (works, only render stuff in camera (screen))
-// enemies <<<
+// enemies DONE
 // // example spawn DONE
 // // test following player DONE 
 // // check collision between player and enemy DONE
-// fighting logic
+// fighting logic <<
 // spawn logic
 // ---Split into Chess Game and JR here---
 // better level sprites
@@ -116,6 +116,11 @@ int main(int argc, char* argv[]) {
 
 							break;
 						}
+						case SDLK_e: {
+							player.attacking = TRUE;
+
+							break;
+						}
 					}
 					break;
 				}
@@ -148,6 +153,11 @@ int main(int argc, char* argv[]) {
 							}
 							break;
 						}
+						case SDLK_e: {
+							player.attacking = FALSE;
+
+							break;
+						}
 					}
 					break;
 				}
@@ -158,6 +168,8 @@ int main(int argc, char* argv[]) {
 		SDL_RenderClear(renderer);
 
 		drawMap(renderer, &camera, &demo);
+
+		// UPDATES // 
 
 		// Update player 
 		updatePlayer(&player, &demo);
@@ -185,17 +197,25 @@ int main(int argc, char* argv[]) {
 		// Render Objects
 		//testObject.render(renderer, camera.x, camera.y);
 
+		// Check Fighting
+		if (player.attacking) {
+			calculateFight(&player, &enemy);
+		}
 
 		// Update
 		SDL_RenderPresent(renderer);
 		SDL_Delay(16); // 60 FPS
 	}
 	
-	// Clean
+	// CLEAN //
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
 	printf("Clean Destroy\n");
+
+	// EXIT //
+
 	return(0);
 }

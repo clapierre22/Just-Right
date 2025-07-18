@@ -200,6 +200,30 @@ src/enemy.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/enemy.c.s
 .PHONY : src/enemy.c.s
 
+src/fighting.obj: src/fighting.c.obj
+.PHONY : src/fighting.obj
+
+# target to build an object file
+src/fighting.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/fighting.c.obj
+.PHONY : src/fighting.c.obj
+
+src/fighting.i: src/fighting.c.i
+.PHONY : src/fighting.i
+
+# target to preprocess a source file
+src/fighting.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/fighting.c.i
+.PHONY : src/fighting.c.i
+
+src/fighting.s: src/fighting.c.s
+.PHONY : src/fighting.s
+
+# target to generate assembly for a file
+src/fighting.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/fighting.c.s
+.PHONY : src/fighting.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -314,6 +338,9 @@ help:
 	@echo ... src/enemy.obj
 	@echo ... src/enemy.i
 	@echo ... src/enemy.s
+	@echo ... src/fighting.obj
+	@echo ... src/fighting.i
+	@echo ... src/fighting.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
