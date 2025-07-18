@@ -11,8 +11,24 @@ int checkHit(Entity *attackFrom, Entity *attackTo) {
     return checkHitCollision(swingBox, attackTo);
 }
 
-int calculateKnockback(Entity *attackFrom, Entity *attackTo) {
-    return 0;
+void calculateKnockback(Entity *attackFrom, Entity *attackTo) {
+    // TODO: Does not throw error, but does not knock back entity
+    // Moves the attacked back the number of units equal to the attackers knockback
+    // Calculate direction
+    int dx = attackTo->x - attackFrom->x;
+    int dy = attackTo->y - attackFrom->y;
+
+    // Normalize direction
+    float len = sqrtf(dx * dx + dy * dy);
+    if (len == 0) len = 1; // Prevent division by zero
+
+    // Apply knockback
+    attackTo->velocityX = (int)(attackFrom->knockback * dx / len);
+    attackTo->velocityY = (int)(attackFrom->knockback * dy / len);
+
+    // Set hit tag to TRUE, stun to 10 frames
+    attackTo->hit = TRUE;
+    attackTo->stunTime = BASE_STUN;
 }
 
 void calculateFight(Entity *attackFrom, Entity *attackTo) {
@@ -26,5 +42,7 @@ void calculateFight(Entity *attackFrom, Entity *attackTo) {
         printf("Delt %d Damage, New Target Health: %d\n", attackFrom->damage, attackTo->health);
 
         // Calculate knockback here
+        calculateKnockback(attackFrom, attackTo);
+        printf("Attack Target Knockback Applied: %d\n", attackFrom->knockback);
     }
 }

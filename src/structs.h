@@ -7,8 +7,9 @@ typedef struct {
 	// SDL_Texture* sprite;
 	int x, y, w, h;
 	int velocityX, velocityY, facing;
-	int health, damage;
-	int attacking;
+	int health, damage, knockback;
+	int attacking, hit;
+	int stunTime;
 	EntityType type;
 } Entity;
 

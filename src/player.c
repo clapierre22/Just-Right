@@ -25,7 +25,10 @@ void loadPlayer(Entity *player) {
 	player->facing = NORTH; // TODO: Finish implementing binary for directions
 	player->health = PLAYER_BASE_HEALTH;
 	player->damage = PLAYER_BASE_DAMAGE;
+	player->knockback = PLAYER_BASE_KNOCKBACK;
 	player->attacking = FALSE; // Defualt is not attacking
+	player->hit = FALSE;
+	player->stunTime = ENTITY_STOP;
 	player->type = ENTITY_PLAYER;
 }
 

@@ -8,5 +8,5 @@
 #include "collision.h"
 
 int checkHit(Entity *attackFrom, Entity *attackTo);
-int calculateKnockback(Entity *attackFrom, Entity *attackTo);
+void calculateKnockback(Entity *attackFrom, Entity *attackTo);
 void calculateFight(Entity *attackFrom, Entity *attackTo);

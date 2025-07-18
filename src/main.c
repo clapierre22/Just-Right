@@ -13,6 +13,8 @@
 // // check collision between player and enemy DONE
 // fighting logic <<
 // // hit detection DONE
+// // knockback logic
+// // swing cooldown
 // // kill enemies 
 // spawn logic
 // ---Split into Chess Game and JR here---

@@ -24,7 +24,10 @@ void loadEnemy(Entity *enemy) {
 	enemy->facing = NORTH;
 	enemy->health = ENEMY_BASE_HEALTH;
 	enemy->damage = ENEMY_BASE_DAMAGE;
+	enemy->knockback = ENEMY_BASE_KNOCKBACK;
 	enemy->attacking = FALSE; // Default is not attacking
+	enemy->hit = FALSE;
+	enemy->stunTime = ENTITY_STOP;
 	enemy->type = ENTITY_ENEMY;
 
 	// Remove the below line when spawn.c is implemented
@@ -50,31 +53,34 @@ void moveEnemy(Entity *enemy) {
 }
 
 void updateEnemy(Entity *enemy, Entity *player) {
-	// Update enemy position based on player position
-	// Takes the player information and move the enemy in player direction
+    if (enemy->stunTime > 0) {
+        // Knockback active, decrement timer and move by velocity
+        // moveEnemy(enemy);
+        enemy->stunTime--;
+        if (enemy->stunTime == 0) {
+            enemy->hit = FALSE;
+            enemy->velocityX = 0;
+            enemy->velocityY = 0;
+        }
+    } else {
+		// Normal tracking logic
+		int dx = player->x - enemy->x;
+		int dy = player->y - enemy->y;
+		float length = sqrtf(dx * dx + dy * dy);
+		if (length > 0) {
+			enemy->velocityX = (int)(ENEMY_SPEED * dx / length);
+			enemy->velocityY = (int)(ENEMY_SPEED * dy / length);
+		} else {
+			enemy->velocityX = ENTITY_STOP;
+			enemy->velocityY = ENTITY_STOP;
+		}
 
-	// change enemy velocity to match the value of the difference of the player location and enemy location to a value between 1 and 0 then multiply the value by the enemy speed to make it head twoards the player
-	
-	// Calculate delta value for direction
-	int dx = player->x - enemy->x;
-	int dy = player->y - enemy->y;
-
-	// Normalize direction
-	float len = sqrtf(dx * dx + dy * dy);
-	if (len > 0) {
-		// Set enemy velocity to move towards player
-		enemy->velocityX = (int)(ENEMY_SPEED * dx / len);
-		enemy->velocityY = (int)(ENEMY_SPEED * dy / len);
-	} else {
-		enemy->velocityX = ENTITY_STOP;
-		enemy->velocityY = ENTITY_STOP;
+		// Check for collision with player
+		if (checkEntityCollision(enemy, player)) {
+			enemy->velocityX = ENTITY_STOP;
+			enemy->velocityY = ENTITY_STOP;
+		}
 	}
 
-	// Check for collision with player
-	if (checkEntityCollision(enemy, player)) {
-		enemy->velocityX = ENTITY_STOP;
-		enemy->velocityY = ENTITY_STOP;
-	}
-	
-	moveEnemy(enemy);
+    moveEnemy(enemy);
 }
