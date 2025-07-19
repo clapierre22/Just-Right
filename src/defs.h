@@ -80,12 +80,14 @@ typedef enum {
 #define PLAYER_BASE_KNOCKBACK 10
 #define PLAYER_SPEED 4
 
+#define PLAYER_SWING_COOL 10 // Frames, used to calculate swing cooldown for player
+
 #define PADDING 1
 
 // Enemy
 #define ENEMY_BASE_HEALTH 10
 #define ENEMY_BASE_DAMAGE 10
-#define ENEMY_BASE_KNOCKBACK 5
+#define ENEMY_BASE_KNOCKBACK 5 // pxs, used to calculate knockback distance for attackTo
 #define ENEMY_SPEED 3
 
-#define BASE_STUN 10
+#define BASE_STUN 10 // Frames, used to calculate stun time for attackTo

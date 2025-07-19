@@ -28,6 +28,8 @@ void loadEnemy(Entity *enemy) {
 	enemy->attacking = FALSE; // Default is not attacking
 	enemy->hit = FALSE;
 	enemy->stunTime = ENTITY_STOP;
+	enemy->coolTime = PLAYER_SWING_COOL;
+	enemy->onCooldown = FALSE;
 	enemy->type = ENTITY_ENEMY;
 
 	// Remove the below line when spawn.c is implemented

@@ -13,9 +13,10 @@
 // // check collision between player and enemy DONE
 // fighting logic <<
 // // hit detection DONE
-// // knockback logic
+// // knockback logic DONE
 // // swing cooldown
 // // kill enemies 
+// // adjust player attack range (increase)
 // spawn logic
 // ---Split into Chess Game and JR here---
 // better level sprites
@@ -121,7 +122,14 @@ int main(int argc, char* argv[]) {
 							break;
 						}
 						case SDLK_e: {
-							player.attacking = TRUE;
+							if (!player.onCooldown || player.coolTime <= 0) {
+								player.attacking = TRUE;
+								player.onCooldown = TRUE;
+								player.coolTime = PLAYER_SWING_COOL;
+							} else {
+								printf("Player is on cooldown, cannot attack\n");
+								player.coolTime--;
+							}
 
 							break;
 						}

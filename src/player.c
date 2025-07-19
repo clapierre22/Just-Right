@@ -29,6 +29,8 @@ void loadPlayer(Entity *player) {
 	player->attacking = FALSE; // Defualt is not attacking
 	player->hit = FALSE;
 	player->stunTime = ENTITY_STOP;
+	player->coolTime = PLAYER_SWING_COOL;
+	player->onCooldown = FALSE;
 	player->type = ENTITY_PLAYER;
 }
 

@@ -9,7 +9,8 @@ typedef struct {
 	int velocityX, velocityY, facing;
 	int health, damage, knockback;
 	int attacking, hit;
-	int stunTime;
+	int stunTime, coolTime;
+	int onCooldown;
 	EntityType type;
 } Entity;
 
