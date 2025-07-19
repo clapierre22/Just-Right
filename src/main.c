@@ -81,8 +81,12 @@ int main(int argc, char* argv[]) {
 	Entity *enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
 	int enemyCount = 0;
 	do {
-		enemies[enemyCount++] = initEnemy();
-		printf("Good enemy #%d spawn\n", enemyCount);
+		enemies[enemyCount] = initEnemy();
+		enemies[enemyCount].x = rand() % (SCREEN_WIDTH - PLAYER_WIDTH);
+		enemies[enemyCount].y = rand() % (SCREEN_HEIGHT - PLAYER_HEIGHT);
+		enemies[enemyCount].id = enemyCount + 1;
+		printf("Good enemy spawn, ID: %d\n", enemies[enemyCount].id);
+		enemyCount++;
 	} while(enemyCount < MAX_ENEMIES);
 	Entity enemy = initEnemy();
 	printf("Good Example Enemy Spawn\n");
@@ -202,6 +206,25 @@ int main(int argc, char* argv[]) {
 		updateEnemy(&enemy, &player);
 
 		for (int i = 0; i < enemyCount; i++) {
+			if (enemies[i].health <= 0) {
+				printf("Enemy %d has died", i);
+				
+				enemies[i] = enemies[enemyCount - 1];
+				enemyCount--;
+				printf("Enemy %d removed, new enemy count: %d\n", enemies[i].id, enemyCount);
+				// Save space when large ammounts die
+				if (enemyCount < MAX_ENEMIES / 2) {  // Example threshold
+					Entity *temp = realloc(enemies, enemyCount * sizeof(Entity));
+					if (temp) {
+						enemies = temp;  // Use the new memory block
+					} else {
+						// realloc failed (keep using the old block)
+						fprintf(stderr, "Failed to shrink enemy array\n");
+					}
+				}
+
+				continue;
+			}
 			updateEnemy(&enemies[i], &player);
 			renderEntity(renderer, &camera, &enemies[i]);
 		}

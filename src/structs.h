@@ -3,7 +3,7 @@
 #include "defs.h"
 
 typedef struct {
-	char id[32];
+	int id;
 	// SDL_Texture* sprite;
 	int x, y, w, h;
 	int velocityX, velocityY, facing;

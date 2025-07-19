@@ -15,7 +15,7 @@ void spawnEnemy(Entity *enemy, Map *map) {
 }
 
 void loadEnemy(Entity *enemy) {
-	strcpy(enemy->id, "enemy_entity");
+	enemy->id = 0; // Placeholder for ID, should be set when spawning
 	// Take the x, y values from the valid spawns from map.c
 	enemy->w = PLAYER_WIDTH;
 	enemy->h = PLAYER_HEIGHT;
