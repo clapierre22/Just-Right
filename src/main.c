@@ -14,7 +14,7 @@
 // fighting logic <<
 // // hit detection DONE
 // // knockback logic DONE
-// // swing cooldown
+// // swing cooldown DONE
 // // kill enemies 
 // // adjust player attack range (increase)
 // spawn logic
@@ -76,8 +76,16 @@ int main(int argc, char* argv[]) {
 	printf("Good Entity Spawn\n");
 
 	//Spawn Enemy Entities
+	// Enemy data, move to map file
+	// Example array of enemies
+	Entity *enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
+	int enemyCount = 0;
+	do {
+		enemies[enemyCount++] = initEnemy();
+		printf("Good enemy #%d spawn\n", enemyCount);
+	} while(enemyCount < MAX_ENEMIES);
 	Entity enemy = initEnemy();
-	printf("Good Enemy Spawn\n");
+	printf("Good Example Enemy Spawn\n");
 
 	// Initizalize Camera
 	Camera camera = initCamera();
@@ -122,6 +130,7 @@ int main(int argc, char* argv[]) {
 							break;
 						}
 						case SDLK_e: {
+							// Cooldown logic for player
 							if (!player.onCooldown || player.coolTime <= 0) {
 								player.attacking = TRUE;
 								player.onCooldown = TRUE;
@@ -192,6 +201,11 @@ int main(int argc, char* argv[]) {
 		// Update enemies with players current location
 		updateEnemy(&enemy, &player);
 
+		for (int i = 0; i < enemyCount; i++) {
+			updateEnemy(&enemies[i], &player);
+			renderEntity(renderer, &camera, &enemies[i]);
+		}
+
 		// Render Player, Only when within Camera
 		// TODO: For loop for each entity (seperate loops for entity, object)
 		// 	Camera is called, camera.c add withinCamera (int bool)
@@ -211,6 +225,9 @@ int main(int argc, char* argv[]) {
 
 		// Check Fighting
 		if (player.attacking) {
+			for (int i = 0; i < enemyCount; i++) {
+				calculateFight(&player, &enemies[i]);
+			}
 			calculateFight(&player, &enemy);
 		}
 
@@ -220,6 +237,8 @@ int main(int argc, char* argv[]) {
 	}
 	
 	// CLEAN //
+
+	free(enemies);
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);

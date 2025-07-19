@@ -80,7 +80,7 @@ typedef enum {
 #define PLAYER_BASE_KNOCKBACK 10
 #define PLAYER_SPEED 4
 
-#define PLAYER_SWING_COOL 10 // Frames, used to calculate swing cooldown for player
+#define PLAYER_SWING_COOL 2 // Frames, used to calculate swing cooldown for player
 
 #define PADDING 1
 
