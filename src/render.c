@@ -11,6 +11,19 @@ void renderEntity(SDL_Renderer *renderer, const Camera *camera, const Entity *en
 		int screenX, screenY;
 		worldToScreen(camera, entity->x, entity->y, &screenX, &screenY);
 
+		if (entity->attacking) {
+			// Draw swing box
+			SDL_Rect swingBox = {
+				screenX + (entity->w / 2) - (PLAYER_BASE_RANGE / 2), // Range formula, make function in math.c; int rangeCenter(int x, Entity *entity); return coord value;
+				screenY + (entity->h / 2) - (PLAYER_BASE_RANGE / 2),
+				PLAYER_BASE_RANGE,
+				PLAYER_BASE_RANGE
+			};
+
+			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+			SDL_RenderFillRect(renderer, &swingBox);
+		}
+
 		SDL_Rect entityBox = {
 			screenX,
 			screenY,

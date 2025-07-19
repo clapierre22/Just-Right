@@ -2,10 +2,10 @@
 
 int checkHit(Entity *attackFrom, Entity *attackTo) {
     SDL_Rect swingBox = {
-        attackFrom->x,
-        attackFrom->y,
-        attackFrom->w,
-        attackFrom->h
+        attackFrom->x - + (attackFrom->w / 2) - (PLAYER_BASE_RANGE / 2), // Switch PBR for attackFrom->range
+        attackFrom->y - + (attackFrom->w / 2) - (PLAYER_BASE_RANGE / 2),
+        PLAYER_BASE_RANGE,
+        PLAYER_BASE_RANGE
     };
 
     return checkHitCollision(swingBox, attackTo);

@@ -75,12 +75,12 @@ typedef enum {
 #define PLAYER_HEIGHT 28
 
 #define PLAYER_BASE_HEALTH 100
-#define PLAYER_BASE_DAMAGE 10
-#define PLAYER_BASE_RANGE 50
+#define PLAYER_BASE_DAMAGE 5
+#define PLAYER_BASE_RANGE 100
 #define PLAYER_BASE_KNOCKBACK 10
 #define PLAYER_SPEED 4
 
-#define PLAYER_SWING_COOL 2 // Frames, used to calculate swing cooldown for player
+#define PLAYER_SWING_COOL 60 // Frames, used to calculate swing cooldown for player
 
 #define PADDING 1
 

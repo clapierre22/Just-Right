@@ -11,12 +11,12 @@
 // // example spawn DONE
 // // test following player DONE 
 // // check collision between player and enemy DONE
-// fighting logic <<
+// fighting logic DONE
 // // hit detection DONE
 // // knockback logic DONE
 // // swing cooldown DONE
-// // kill enemies 
-// // adjust player attack range (increase)
+// // kill enemies DONE
+// // adjust player attack range (increase) DONE
 // spawn logic
 // ---Split into Chess Game and JR here---
 // better level sprites
@@ -88,8 +88,8 @@ int main(int argc, char* argv[]) {
 		printf("Good enemy spawn, ID: %d\n", enemies[enemyCount].id);
 		enemyCount++;
 	} while(enemyCount < MAX_ENEMIES);
-	Entity enemy = initEnemy();
-	printf("Good Example Enemy Spawn\n");
+	// Entity enemy = initEnemy();
+	// printf("Good Example Enemy Spawn\n");
 
 	// Initizalize Camera
 	Camera camera = initCamera();
@@ -135,13 +135,14 @@ int main(int argc, char* argv[]) {
 						}
 						case SDLK_e: {
 							// Cooldown logic for player
-							if (!player.onCooldown || player.coolTime <= 0) {
-								player.attacking = TRUE;
-								player.onCooldown = TRUE;
-								player.coolTime = PLAYER_SWING_COOL;
-							} else {
-								printf("Player is on cooldown, cannot attack\n");
-								player.coolTime--;
+							if (!event.key.repeat) {
+								if (player.coolTime <= 0) {
+									player.attacking = TRUE;
+									player.onCooldown = TRUE;
+									player.coolTime = PLAYER_SWING_COOL;
+								} else {
+									printf("Player is on cooldown, cannot attack\n");
+								}
 							}
 
 							break;
@@ -180,6 +181,7 @@ int main(int argc, char* argv[]) {
 						}
 						case SDLK_e: {
 							player.attacking = FALSE;
+							player.onCooldown = FALSE;
 
 							break;
 						}
@@ -198,33 +200,15 @@ int main(int argc, char* argv[]) {
 
 		// Update player 
 		updatePlayer(&player, &demo);
+		player.coolTime--;
 	
 		// Move Camera to Player Center
 		moveCamera(&camera, &player);
 
 		// Update enemies with players current location
-		updateEnemy(&enemy, &player);
+		// updateEnemy(&enemy, &player);
 
 		for (int i = 0; i < enemyCount; i++) {
-			if (enemies[i].health <= 0) {
-				printf("Enemy %d has died", i);
-				
-				enemies[i] = enemies[enemyCount - 1];
-				enemyCount--;
-				printf("Enemy %d removed, new enemy count: %d\n", enemies[i].id, enemyCount);
-				// Save space when large ammounts die
-				if (enemyCount < MAX_ENEMIES / 2) {  // Example threshold
-					Entity *temp = realloc(enemies, enemyCount * sizeof(Entity));
-					if (temp) {
-						enemies = temp;  // Use the new memory block
-					} else {
-						// realloc failed (keep using the old block)
-						fprintf(stderr, "Failed to shrink enemy array\n");
-					}
-				}
-
-				continue;
-			}
 			updateEnemy(&enemies[i], &player);
 			renderEntity(renderer, &camera, &enemies[i]);
 		}
@@ -241,17 +225,41 @@ int main(int argc, char* argv[]) {
 		
 		// Render Entities
 		//testEnemy.render(renderer, camera.x, camera.y);
-		renderEntity(renderer, &camera, &enemy);
+		// renderEntity(renderer, &camera, &enemy);
 
 		// Render Objects
 		//testObject.render(renderer, camera.x, camera.y);
 
 		// Check Fighting
 		if (player.attacking) {
-			for (int i = 0; i < enemyCount; i++) {
+			for (int i = enemyCount - 1; i >= 0; i--) {
 				calculateFight(&player, &enemies[i]);
+				if (enemies[i].health <= 0) {
+					if (i != enemyCount - 1) {
+						enemies[i] = enemies[enemyCount - 1];
+					}
+					enemyCount--;
+					printf("Enemy %d removed, new enemy count: %d\n", enemies[i].id, enemyCount);
+
+					continue;
+				}
 			}
-			calculateFight(&player, &enemy);
+
+			// Save space when large ammounts die
+					if (enemyCount == MAX_ENEMIES / 2) {
+						Entity *temp = realloc(enemies, enemyCount * sizeof(Entity));
+						if (temp) {
+							enemies = temp;  // Use the new memory block
+							printf("Successful realloc\n");
+						} else {
+							// realloc failed (keep using the old block)
+							fprintf(stderr, "Failed to shrink enemy array\n");
+						}
+					}
+			
+			// calculateFight(&player, &enemy); // Example enemy
+			
+			player.attacking = FALSE;
 		}
 
 		// Update
