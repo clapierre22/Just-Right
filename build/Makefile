@@ -224,6 +224,30 @@ src/fighting.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/fighting.c.s
 .PHONY : src/fighting.c.s
 
+src/level.obj: src/level.c.obj
+.PHONY : src/level.obj
+
+# target to build an object file
+src/level.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/level.c.obj
+.PHONY : src/level.c.obj
+
+src/level.i: src/level.c.i
+.PHONY : src/level.i
+
+# target to preprocess a source file
+src/level.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/level.c.i
+.PHONY : src/level.c.i
+
+src/level.s: src/level.c.s
+.PHONY : src/level.s
+
+# target to generate assembly for a file
+src/level.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/level.c.s
+.PHONY : src/level.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -341,6 +365,9 @@ help:
 	@echo ... src/fighting.obj
 	@echo ... src/fighting.i
 	@echo ... src/fighting.s
+	@echo ... src/level.obj
+	@echo ... src/level.i
+	@echo ... src/level.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

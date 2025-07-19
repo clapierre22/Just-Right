@@ -46,5 +46,11 @@
   "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\fighting.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\fighting.c",
   "file": "C:/Users/calvi/Just-Right/src/fighting.c",
   "output": "CMakeFiles/Just-Right.dir/src/fighting.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\level.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\level.c",
+  "file": "C:/Users/calvi/Just-Right/src/level.c",
+  "output": "CMakeFiles/Just-Right.dir/src/level.c.obj"
 }
 ]

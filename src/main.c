@@ -8,16 +8,43 @@
 // TODO:
 // camera (works, only render stuff in camera (screen))
 // enemies DONE
-// // example spawn DONE
-// // test following player DONE 
-// // check collision between player and enemy DONE
+	// example spawn DONE
+	// test following player DONE 
+	// check collision between player and enemy DONE
 // fighting logic DONE
-// // hit detection DONE
-// // knockback logic DONE
-// // swing cooldown DONE
-// // kill enemies DONE
-// // adjust player attack range (increase) DONE
+	// hit detection DONE
+	// knockback logic DONE
+	// swing cooldown DONE
+	// kill enemies DONE
+	// adjust player attack range (increase) DONE
+// level development <<
+	// make specified level.c file
+	// transfer all level related logic to level.c, remove from main.c
 // spawn logic
+	// specified entity spawn point that can be set to spawn any entity
+		// choose spawn point location
+		// can spawn any entity
+		// choose enemy to spawn
+			// UPDATE: combine player.c and enemy.c into entity.c, use switch to determine user
+			// enemy spawn point
+			// player spawn point
+		// set respawn timer
+		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer
+		// collision check to make sure enemies don't spawn on top of player
+	// spawn master system that controls the spawn points
+		// allows for altering all points at once
+		// indirectly allows for different gamemodes to be formed 
+		// control all spawn point locations
+// map editor
+	// map system update
+		// divide into maps (cosmetic) and rooms (data, like enemies and logic)
+			// OPTIONAL: allow maps to be non square (only reason to not do this is for map bounds are square)
+		// allow for premade files to be used to load premade maps
+	// interface that allows for easy map creations
+		// visual placement editor that allows for non hardcoded designing
+		// save maps as file that can then be later run
+		// test maps within editor
+		
 // ---Split into Chess Game and JR here---
 // better level sprites
 // better entity sprites

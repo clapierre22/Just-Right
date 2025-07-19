@@ -4,5 +4,3 @@
 
 #include "structs.h"
 #include "defs.h"
-
-

@@ -19,6 +19,7 @@ add_executable(Just-Right
     src/render.c
     src/enemy.c
     src/fighting.c
+    src/level.c
 )
 
 # Link SDL2
