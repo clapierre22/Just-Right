@@ -17,10 +17,10 @@
 	// swing cooldown DONE
 	// kill enemies DONE
 	// adjust player attack range (increase) DONE
-// level development <<
+// level development DONE
 	// make specified level.c file DONE
-	// transfer all level related logic to level.c, remove from main.c (stuck on unknown type name Camera in structs.h 42)
-// spawn logic
+	// transfer all level related logic to level.c, remove from main.c DONE
+// spawn logic << 
 	// specified entity spawn point that can be set to spawn any entity
 	// points objects
 		// choose spawn point location
