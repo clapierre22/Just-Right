@@ -26,6 +26,7 @@
 #define AIR 2
 
 // Level
+#define MAX_PLAYERS 1
 #define MAX_ENEMIES 10
 #define ENEMY_ID 64
 
@@ -69,6 +70,11 @@ typedef enum {
 #define NORTHWEST (NORTH | WEST)
 
 // Player
+#define PLAYER_ONE 0
+#define PLAYER_TWO 1
+#define PLAYER_THREE 2
+#define PLAYER_FOUR 3
+
 #define PLAYER_BASE_X SCREEN_WIDTH/2 - PLAYER_WIDTH/2
 #define PLAYER_BASE_Y SCREEN_HEIGHT/2 - PLAYER_HEIGHT/2
 #define PLAYER_WIDTH 16

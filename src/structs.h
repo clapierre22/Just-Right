@@ -15,7 +15,7 @@ typedef struct {
 } Entity;
 
 typedef struct {
-	SDL_Window* window;
+	SDL_Window *window;
 	Entity player;
 	Entity enemy[32];
 } Game;
@@ -38,17 +38,19 @@ typedef struct {
 } Map;
 
 typedef struct {
-	Map map; 
-	Entity player;
-	Entity enemies[MAX_ENEMIES];
-} Level;
-
-typedef struct {
 	// TODO: Change x,y to float
 	int x, y;
 	int w, h;
 	float zoom;
 } Camera;
+
+typedef struct {
+	Map map; 
+	Camera camera; // For some reason, cmake does not recognize the Camera type
+	Entity *players;
+	Entity *enemies;
+	int playerCount, enemyCount;
+} Level;
 
 typedef struct {
 	int x, y;
