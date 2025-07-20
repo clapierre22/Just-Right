@@ -45,13 +45,19 @@ typedef struct {
 } Camera;
 
 typedef struct {
+	int x, y;
+} Location;
+
+typedef struct {
+	int id;
+	int x, y;
+	PointType type;
+} Point;
+
+typedef struct {
 	Map map; 
 	Camera camera; // For some reason, cmake does not recognize the Camera type
 	Entity *players;
 	Entity *enemies;
 	int playerCount, enemyCount;
 } Level;
-
-typedef struct {
-	int x, y;
-} Location;

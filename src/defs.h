@@ -30,6 +30,13 @@
 #define MAX_ENEMIES 10
 #define ENEMY_ID 64
 
+typedef enum {
+	POINT_UNASSIGNED,
+	POINT_SPAWN,
+	POINT_GAME,
+	POINT_POINT,
+} PointType;
+
 // Render
 #define RENDER_WIDTH 16
 #define RENDER_HEIGHT 16
