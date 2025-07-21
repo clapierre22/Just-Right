@@ -21,11 +21,19 @@ void loadLevel(Level *level) {
 	level->enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
 	level->points = malloc(sizeof(Point) * MAX_POINTS);
 
-	// example point for testing
+	// example points for testing
 	level->points[0] = initPoint();
-	level->pointCount = 1;
+	level->points[1] = initPoint();
+	level->points[2] = initPoint();
+	level->pointCount = 3;
 
 	changePoint(&level->points[0], POINT_SPAWN);
+	changePoint(&level->points[1], POINT_GAME);
+	changePoint(&level->points[2], POINT_POINT);
+
+	movePoint(&level->points[0], MAP_MID_X + 10, MAP_MID_Y + 10);
+	movePoint(&level->points[1], MAP_MID_X + 20, MAP_MID_Y + 20);
+	movePoint(&level->points[2], MAP_MID_X + 30, MAP_MID_Y + 30);
 
 	if (!level->players || !level->enemies || !level->points) {
 		printf("Failed to allocate memory\n");
