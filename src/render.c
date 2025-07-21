@@ -58,3 +58,44 @@ void renderTile(SDL_Renderer *renderer, const Camera *camera, const RoomTile *ti
 		SDL_RenderDrawRect(renderer, &tileBox);
 	}
 }
+
+void renderPoint(SDL_Renderer *renderer, const Camera *camera, const Point *point) {
+	// TODO
+	if (withinCameraPoint(camera, point)) {
+		int screenX, screenY;
+		worldToScreen(camera, point->x, point->y, &screenX, &screenY);
+
+		SDL_Rect pointBox = {
+        screenX,
+        screenY,
+        (int)(TILE_SIZE * camera->zoom),
+        (int)(TILE_SIZE * camera->zoom)
+		};
+
+		switch (point->type) {
+			case POINT_UNASSIGNED: {
+				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+				break;
+			}
+			case POINT_SPAWN: {
+				SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+				break;
+			}
+			case POINT_GAME: {
+				SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+				break;
+			}
+			case POINT_POINT: {
+				SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+				break;
+			}
+		}
+
+		SDL_RenderFillRect(renderer, &pointBox);
+		
+		// Outline
+		SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
+		SDL_RenderDrawRect(renderer, &pointBox);
+	}
+
+}

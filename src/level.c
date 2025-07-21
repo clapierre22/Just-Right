@@ -19,8 +19,16 @@ void loadLevel(Level *level) {
 	level->camera = initCamera();
 	level->players = malloc(sizeof(Entity) * MAX_PLAYERS);
 	level->enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
-	if (!level->players || !level->enemies) {
-		printf("Failed to allocate memory for enemies\n");
+	level->points = malloc(sizeof(Point) * MAX_POINTS);
+
+	// example point for testing
+	level->points[0] = initPoint();
+	level->pointCount = 1;
+
+	changePoint(&level->points[0], POINT_SPAWN);
+
+	if (!level->players || !level->enemies || !level->points) {
+		printf("Failed to allocate memory\n");
 		exit(0);
 	}
 }
@@ -117,6 +125,11 @@ void renderLevel(Level *level, SDL_Renderer *renderer) {
 	if (level->enemies) {
 		for (int e = 0; e < level->enemyCount; e++) {
 			renderEntity(renderer, &level->camera, &level->enemies[e]);
+		}
+	}
+	if (level->points) {
+		for (int t = 0; t < level->pointCount; t++) {
+			renderPoint(renderer, &level->camera, &level->points[t]);
 		}
 	}
 }

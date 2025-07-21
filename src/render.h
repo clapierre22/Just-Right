@@ -9,3 +9,5 @@ void renderEntity(SDL_Renderer *renderer, const Camera *camera, const Entity *en
 
 void renderTile(SDL_Renderer *renderer, const Camera *camera, const RoomTile *tile);
 
+void renderPoint(SDL_Renderer *renderer, const Camera *camera, const Point *point);
+

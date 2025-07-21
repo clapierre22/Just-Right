@@ -202,4 +202,5 @@ CMakeFiles/Just-Right.dir/src/level.c.obj: \
  C:\Users\calvi\Just-Right\src\player.h \
  C:\Users\calvi\Just-Right\src\collision.h \
  C:\Users\calvi\Just-Right\src\enemy.h \
- C:\Users\calvi\Just-Right\src\fighting.h
+ C:\Users\calvi\Just-Right\src\fighting.h \
+ C:\Users\calvi\Just-Right\src\point.h

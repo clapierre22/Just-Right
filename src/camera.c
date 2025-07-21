@@ -70,7 +70,31 @@ int withinCameraTile(const Camera *camera, const RoomTile *tile) {
 		|| tL > cR
 		|| tB < cT
 		|| tT > cB);
+}
 
+int withinCameraPoint(const Camera *camera, const Point *point) {
+	// TODO: Create a seperate func to use with tiles
+	
+	// Calculate effective width, height of Camera
+	float eW = camera->w / camera->zoom;
+	float eH = camera->h / camera->zoom;
+
+	// Calculate Camera bounds
+	float cL = camera->x - eW / 2;
+	float cR = camera->x + eW / 2;
+	float cT = camera->y - eH / 2;
+	float cB = camera->y + eH / 2;
+
+	// Calculate Tile bounds
+	float pL = point->x;
+	float pR = point->x + point->w;
+	float pT = point->y;
+	float pB = point->y + point->h;
+
+	return !(pR < cL
+		|| pL > cR
+		|| pB < cT
+		|| pT > cB);
 }
 
 // PROBLEM: The camera still does not render bottom right tiles in time (popping in)

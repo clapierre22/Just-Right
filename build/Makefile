@@ -320,6 +320,30 @@ src/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/player.c.s
 .PHONY : src/player.c.s
 
+src/point.obj: src/point.c.obj
+.PHONY : src/point.obj
+
+# target to build an object file
+src/point.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/point.c.obj
+.PHONY : src/point.c.obj
+
+src/point.i: src/point.c.i
+.PHONY : src/point.i
+
+# target to preprocess a source file
+src/point.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/point.c.i
+.PHONY : src/point.c.i
+
+src/point.s: src/point.c.s
+.PHONY : src/point.s
+
+# target to generate assembly for a file
+src/point.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/point.c.s
+.PHONY : src/point.c.s
+
 src/render.obj: src/render.c.obj
 .PHONY : src/render.obj
 
@@ -377,6 +401,9 @@ help:
 	@echo ... src/player.obj
 	@echo ... src/player.i
 	@echo ... src/player.s
+	@echo ... src/point.obj
+	@echo ... src/point.i
+	@echo ... src/point.s
 	@echo ... src/render.obj
 	@echo ... src/render.i
 	@echo ... src/render.s

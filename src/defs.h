@@ -28,6 +28,7 @@
 // Level
 #define MAX_PLAYERS 1
 #define MAX_ENEMIES 10
+#define MAX_POINTS 10
 #define ENEMY_ID 64
 
 typedef enum {
