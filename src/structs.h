@@ -53,6 +53,7 @@ typedef struct {
 	int x, y;
 	int w, h;
 	PointType type;
+	SpawnType spawn;
 } Point;
 
 typedef struct {
@@ -60,6 +61,8 @@ typedef struct {
 	Camera camera; // For some reason, cmake does not recognize the Camera type
 	Entity *players;
 	Entity *enemies;
+	Point *spawns;
+	Point *objectives;
 	Point *points;
-	int playerCount, enemyCount, pointCount;
+	int playerCount, enemyCount, spawnCount, objectiveCount, pointCount;
 } Level;

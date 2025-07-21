@@ -38,6 +38,12 @@ typedef enum {
 	POINT_POINT,
 } PointType;
 
+typedef enum {
+	NOT_SPAWN,
+	SPAWN_PLAYER,
+	SPAWN_ENEMY,
+} SpawnType;
+
 // Render
 #define RENDER_WIDTH 16
 #define RENDER_HEIGHT 16

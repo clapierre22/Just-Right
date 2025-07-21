@@ -19,21 +19,25 @@ void loadLevel(Level *level) {
 	level->camera = initCamera();
 	level->players = malloc(sizeof(Entity) * MAX_PLAYERS);
 	level->enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
-	level->points = malloc(sizeof(Point) * MAX_POINTS);
+	level->spawns = malloc(sizeof(Point) * 1);
+	level->objectives = malloc(sizeof(Point) * 1);
+	level->points = malloc(sizeof(Point) * 1);
 
 	// example points for testing
+	level->spawns[0] = initPoint();
+	level->objectives[0] = initPoint();
 	level->points[0] = initPoint();
-	level->points[1] = initPoint();
-	level->points[2] = initPoint();
-	level->pointCount = 3;
+	level->spawnCount = 1;
+	level->objectiveCount = 1;
+	level->pointCount = 1;
 
-	changePoint(&level->points[0], POINT_SPAWN);
-	changePoint(&level->points[1], POINT_GAME);
-	changePoint(&level->points[2], POINT_POINT);
+	changePoint(&level->spawns[0], POINT_SPAWN, SPAWN_ENEMY);
+	changePoint(&level->objectives[0], POINT_GAME, NOT_SPAWN);
+	changePoint(&level->points[0], POINT_POINT, NOT_SPAWN);
 
-	movePoint(&level->points[0], MAP_MID_X + 10, MAP_MID_Y + 10);
-	movePoint(&level->points[1], MAP_MID_X + 20, MAP_MID_Y + 20);
-	movePoint(&level->points[2], MAP_MID_X + 30, MAP_MID_Y + 30);
+	movePoint(&level->points[0], MAP_MID_X + TILE_SIZE, MAP_MID_Y + TILE_SIZE);
+	movePoint(&level->objectives[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y - TILE_SIZE);
+	movePoint(&level->spawns[0], MAP_MID_X + (2 * TILE_SIZE), MAP_MID_Y + (2 * TILE_SIZE));
 
 	if (!level->players || !level->enemies || !level->points) {
 		printf("Failed to allocate memory\n");
@@ -55,17 +59,7 @@ void spawnEntities(Level *level) {
     
 	// enemies
     do {
-		level->enemies[level->enemyCount] = initEnemy();
-        level->enemies[level->enemyCount].x = rand() % (SCREEN_WIDTH - PLAYER_WIDTH);
-        level->enemies[level->enemyCount].y = rand() % (SCREEN_HEIGHT - PLAYER_HEIGHT);
-        level->enemies[level->enemyCount].id = level->enemyCount + 1;
-        
-        printf("Enemy spawned, ID: %d at (%d, %d)\n",
-               level->enemies[level->enemyCount].id,
-               (int)level->enemies[level->enemyCount].x,
-               (int)level->enemies[level->enemyCount].y);
-
-        level->enemyCount++;
+		activatePoint(&level->spawns[0], level);
     } while (level->enemyCount < MAX_ENEMIES);
 }
 
@@ -124,15 +118,16 @@ void updateLevel(Level *level) {
 
 void renderLevel(Level *level, SDL_Renderer *renderer) {
 	// renders the level, entities, points
+	// Order: Map, Points, Enemies, Players
 	drawMap(renderer, &level->camera, &level->map);
-	if (level->players) {
-		for (int p = 0; p < level->playerCount; p++) {
-			renderEntity(renderer, &level->camera, &level->players[p]);
+	if (level->spawns) {
+		for (int s = 0; s < level->spawnCount; s++) {
+			renderPoint(renderer, &level->camera, &level->spawns[s]);
 		}
 	}
-	if (level->enemies) {
-		for (int e = 0; e < level->enemyCount; e++) {
-			renderEntity(renderer, &level->camera, &level->enemies[e]);
+	if (level->objectives) {
+		for (int o = 0; o < level->objectiveCount; o++) {
+			renderPoint(renderer, &level->camera, &level->objectives[o]);
 		}
 	}
 	if (level->points) {
@@ -140,10 +135,32 @@ void renderLevel(Level *level, SDL_Renderer *renderer) {
 			renderPoint(renderer, &level->camera, &level->points[t]);
 		}
 	}
+	if (level->enemies) {
+		for (int e = 0; e < level->enemyCount; e++) {
+			renderEntity(renderer, &level->camera, &level->enemies[e]);
+		}
+	}
+	if (level->players) {
+		for (int p = 0; p < level->playerCount; p++) {
+			renderEntity(renderer, &level->camera, &level->players[p]);
+		}
+	}
 }
 
 void destroyLevel(Level *level) {
 	if (!level) return;
+
+	if (level->spawns) {
+		free(level->spawns);
+	}
+
+	if (level->objectives) {
+		free(level->objectives);
+	}
+
+	if (level->points) {
+		free(level->points);
+	}
 
 	if (level->players) {
 		free(level->players);
