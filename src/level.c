@@ -19,25 +19,34 @@ void loadLevel(Level *level) {
 	level->camera = initCamera();
 	level->players = malloc(sizeof(Entity) * MAX_PLAYERS);
 	level->enemies = malloc(sizeof(Entity) * MAX_ENEMIES);
-	level->spawns = malloc(sizeof(Point) * 1);
-	level->objectives = malloc(sizeof(Point) * 1);
-	level->points = malloc(sizeof(Point) * 1);
+	level->spawns = malloc(sizeof(Point) * MAX_SPAWNS);
+	level->objectives = malloc(sizeof(Point) * MAX_OBJECTIVES);
+	level->points = malloc(sizeof(Point) * MAX_POINTS);
 
 	// example points for testing
-	level->spawns[0] = initPoint();
+	// level->spawns[0] = initPoint();
 	level->objectives[0] = initPoint();
 	level->points[0] = initPoint();
-	level->spawnCount = 1;
+	// level->spawnCount = 1;
 	level->objectiveCount = 1;
 	level->pointCount = 1;
 
-	changePoint(&level->spawns[0], POINT_SPAWN, SPAWN_ENEMY);
+	// Example Loop to creat Spawn Points 
+	level->spawnCount = 0;
+	do {
+		level->spawns[level->spawnCount] = initPoint();
+		changePoint(&level->spawns[level->spawnCount], POINT_SPAWN, SPAWN_ENEMY);
+		movePoint(&level->spawns[level->spawnCount], MAP_MID_X + TILE_SIZE * level->spawnCount, MAP_MID_Y + TILE_SIZE * level->spawnCount);
+		level->spawnCount++;
+	} while (level->spawnCount < MAX_SPAWNS);
+
+	// changePoint(&level->spawns[0], POINT_SPAWN, SPAWN_ENEMY);
 	changePoint(&level->objectives[0], POINT_GAME, NOT_SPAWN);
 	changePoint(&level->points[0], POINT_POINT, NOT_SPAWN);
 
 	movePoint(&level->points[0], MAP_MID_X + TILE_SIZE, MAP_MID_Y + TILE_SIZE);
 	movePoint(&level->objectives[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y - TILE_SIZE);
-	movePoint(&level->spawns[0], MAP_MID_X + (2 * TILE_SIZE), MAP_MID_Y + (2 * TILE_SIZE));
+	// movePoint(&level->spawns[0], MAP_MID_X + (2 * TILE_SIZE), MAP_MID_Y + (2 * TILE_SIZE));
 
 	if (!level->players || !level->enemies || !level->points) {
 		printf("Failed to allocate memory\n");
@@ -58,9 +67,11 @@ void spawnEntities(Level *level) {
 	printf("Good Player Spawn\n");
     
 	// enemies
+	int i = 0;
     do {
-		activatePoint(&level->spawns[0], level);
-    } while (level->enemyCount < MAX_ENEMIES);
+		activatePoint(&level->spawns[i], level);
+		i++;
+    } while (i < level->spawnCount);
 }
 
 void changeMap(Level *level, Map *map) {

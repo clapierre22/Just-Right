@@ -28,6 +28,8 @@
 // Level
 #define MAX_PLAYERS 1
 #define MAX_ENEMIES 10
+#define MAX_SPAWNS 5
+#define MAX_OBJECTIVES 1
 #define MAX_POINTS 10
 #define ENEMY_ID 64
 
