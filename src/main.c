@@ -21,10 +21,10 @@
 	// make specified level.c file DONE
 	// transfer all level related logic to level.c, remove from main.c DONE
 // spawn logic << 
-	// specified entity spawn point that can be set to spawn any entity
+	// specified entity spawn point that can be set to spawn any entity DONE
 	// points objects
-		// choose spawn point location
-		// can spawn any entity
+		// choose spawn point location DONE
+		// can spawn any entity DONE
 		// choose enemy to spawn
 			// UPDATE: combine player.c and enemy.c into entity.c, use switch to determine user
 			// enemy spawn point
@@ -36,12 +36,19 @@
 		// allows for altering all points at once
 		// indirectly allows for different gamemodes to be formed 
 		// control all spawn point locations
+// mouse implementation
+	// mouse reports location
+	// draw clicker at mouse position
+	// accept inputs when clicking the mouse
+	// distinguish between left click and right click
+	// attack with mouse instead of e key
 // map editor
 	// map system update
 		// divide into maps (cosmetic) and rooms (data, like enemies and logic)
 			// OPTIONAL: allow maps to be non square (only reason to not do this is for map bounds are square)
 		// allow for premade files to be used to load premade maps
 	// interface that allows for easy map creations
+		// can use the mouse
 		// visual placement editor that allows for non hardcoded designing
 		// save maps as file that can then be later run
 		// test maps within editor
@@ -115,36 +122,40 @@ int main(int argc, char* argv[]) {
 				case SDL_KEYDOWN: {
 					switch (event.key.keysym.sym) {
 						case SDLK_w: {
-							level.players[PLAYER_ONE].facing = NORTH;
-							level.players[PLAYER_ONE].velocityY = -PLAYER_SPEED;
+							level.entities[PLAYER_ONE].facing = NORTH;
+							// level.entities[PLAYER_ONE].velocityY = -PLAYER_SPEED;
+							level.entities[PLAYER_ONE].inputY = NEG_MOVE;
 
 							break;
 						}
 						case SDLK_s: {
-							level.players[PLAYER_ONE].facing = SOUTH;
-							level.players[PLAYER_ONE].velocityY = PLAYER_SPEED;
+							level.entities[PLAYER_ONE].facing = SOUTH;
+							// level.entities[PLAYER_ONE].velocityY = PLAYER_SPEED;
+							level.entities[PLAYER_ONE].inputY = POS_MOVE;
 
 							break;
 						}
 						case SDLK_a: {
-							level.players[PLAYER_ONE].facing = WEST;
-							level.players[PLAYER_ONE].velocityX = -PLAYER_SPEED;
+							level.entities[PLAYER_ONE].facing = WEST;
+							// level.entities[PLAYER_ONE].velocityX = -PLAYER_SPEED;
+							level.entities[PLAYER_ONE].inputX = NEG_MOVE;
 
 							break;
 						}
 						case SDLK_d: {
-							level.players[PLAYER_ONE].facing = EAST;
-							level.players[PLAYER_ONE].velocityX = PLAYER_SPEED;
+							level.entities[PLAYER_ONE].facing = EAST;
+							// level.entities[PLAYER_ONE].velocityX = PLAYER_SPEED;
+							level.entities[PLAYER_ONE].inputX = POS_MOVE;
 
 							break;
 						}
 						case SDLK_e: {
 							// Cooldown logic for player
 							if (!event.key.repeat) {
-								if (level.players[PLAYER_ONE].coolTime <= 0) {
-									level.players[PLAYER_ONE].attacking = TRUE;
-									level.players[PLAYER_ONE].onCooldown = TRUE;
-									level.players[PLAYER_ONE].coolTime = PLAYER_SWING_COOL;
+								if (level.entities[PLAYER_ONE].coolTime <= 0) {
+									level.entities[PLAYER_ONE].attacking = TRUE;
+									level.entities[PLAYER_ONE].onCooldown = TRUE;
+									level.entities[PLAYER_ONE].coolTime = PLAYER_SWING_COOL;
 								} else {
 									printf("Player %d is on cooldown, cannot attack\n", PLAYER_ONE + 1);
 								}
@@ -158,35 +169,35 @@ int main(int argc, char* argv[]) {
 				case SDL_KEYUP: {
 					switch (event.key.keysym.sym) {
 						case SDLK_w: {
-							if (level.players[PLAYER_ONE].velocityY < ENTITY_STOP) {
-								level.players[PLAYER_ONE].velocityY = ENTITY_STOP;
+							if (level.entities[PLAYER_ONE].inputY < ENTITY_STOP) {
+								level.entities[PLAYER_ONE].inputY = ENTITY_STOP;
 							}
 
 							break;
 						}
 						case SDLK_s: {
-							if (level.players[PLAYER_ONE].velocityY > ENTITY_STOP) {
-								level.players[PLAYER_ONE].velocityY = ENTITY_STOP;
+							if (level.entities[PLAYER_ONE].inputY > ENTITY_STOP) {
+								level.entities[PLAYER_ONE].inputY = ENTITY_STOP;
 							}
 
 							break;
 						}
 						case SDLK_a: {
-							if (level.players[PLAYER_ONE].velocityX < ENTITY_STOP) {
-								level.players[PLAYER_ONE].velocityX = ENTITY_STOP;
+							if (level.entities[PLAYER_ONE].inputX < ENTITY_STOP) {
+								level.entities[PLAYER_ONE].inputX = ENTITY_STOP;
 							}
 
 							break;
 						}
 						case SDLK_d: {
-							if (level.players[PLAYER_ONE].velocityX > ENTITY_STOP) {
-								level.players[PLAYER_ONE].velocityX = ENTITY_STOP;
+							if (level.entities[PLAYER_ONE].inputX > ENTITY_STOP) {
+								level.entities[PLAYER_ONE].inputX = ENTITY_STOP;
 							}
 							break;
 						}
 						case SDLK_e: {
-							level.players[PLAYER_ONE].attacking = FALSE;
-							level.players[PLAYER_ONE].onCooldown = FALSE;
+							level.entities[PLAYER_ONE].attacking = FALSE;
+							level.entities[PLAYER_ONE].onCooldown = FALSE;
 
 							break;
 						}
@@ -195,6 +206,9 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
+
+		level.entities[PLAYER_ONE].velocityX = level.entities[PLAYER_ONE].inputX * PLAYER_SPEED;
+    	level.entities[PLAYER_ONE].velocityY = level.entities[PLAYER_ONE].inputY * PLAYER_SPEED;
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Background color
 		SDL_RenderClear(renderer);

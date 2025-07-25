@@ -7,6 +7,7 @@ typedef struct {
 	// SDL_Texture* sprite;
 	int x, y, w, h;
 	int velocityX, velocityY, facing;
+	int inputX, inputY;
 	int health, damage, knockback;
 	int attacking, hit;
 	int stunTime, coolTime;
@@ -59,10 +60,11 @@ typedef struct {
 typedef struct {
 	Map map; 
 	Camera camera; // For some reason, cmake does not recognize the Camera type
+	Entity *entities;
 	Entity *players;
 	Entity *enemies;
 	Point *spawns;
 	Point *objectives;
 	Point *points;
-	int playerCount, enemyCount, spawnCount, objectiveCount, pointCount;
+	int entityCount, playerCount, enemyCount, spawnCount, objectiveCount, pointCount;
 } Level;

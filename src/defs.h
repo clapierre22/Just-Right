@@ -26,8 +26,9 @@
 #define AIR 2
 
 // Level
+#define MAX_ENTITIES 20
 #define MAX_PLAYERS 1
-#define MAX_ENEMIES 10
+#define MAX_ENEMIES MAX_ENTITIES - MAX_PLAYERS
 #define MAX_SPAWNS 5
 #define MAX_OBJECTIVES 1
 #define MAX_POINTS 10
@@ -64,6 +65,7 @@ typedef enum {
 
 // Entity
 typedef enum {
+	ENTITY_UNASSIGNED,
 	ENTITY_PLAYER,
 	ENTITY_ENEMY,
 	ENTITY_ITEM,
@@ -72,6 +74,8 @@ typedef enum {
 #define GRAVITY 1
 #define JUMP = -12
 #define ENTITY_STOP 0
+#define POS_MOVE 1
+#define NEG_MOVE -1
 
 // Directions
 // TODO: Finish implementing directions

@@ -60,18 +60,18 @@ void activatePoint(Point *point, Level *level) {
                     break;
                 }
                 case SPAWN_ENEMY: {
-                    if (level->enemyCount < MAX_ENEMIES) {
-                        level->enemies[level->enemyCount] = initEnemy();
-                        level->enemies[level->enemyCount].x = point->x;
-                        level->enemies[level->enemyCount].x = point->x;
-                        level->enemies[level->enemyCount].id = level->enemyCount + 1;
+                    if (level->entityCount < MAX_ENEMIES) {
+                        level->entities[level->entityCount] = initEnemy();
+                        level->entities[level->entityCount].x = point->x;
+                        level->entities[level->entityCount].x = point->x;
+                        level->entities[level->entityCount].id = level->entityCount + 1;
 
                         printf("Enemy spawned, ID: %d at (%d, %d)\n",
-                        level->enemies[level->enemyCount].id,
-                        (int)level->enemies[level->enemyCount].x,
-                        (int)level->enemies[level->enemyCount].y);
+                        level->entities[level->entityCount].id,
+                        (int)level->entities[level->entityCount].x,
+                        (int)level->entities[level->entityCount].y);
 
-                        level->enemyCount++;
+                        level->entityCount++;
                     } else {
                         printf("Max Enemy Count: %d has been Reached", MAX_ENEMIES);
                     }
