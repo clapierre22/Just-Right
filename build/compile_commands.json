@@ -58,5 +58,11 @@
   "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\point.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\point.c",
   "file": "C:/Users/calvi/Just-Right/src/point.c",
   "output": "CMakeFiles/Just-Right.dir/src/point.c.obj"
+},
+{
+  "directory": "C:/Users/calvi/Just-Right/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/Just-Right.dir/includes_C.rsp  -Wall -Wextra -g -std=gnu11 -o CMakeFiles\\Just-Right.dir\\src\\entity.c.obj -c C:\\Users\\calvi\\Just-Right\\src\\entity.c",
+  "file": "C:/Users/calvi/Just-Right/src/entity.c",
+  "output": "CMakeFiles/Just-Right.dir/src/entity.c.obj"
 }
 ]

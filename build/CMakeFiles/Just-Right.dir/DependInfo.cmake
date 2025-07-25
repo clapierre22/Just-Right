@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/calvi/Just-Right/src/camera.c" "CMakeFiles/Just-Right.dir/src/camera.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/camera.c.obj.d"
   "C:/Users/calvi/Just-Right/src/collision.c" "CMakeFiles/Just-Right.dir/src/collision.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/collision.c.obj.d"
   "C:/Users/calvi/Just-Right/src/enemy.c" "CMakeFiles/Just-Right.dir/src/enemy.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/enemy.c.obj.d"
+  "C:/Users/calvi/Just-Right/src/entity.c" "CMakeFiles/Just-Right.dir/src/entity.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/entity.c.obj.d"
   "C:/Users/calvi/Just-Right/src/fighting.c" "CMakeFiles/Just-Right.dir/src/fighting.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/fighting.c.obj.d"
   "C:/Users/calvi/Just-Right/src/level.c" "CMakeFiles/Just-Right.dir/src/level.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/level.c.obj.d"
   "C:/Users/calvi/Just-Right/src/main.c" "CMakeFiles/Just-Right.dir/src/main.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/main.c.obj.d"

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Just-Right.dir/src/collision.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/enemy.c.obj"
   "CMakeFiles/Just-Right.dir/src/enemy.c.obj.d"
+  "CMakeFiles/Just-Right.dir/src/entity.c.obj"
+  "CMakeFiles/Just-Right.dir/src/entity.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/fighting.c.obj"
   "CMakeFiles/Just-Right.dir/src/fighting.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/level.c.obj"
