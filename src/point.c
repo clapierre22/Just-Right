@@ -57,6 +57,23 @@ void activatePoint(Point *point, Level *level) {
                     break;
                 }
                 case SPAWN_PLAYER: {
+                    // Singleplayer
+                    if (level->entityCount < MAX_ENTITIES) {
+                        level->entities[PLAYER_ONE] = initPlayer();
+                        level->entities[PLAYER_ONE].x = point->x; // TODO: Change to use world2screen
+                        level->entities[PLAYER_ONE].y = point->y;
+                        level->entities[PLAYER_ONE].id = PLAYER_ONE;
+
+                        printf("Player spawned, ID: %d at (%d, %d)\n",
+                        level->entities[PLAYER_ONE].id,
+                        (int)level->entities[PLAYER_ONE].x,
+                        (int)level->entities[PLAYER_ONE].y);
+
+                        level->entityCount++;
+                    } else {
+                        printf("Max Entity Count: %d has been Reached", MAX_ENTITIES);
+                    }
+
                     break;
                 }
                 case SPAWN_ENEMY: {
@@ -75,6 +92,7 @@ void activatePoint(Point *point, Level *level) {
                     } else {
                         printf("Max Enemy Count: %d has been Reached", MAX_ENEMIES);
                     }
+
                     break;
                 }
             }

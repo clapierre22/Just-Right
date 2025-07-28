@@ -69,6 +69,8 @@ void updateEntity(Entity *entity, Level *level) {
         case ENTITY_PLAYER: {
             // Check Map Collision
             // moveEntity(entity);
+            entity->coolTime--;
+
             normalizeEntityVelocity(entity, PLAYER_SPEED);
             entity->x += entity->velocityX;
             if (checkMapCollision(entity, &level->map, entity->velocityX > 0 ? EAST : WEST)) {
@@ -81,8 +83,6 @@ void updateEntity(Entity *entity, Level *level) {
                 entity->y -= entity->velocityY;
                 entity->velocityY = ENTITY_STOP;
             }
-
-            entity->coolTime--;
             
             break;
         }

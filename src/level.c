@@ -26,7 +26,10 @@ void loadLevel(Level *level) {
 	level->points = malloc(sizeof(Point) * MAX_POINTS);
 
 	// example points for testing
-	// level->spawns[0] = initPoint();
+	level->spawns[PLAYER_ONE] = initPoint();
+	changePoint(&level->spawns[PLAYER_ONE], POINT_SPAWN, SPAWN_PLAYER);
+	movePoint(&level->spawns[PLAYER_ONE], MAP_MID_X, MAP_MID_Y - TILE_SIZE);
+
 	level->objectives[0] = initPoint();
 	level->points[0] = initPoint();
 	// level->spawnCount = 1;
@@ -34,7 +37,7 @@ void loadLevel(Level *level) {
 	level->pointCount = 1;
 
 	// Example Loop to creat Spawn Points 
-	level->spawnCount = 0;
+	level->spawnCount = 1;
 	do {
 		level->spawns[level->spawnCount] = initPoint();
 		changePoint(&level->spawns[level->spawnCount], POINT_SPAWN, SPAWN_ENEMY);
@@ -42,12 +45,12 @@ void loadLevel(Level *level) {
 		level->spawnCount++;
 	} while (level->spawnCount < MAX_SPAWNS);
 
-	// changePoint(&level->spawns[0], POINT_SPAWN, SPAWN_ENEMY);
+	
 	changePoint(&level->objectives[0], POINT_GAME, NOT_SPAWN);
 	changePoint(&level->points[0], POINT_POINT, NOT_SPAWN);
 
-	movePoint(&level->points[0], MAP_MID_X + TILE_SIZE, MAP_MID_Y + TILE_SIZE);
-	movePoint(&level->objectives[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y - TILE_SIZE);
+	movePoint(&level->points[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y - TILE_SIZE);
+	movePoint(&level->objectives[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y + TILE_SIZE);
 	// movePoint(&level->spawns[0], MAP_MID_X + (2 * TILE_SIZE), MAP_MID_Y + (2 * TILE_SIZE));
 
 	// if (!level->players || !level->enemies || !level->points) {
@@ -68,10 +71,10 @@ void spawnEntities(Level *level) {
 	// single player
 	// level->players[PLAYER_ONE] = initPlayer();
 	// level->playerCount++;
-	level->entities[PLAYER_ONE] = initPlayer();
-	level->entityCount++;
-	level->playerCount++;
-	printf("Good Player Spawn\n");
+	// level->entities[PLAYER_ONE] = initPlayer();
+	// level->entityCount++;
+	// level->playerCount++;
+	// printf("Good Player Spawn\n");
     
 	// enemies
 	int i = 0;

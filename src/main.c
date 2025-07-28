@@ -157,7 +157,7 @@ int main(int argc, char* argv[]) {
 									level.entities[PLAYER_ONE].onCooldown = TRUE;
 									level.entities[PLAYER_ONE].coolTime = PLAYER_SWING_COOL;
 								} else {
-									printf("Player %d is on cooldown, cannot attack\n", PLAYER_ONE + 1);
+									printf("Player %d is on cooldown for %d more frames, cannot attack\n", PLAYER_ONE + 1, level.entities[PLAYER_ONE].coolTime);
 								}
 							}
 
