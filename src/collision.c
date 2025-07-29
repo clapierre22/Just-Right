@@ -97,6 +97,8 @@ int checkEntityCollision(Entity *a, Entity *b){
 }
 
 int checkHitCollision(SDL_Rect swingBox, Entity *attackTo) {
+	// int screenX, screenY;
+	// worldToScreen(camera, point->x, point->y, &screenX, &screenY);
 	SDL_Rect hitBox = {
 		attackTo->x,
 		attackTo->y,
@@ -105,6 +107,29 @@ int checkHitCollision(SDL_Rect swingBox, Entity *attackTo) {
 	};
 
 	return collision(swingBox, hitBox);
+}
+
+int checkPointCollision(Camera *camera, Point *point, Entity *entity) {
+	// TODO: Implement point collision with camera
+	int screenX, screenY;
+	worldToScreen(camera, point->x, point->y, &screenX, &screenY);
+	
+	SDL_Rect pointBox = {
+		screenX,
+		screenY,
+		(int)(point->w * camera->zoom),
+		(int)(point->h * camera->zoom)
+	};
+
+	worldToScreen(camera, entity->x, entity->y, &screenX, &screenY);
+	SDL_Rect entityBox = {
+		screenX,
+		screenY,
+		(int)(entity->w * camera->zoom),
+		(int)(entity->h * camera->zoom)
+	};
+
+	return collision(pointBox, entityBox);
 }
 
 // Draws additional outline around the colliding Rectangles

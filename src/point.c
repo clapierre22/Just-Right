@@ -25,6 +25,14 @@ void loadPoint(Point *point) {
     point->spawn = NOT_SPAWN;
     point->status = POINT_STOP;
     point->interval = POINT_BASE_INTERVAL;
+
+    SDL_Rect box = {
+        point->x,
+        point->y,
+        TILE_SIZE,
+        TILE_SIZE
+    };
+    point->hitBox = box;
 }
 
 void changePointType(Point *point, PointType newType) {
@@ -102,6 +110,14 @@ void activatePoint(Point *point, Level *level) {
                     break;
                 }
                 case SPAWN_ENEMY: {
+                    if (checkPointCollision(&level->camera, point, &level->entities[PLAYER_ONE])) {
+                        // If player is on spawn point, do not spawn enemy
+                        // TODO: This works, but needs to be run through world2screen
+                        // TODO: Convert collisions to use w2s function
+                        point->status = POINT_PAUSE;
+                        break;
+                    }
+
                     if (level->entityCount < MAX_ENEMIES) {
                         level->entities[level->entityCount] = initEnemy();
                         level->entities[level->entityCount].x = point->x;

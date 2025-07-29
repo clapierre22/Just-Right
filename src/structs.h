@@ -57,6 +57,7 @@ typedef struct {
 	SpawnType spawn;
 	PointStatus status;
 	int interval;
+	SDL_Rect hitBox;
 } Point;
 
 typedef struct {

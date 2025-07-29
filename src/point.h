@@ -8,6 +8,8 @@
 #include "player.h"
 #include "enemy.h"
 
+#include "camera.h"
+
 Point initPoint(void); // Init point
 void loadPoint(Point *point); // Load point data
 void changePointType(Point *point, PointType newType); // Change point type

@@ -66,10 +66,10 @@ void renderPoint(SDL_Renderer *renderer, const Camera *camera, const Point *poin
 		worldToScreen(camera, point->x, point->y, &screenX, &screenY);
 
 		SDL_Rect pointBox = {
-        screenX,
-        screenY,
-        (int)(TILE_SIZE * camera->zoom),
-        (int)(TILE_SIZE * camera->zoom)
+			screenX,
+			screenY,
+			(int)(TILE_SIZE * camera->zoom),
+			(int)(TILE_SIZE * camera->zoom)
 		};
 
 		switch (point->type) {

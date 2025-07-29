@@ -29,8 +29,8 @@
 			// UPDATE: combine player.c and enemy.c into entity.c, use switch to determine user DONE
 			// enemy spawn point DONE
 			// player spawn point DONE
-		// set respawn timer 
-		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer
+		// set respawn timer DONE
+		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer DONE
 		// collision check to make sure enemies don't spawn on top of player
 	// spawn master system that controls the spawn points
 		// allows for altering all points at once
@@ -42,6 +42,9 @@
 	// accept inputs when clicking the mouse
 	// distinguish between left click and right click
 	// attack with mouse instead of e key
+// collision updates
+	// implement spatial hashmap to simplify collision detection (wont have to check every entity)
+	// change hit radius to circle hitbox
 // map editor
 	// map system update
 		// divide into maps (cosmetic) and rooms (data, like enemies and logic)
