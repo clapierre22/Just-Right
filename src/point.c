@@ -105,7 +105,7 @@ void activatePoint(Point *point, Level *level) {
                     if (level->entityCount < MAX_ENEMIES) {
                         level->entities[level->entityCount] = initEnemy();
                         level->entities[level->entityCount].x = point->x;
-                        level->entities[level->entityCount].x = point->x;
+                        level->entities[level->entityCount].y = point->y;
                         level->entities[level->entityCount].id = level->entityCount + 1;
 
                         printf("Enemy spawned, ID: %d at (%d, %d)\n",
