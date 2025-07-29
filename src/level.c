@@ -27,7 +27,9 @@ void loadLevel(Level *level) {
 
 	// example points for testing
 	level->spawns[PLAYER_ONE] = initPoint();
-	changePoint(&level->spawns[PLAYER_ONE], POINT_SPAWN, SPAWN_PLAYER);
+	changePointType(&level->spawns[PLAYER_ONE], POINT_SPAWN);
+	changePointSpawn(&level->spawns[PLAYER_ONE], SPAWN_PLAYER);
+
 	movePoint(&level->spawns[PLAYER_ONE], MAP_MID_X, MAP_MID_Y - TILE_SIZE);
 
 	level->objectives[0] = initPoint();
@@ -40,14 +42,15 @@ void loadLevel(Level *level) {
 	level->spawnCount = 1;
 	do {
 		level->spawns[level->spawnCount] = initPoint();
-		changePoint(&level->spawns[level->spawnCount], POINT_SPAWN, SPAWN_ENEMY);
+		changePointType(&level->spawns[level->spawnCount], POINT_SPAWN);
+		changePointSpawn(&level->spawns[level->spawnCount], SPAWN_ENEMY);
 		movePoint(&level->spawns[level->spawnCount], MAP_MID_X + TILE_SIZE * level->spawnCount, MAP_MID_Y + TILE_SIZE * level->spawnCount);
 		level->spawnCount++;
 	} while (level->spawnCount < MAX_SPAWNS);
 
 	
-	changePoint(&level->objectives[0], POINT_GAME, NOT_SPAWN);
-	changePoint(&level->points[0], POINT_POINT, NOT_SPAWN);
+	changePointType(&level->objectives[0], POINT_GAME);
+	changePointType(&level->points[0], POINT_POINT);
 
 	movePoint(&level->points[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y - TILE_SIZE);
 	movePoint(&level->objectives[0], MAP_MID_X - TILE_SIZE, MAP_MID_Y + TILE_SIZE);
@@ -91,6 +94,12 @@ void changeMap(Level *level, Map *map) {
 void updateLevel(Level *level) {
 	// runs the update function on all Entities, points
 	if (!level) return;
+
+	if (level->spawns) {
+		for (int s = 0; s < level->spawnCount; s++) {
+			runPoint(&level->spawns[s], level);
+		}
+	}
 
 	if (level->entities) {
 		for (int e = 0; e < level->entityCount; e++) {

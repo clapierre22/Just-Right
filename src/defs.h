@@ -29,10 +29,11 @@
 #define MAX_ENTITIES 20
 #define MAX_PLAYERS 1
 #define MAX_ENEMIES MAX_ENTITIES - MAX_PLAYERS
-#define MAX_SPAWNS 5
+#define MAX_SPAWNS 2
 #define MAX_OBJECTIVES 1
 #define MAX_POINTS 10
 #define ENEMY_ID 64
+#define POINT_BASE_INTERVAL 60 // Frames (~1/sec)
 
 typedef enum {
 	POINT_UNASSIGNED,
@@ -46,6 +47,13 @@ typedef enum {
 	SPAWN_PLAYER,
 	SPAWN_ENEMY,
 } SpawnType;
+
+typedef enum {
+	POINT_STOP,
+	POINT_RUN,
+	POINT_PAUSE,
+	POINT_ERROR,
+} PointStatus;
 
 // Render
 #define RENDER_WIDTH 16

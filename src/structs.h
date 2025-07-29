@@ -55,6 +55,8 @@ typedef struct {
 	int w, h;
 	PointType type;
 	SpawnType spawn;
+	PointStatus status;
+	int interval;
 } Point;
 
 typedef struct {

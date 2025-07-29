@@ -25,11 +25,11 @@
 	// points objects
 		// choose spawn point location DONE
 		// can spawn any entity DONE
-		// choose enemy to spawn
-			// UPDATE: combine player.c and enemy.c into entity.c, use switch to determine user
-			// enemy spawn point
-			// player spawn point
-		// set respawn timer
+		// choose enemy to spawn DONE
+			// UPDATE: combine player.c and enemy.c into entity.c, use switch to determine user DONE
+			// enemy spawn point DONE
+			// player spawn point DONE
+		// set respawn timer 
 		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer
 		// collision check to make sure enemies don't spawn on top of player
 	// spawn master system that controls the spawn points

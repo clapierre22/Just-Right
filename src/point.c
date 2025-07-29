@@ -23,12 +23,28 @@ void loadPoint(Point *point) {
     point->h = TILE_SIZE;
     point->type = POINT_UNASSIGNED;
     point->spawn = NOT_SPAWN;
+    point->status = POINT_STOP;
+    point->interval = POINT_BASE_INTERVAL;
 }
 
-void changePoint(Point *point, PointType newType, SpawnType newSType) {
+void changePointType(Point *point, PointType newType) {
     // Change point type
     point->type = newType;
-    point->spawn = newSType;
+}
+
+void changePointSpawn(Point *point,SpawnType newSpawn) {
+    // Change point spawn type
+    point->spawn = newSpawn;
+}
+
+void changePointStatus(Point *point, PointStatus newStatus) {
+    // Change point status
+    point->status = newStatus;
+}
+
+void changePointInterval(Point *point, int newInterval) {
+    // Change pointinterval
+    point->interval = newInterval;
 }
 
 void movePoint(Point *point, int newX, int newY) {
@@ -58,6 +74,11 @@ void activatePoint(Point *point, Level *level) {
                 }
                 case SPAWN_PLAYER: {
                     // Singleplayer
+                    // if (level->entityCount = MAX_ENTITIES) {
+                    //     point->status = POINT_PAUSE;
+                    //     printf("Max Entity Count: %d has been Reached", MAX_ENTITIES);
+                    //     break;
+                    // }
                     if (level->entityCount < MAX_ENTITIES) {
                         level->entities[PLAYER_ONE] = initPlayer();
                         level->entities[PLAYER_ONE].x = point->x; // TODO: Change to use world2screen
@@ -70,6 +91,10 @@ void activatePoint(Point *point, Level *level) {
                         (int)level->entities[PLAYER_ONE].y);
 
                         level->entityCount++;
+
+                        point->status = POINT_PAUSE;
+                        point->interval = POINT_BASE_INTERVAL;
+
                     } else {
                         printf("Max Entity Count: %d has been Reached", MAX_ENTITIES);
                     }
@@ -89,6 +114,10 @@ void activatePoint(Point *point, Level *level) {
                         (int)level->entities[level->entityCount].y);
 
                         level->entityCount++;
+
+                        point->status = POINT_PAUSE;
+                        point->interval = POINT_BASE_INTERVAL;
+
                     } else {
                         printf("Max Enemy Count: %d has been Reached", MAX_ENEMIES);
                     }
@@ -104,6 +133,40 @@ void activatePoint(Point *point, Level *level) {
         }
         case POINT_POINT: {
             // Score
+            break;
+        }
+    }
+}
+
+void runPoint(Point *point, Level *level) { 
+    // Toggle constant running (activatePoint) of point logic
+    switch (point->status) {
+        case POINT_STOP: {
+            // Break out of loop
+            break;
+        }
+        case POINT_RUN: {
+            activatePoint(point, level);
+            break;
+        }
+        case POINT_PAUSE: {
+            // Unique logic for certain points, including holding spawning of entities
+            switch (point->spawn) {
+                case SPAWN_PLAYER: {
+                    // Wait for player to die, then POINT_RUN
+                    break;
+                }
+                case SPAWN_ENEMY: {
+                    point->interval--;
+                    // printf("Point is on pause");
+                    if (point->interval <= 0) point->status = POINT_RUN;
+                    break;
+                }
+            }
+            break;
+        }
+        case POINT_ERROR: {
+            // Report Error, Remove Point
             break;
         }
     }
