@@ -103,12 +103,14 @@ void renderPoint(SDL_Renderer *renderer, const Camera *camera, const Point *poin
 void renderMouse(SDL_Renderer *renderer, const Camera *camera, const Mouse *mouse) {
 	if (withinCameraMouse(camera, mouse)) {
 		
-		int screenX, screenY;
-		worldToScreen(camera, mouse->x, mouse->y, &screenX, &screenY);
+		// int screenX, screenY;
+		// worldToScreen(camera, mouse->x, mouse->y, &screenX, &screenY);
 
 		SDL_Rect mouseBox = {
-			screenX,
-			screenY,
+			// screenX,
+			// screenY,
+			mouse->x - (mouse->w / 2),
+			mouse->y - (mouse->h / 2),
 			(int)(mouse->w * camera->zoom),
 			(int)(mouse->h * camera->zoom)
 		};
