@@ -117,18 +117,36 @@ int main(int argc, char* argv[]) {
 	while (running) {
 		while (SDL_PollEvent(&event)) {
 			// Mouse //
-			if (event.type == SDL_MOUSEMOTION
-				|| event.type == SDL_MOUSEBUTTONDOWN
-				|| event.type == SDL_MOUSEBUTTONUP) {
-					int x = 0, y = 0;
-					SDL_GetMouseState(&x, &y);
-					printf("Postion of mouse: (%d,%d)\n", x, y);
-				}
+			// if (event.type == SDL_MOUSEMOTION
+			// 	|| event.type == SDL_MOUSEBUTTONDOWN
+			// 	|| event.type == SDL_MOUSEBUTTONUP) {
+			// 		int x = 0, y = 0;
+			// 		SDL_GetMouseState(&x, &y);
+			// 		level.mouse.x = x;
+			// 		level.mouse.y = y;
+			// 		// printf("Postion of mouse: (%d,%d)\n", x, y);
+			// 	}
 			switch (event.type) {
 
 				// Quit //
 				case SDL_QUIT: {
 					running = FALSE;
+					break;
+				}
+
+				// Mouse //
+				case SDL_MOUSEMOTION: {
+					SDL_GetMouseState(&level.mouse.x, &level.mouse.y);
+					break;
+				}
+				case SDL_MOUSEBUTTONDOWN: {
+					SDL_GetMouseState(&level.mouse.x, &level.mouse.y);
+					level.mouse.state = MOUSE_ACTIVE;
+					break;
+				}
+				case SDL_MOUSEBUTTONUP: {
+					SDL_GetMouseState(&level.mouse.x, &level.mouse.y);
+					level.mouse.state = MOUSE_PASSIVE;
 					break;
 				}
 

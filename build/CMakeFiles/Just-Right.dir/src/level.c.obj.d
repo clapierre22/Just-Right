@@ -204,4 +204,5 @@ CMakeFiles/Just-Right.dir/src/level.c.obj: \
  C:\Users\calvi\Just-Right\src\enemy.h \
  C:\Users\calvi\Just-Right\src\fighting.h \
  C:\Users\calvi\Just-Right\src\point.h \
- C:\Users\calvi\Just-Right\src\entity.h
+ C:\Users\calvi\Just-Right\src\entity.h \
+ C:\Users\calvi\Just-Right\src\mouse.h

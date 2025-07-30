@@ -17,6 +17,7 @@ void loadLevel(Level *level) {
 	// loads level information
 	level->map = initMap();
 	level->camera = initCamera();
+	level->mouse = initMouse();
 	// Players are always the first in the entity array
 	level->entities = malloc(sizeof(Entity) * MAX_ENTITIES);
 	// level->players = malloc(sizeof(Entity) * MAX_PLAYERS);
@@ -189,6 +190,7 @@ void renderLevel(Level *level, SDL_Renderer *renderer) {
 	// renders the level, entities, points
 	// Order: Map, Points, Enemies, Players
 	drawMap(renderer, &level->camera, &level->map);
+
 	if (level->spawns) {
 		for (int s = 0; s < level->spawnCount; s++) {
 			renderPoint(renderer, &level->camera, &level->spawns[s]);
@@ -209,16 +211,8 @@ void renderLevel(Level *level, SDL_Renderer *renderer) {
 			renderEntity(renderer, &level->camera, &level->entities[e]);
 		}
 	}
-	// if (level->enemies) {
-	// 	for (int e = 0; e < level->enemyCount; e++) {
-	// 		renderEntity(renderer, &level->camera, &level->enemies[e]);
-	// 	}
-	// }
-	// if (level->players) {
-	// 	for (int p = 0; p < level->playerCount; p++) {
-	// 		renderEntity(renderer, &level->camera, &level->players[p]);
-	// 	}
-	// }
+
+	renderMouse(renderer, &level->camera, &level->mouse);
 }
 
 void destroyLevel(Level *level) {

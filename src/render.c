@@ -99,3 +99,41 @@ void renderPoint(SDL_Renderer *renderer, const Camera *camera, const Point *poin
 	}
 
 }
+
+void renderMouse(SDL_Renderer *renderer, const Camera *camera, const Mouse *mouse) {
+	if (withinCameraMouse(camera, mouse)) {
+		
+		int screenX, screenY;
+		worldToScreen(camera, mouse->x, mouse->y, &screenX, &screenY);
+
+		SDL_Rect mouseBox = {
+			screenX,
+			screenY,
+			(int)(mouse->w * camera->zoom),
+			(int)(mouse->h * camera->zoom)
+		};
+
+		switch (mouse->state) {
+			case MOUSE_PASSIVE: {
+				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+				break;
+			}
+			case MOUSE_ACTIVE: {
+				SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+				break;
+			}
+			case MOUSE_REFRESH: {
+				break;
+			}
+			case MOUSE_BLOCKED: {
+				break;
+			}
+		}
+
+		SDL_RenderFillRect(renderer, &mouseBox);
+		
+		// Outline
+		SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
+		SDL_RenderDrawRect(renderer, &mouseBox);
+	}
+}

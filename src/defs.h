@@ -71,6 +71,18 @@ typedef enum {
 #define CAMERA_START_X SCREEN_WIDTH / 2
 #define CAMERA_START_Y SCREEN_HEIGHT / 2
 
+// Mouse
+typedef enum {
+	MOUSE_PASSIVE,
+	MOUSE_ACTIVE,
+	MOUSE_REFRESH,
+	MOUSE_BLOCKED,
+} MouseState;
+
+#define MOUSE_WIDTH 16
+#define MOUSE_HEIGHT 16
+#define MOUSE_RADIUS 0.5f
+
 // Entity
 typedef enum {
 	ENTITY_UNASSIGNED,

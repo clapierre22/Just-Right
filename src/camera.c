@@ -97,7 +97,9 @@ int withinCameraPoint(const Camera *camera, const Point *point) {
 		|| pT > cB);
 }
 
-// PROBLEM: The camera still does not render bottom right tiles in time (popping in)
+int withinCameraMouse(const Camera *camera, const Mouse *mouse) {
+	return 1;
+}
 
 void moveCamera(Camera *camera, const Entity *player) {
 	// TODO: moves the camera x,y when

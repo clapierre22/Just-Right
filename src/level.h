@@ -13,6 +13,7 @@
 #include "camera.h"
 #include "point.h"
 #include "entity.h"
+#include "mouse.h"
 
 Level initLevel(void); // initLevel generates the player, enemies, map; holds within the level object
 void loadLevel(Level *level); // loads level information

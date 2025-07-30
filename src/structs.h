@@ -16,6 +16,13 @@ typedef struct {
 } Entity;
 
 typedef struct {
+	int x, y;
+	int w, h;
+	float r;
+	MouseState state;
+} Mouse;
+
+typedef struct {
 	SDL_Window *window;
 	Entity player;
 	Entity enemy[32];
@@ -62,10 +69,9 @@ typedef struct {
 
 typedef struct {
 	Map map; 
-	Camera camera; // For some reason, cmake does not recognize the Camera type
+	Camera camera;
+	Mouse mouse;
 	Entity *entities;
-	Entity *players;
-	Entity *enemies;
 	Point *spawns;
 	Point *objectives;
 	Point *points;

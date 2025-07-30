@@ -1248,6 +1248,7 @@ CMakeFiles/Just-Right.dir/src/level.c.obj: C:/Users/calvi/Just-Right/src/level.c
   C:/Users/calvi/Just-Right/src/fighting.h \
   C:/Users/calvi/Just-Right/src/level.h \
   C:/Users/calvi/Just-Right/src/map.h \
+  C:/Users/calvi/Just-Right/src/mouse.h \
   C:/Users/calvi/Just-Right/src/player.h \
   C:/Users/calvi/Just-Right/src/point.h \
   C:/Users/calvi/Just-Right/src/render.h \
