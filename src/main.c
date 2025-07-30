@@ -31,11 +31,7 @@
 			// player spawn point DONE
 		// set respawn timer DONE
 		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer DONE
-		// collision check to make sure enemies don't spawn on top of player
-	// spawn master system that controls the spawn points
-		// allows for altering all points at once
-		// indirectly allows for different gamemodes to be formed 
-		// control all spawn point locations
+		// collision check to make sure enemies don't spawn on top of players DONE
 // mouse implementation
 	// mouse reports location
 	// draw clicker at mouse position
@@ -47,9 +43,13 @@
 	// change hit radius to circle hitbox
 // map editor
 	// map system update
-		// divide into maps (cosmetic) and rooms (data, like enemies and logic)
+		// divide into maps (cosmetic) and levels (data, like enemies and logic) (update maps)
 			// OPTIONAL: allow maps to be non square (only reason to not do this is for map bounds are square)
 		// allow for premade files to be used to load premade maps
+		// spawn master system that controls the spawn points
+			// allows for altering all points at once
+			// indirectly allows for different gamemodes to be formed 
+			// control all spawn point locations
 	// interface that allows for easy map creations
 		// can use the mouse
 		// visual placement editor that allows for non hardcoded designing
