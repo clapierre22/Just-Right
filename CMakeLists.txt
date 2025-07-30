@@ -22,6 +22,7 @@ add_executable(Just-Right
     src/level.c
     src/point.c
     src/entity.c
+    src/mouse.c
 )
 
 # Link SDL2

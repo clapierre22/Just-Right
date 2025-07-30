@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/calvi/Just-Right/src/level.c" "CMakeFiles/Just-Right.dir/src/level.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/level.c.obj.d"
   "C:/Users/calvi/Just-Right/src/main.c" "CMakeFiles/Just-Right.dir/src/main.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/main.c.obj.d"
   "C:/Users/calvi/Just-Right/src/map.c" "CMakeFiles/Just-Right.dir/src/map.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/map.c.obj.d"
+  "C:/Users/calvi/Just-Right/src/mouse.c" "CMakeFiles/Just-Right.dir/src/mouse.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/mouse.c.obj.d"
   "C:/Users/calvi/Just-Right/src/player.c" "CMakeFiles/Just-Right.dir/src/player.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/player.c.obj.d"
   "C:/Users/calvi/Just-Right/src/point.c" "CMakeFiles/Just-Right.dir/src/point.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/point.c.obj.d"
   "C:/Users/calvi/Just-Right/src/render.c" "CMakeFiles/Just-Right.dir/src/render.c.obj" "gcc" "CMakeFiles/Just-Right.dir/src/render.c.obj.d"

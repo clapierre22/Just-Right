@@ -20,7 +20,7 @@
 // level development DONE
 	// make specified level.c file DONE
 	// transfer all level related logic to level.c, remove from main.c DONE
-// spawn logic << 
+// spawn logic DONE
 	// specified entity spawn point that can be set to spawn any entity DONE
 	// points objects
 		// choose spawn point location DONE
@@ -32,8 +32,8 @@
 		// set respawn timer DONE
 		// create tag that turns spawn point on/off, with on continously spawning enemies at set respawn timer DONE
 		// collision check to make sure enemies don't spawn on top of players DONE
-// mouse implementation
-	// mouse reports location
+// mouse implementation <<
+	// mouse reports location DONE
 	// draw clicker at mouse position
 	// accept inputs when clicking the mouse
 	// distinguish between left click and right click
@@ -116,12 +116,23 @@ int main(int argc, char* argv[]) {
 	// USER INPUT //
 	while (running) {
 		while (SDL_PollEvent(&event)) {
+			// Mouse //
+			if (event.type == SDL_MOUSEMOTION
+				|| event.type == SDL_MOUSEBUTTONDOWN
+				|| event.type == SDL_MOUSEBUTTONUP) {
+					int x = 0, y = 0;
+					SDL_GetMouseState(&x, &y);
+					printf("Postion of mouse: (%d,%d)\n", x, y);
+				}
 			switch (event.type) {
 
+				// Quit //
 				case SDL_QUIT: {
 					running = FALSE;
 					break;
 				}
+
+				// Keyboard //
 				case SDL_KEYDOWN: {
 					switch (event.key.keysym.sym) {
 						case SDLK_w: {

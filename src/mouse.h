@@ -4,6 +4,3 @@
 
 #include "structs.h"
 #include "defs.h"
-
-#include "level.h"
-#include "mouse.h"
