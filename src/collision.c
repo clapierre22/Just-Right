@@ -96,15 +96,23 @@ int checkEntityCollision(Entity *a, Entity *b){
 	return collision(aBox, bBox);
 }
 
-int checkHitCollision(SDL_Rect swingBox, Entity *attackTo) {
+int checkHitCollision(Level *level, SDL_Rect swingBox, Entity *attackTo) {
 	// int screenX, screenY;
-	// worldToScreen(camera, point->x, point->y, &screenX, &screenY);
+	// worldToScreen(&level->camera, attackTo->x, attackTo->y, &screenX, &screenY);
 	SDL_Rect hitBox = {
 		attackTo->x,
 		attackTo->y,
 		attackTo->w,
 		attackTo->h
+		// attackTo->x - (attackTo->w / 2),
+        // attackTo->y - (attackTo->h / 2),
+		// screenX,
+		// screenY,
+		// (int)(attackTo->w * level->camera.zoom),
+		// (int)(attackTo->h * level->camera.zoom)
 	};
+
+	// TODO: Hit detection on mouse (mouse cursor location) is still in the position of the mouse without the screen x,y conversion
 
 	return collision(swingBox, hitBox);
 }

@@ -24,6 +24,7 @@ void loadEntity(Entity *entity) {
     entity->damage = PLAYER_BASE_DAMAGE;
     entity->knockback = PLAYER_BASE_KNOCKBACK;
     entity->attacking = FALSE;
+    entity->shooting = FALSE;
     entity->hit = FALSE;
     entity->stunTime = ENTITY_STOP;
     entity->coolTime = PLAYER_SWING_COOL;

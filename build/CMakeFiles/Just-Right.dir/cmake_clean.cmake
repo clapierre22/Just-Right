@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Just-Right.dir/src/main.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/map.c.obj"
   "CMakeFiles/Just-Right.dir/src/map.c.obj.d"
+  "CMakeFiles/Just-Right.dir/src/math.c.obj"
+  "CMakeFiles/Just-Right.dir/src/math.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/mouse.c.obj"
   "CMakeFiles/Just-Right.dir/src/mouse.c.obj.d"
   "CMakeFiles/Just-Right.dir/src/player.c.obj"

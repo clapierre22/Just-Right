@@ -200,6 +200,8 @@ CMakeFiles/Just-Right.dir/src/point.c.obj: \
  C:\Users\calvi\Just-Right\src\player.h \
  C:\Users\calvi\Just-Right\src\collision.h \
  C:\Users\calvi\Just-Right\src\camera.h \
+ C:\Users\calvi\Just-Right\src\math.h \
+ C:\Users\calvi\Just-Right\src\mouse.h \
  C:\Users\calvi\Just-Right\src\map.h \
  C:\Users\calvi\Just-Right\src\render.h \
  C:\Users\calvi\Just-Right\src\enemy.h

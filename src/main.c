@@ -34,10 +34,10 @@
 		// collision check to make sure enemies don't spawn on top of players DONE
 // mouse implementation <<
 	// mouse reports location DONE
-	// draw clicker at mouse position
-	// accept inputs when clicking the mouse
-	// distinguish between left click and right click
+	// draw clicker at mouse position DONE
+	// accept inputs when clicking the mouse DONE
 	// attack with mouse instead of e key
+	// distinguish between left click and right click
 // collision updates
 	// implement spatial hashmap to simplify collision detection (wont have to check every entity)
 	// change hit radius to circle hitbox
@@ -142,11 +142,15 @@ int main(int argc, char* argv[]) {
 				case SDL_MOUSEBUTTONDOWN: {
 					SDL_GetMouseState(&level.mouse.x, &level.mouse.y);
 					level.mouse.state = MOUSE_ACTIVE;
+					level.entities[PLAYER_ONE].shooting = TRUE;
+					printf("Shot at (%d,%d)\n", level.mouse.x, level.mouse.y);
+					// TODO: Always shoots at (0,1) aka map_mid_x,y
 					break;
 				}
 				case SDL_MOUSEBUTTONUP: {
 					SDL_GetMouseState(&level.mouse.x, &level.mouse.y);
 					level.mouse.state = MOUSE_PASSIVE;
+					level.entities[PLAYER_ONE].shooting = FALSE;
 					break;
 				}
 

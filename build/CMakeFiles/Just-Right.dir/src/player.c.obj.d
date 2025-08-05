@@ -200,5 +200,7 @@ CMakeFiles/Just-Right.dir/src/player.c.obj: \
  C:\Users\calvi\Just-Right\src\defs.h \
  C:\Users\calvi\Just-Right\src\collision.h \
  C:\Users\calvi\Just-Right\src\camera.h \
+ C:\Users\calvi\Just-Right\src\math.h \
+ C:\Users\calvi\Just-Right\src\mouse.h \
  C:\Users\calvi\Just-Right\src\map.h \
  C:\Users\calvi\Just-Right\src\render.h

@@ -108,9 +108,10 @@ void updateLevel(Level *level) {
 		}
 	}
 
-	if (level->entities && level->entities[PLAYER_ONE].attacking) {
+	if (level->entities 
+		&& (level->entities[PLAYER_ONE].attacking || level->entities[PLAYER_ONE].shooting)) {
 		for (int i = level->entityCount - 1; i >= MAX_PLAYERS; i--) {
-			calculateFight(&level->entities[PLAYER_ONE], &level->entities[i]);
+			calculateFight(level, &level->entities[PLAYER_ONE], &level->entities[i]);
 			if (level->entities[i].health <= 0) {
 				printf("Enemy %d removed, new enemy count: %d\n", level->entities[i].id, level->entityCount - 1);
 				if (i != level->entityCount - 1) {

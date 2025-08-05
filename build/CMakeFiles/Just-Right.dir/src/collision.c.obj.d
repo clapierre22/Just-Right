@@ -198,4 +198,6 @@ CMakeFiles/Just-Right.dir/src/collision.c.obj: \
  C:/msys64/mingw64/include/SDL2/SDL_misc.h \
  C:\Users\calvi\Just-Right\src\structs.h \
  C:\Users\calvi\Just-Right\src\defs.h \
- C:\Users\calvi\Just-Right\src\camera.h
+ C:\Users\calvi\Just-Right\src\camera.h \
+ C:\Users\calvi\Just-Right\src\math.h \
+ C:\Users\calvi\Just-Right\src\mouse.h

@@ -320,6 +320,30 @@ src/map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/map.c.s
 .PHONY : src/map.c.s
 
+src/math.obj: src/math.c.obj
+.PHONY : src/math.obj
+
+# target to build an object file
+src/math.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/math.c.obj
+.PHONY : src/math.c.obj
+
+src/math.i: src/math.c.i
+.PHONY : src/math.i
+
+# target to preprocess a source file
+src/math.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/math.c.i
+.PHONY : src/math.c.i
+
+src/math.s: src/math.c.s
+.PHONY : src/math.s
+
+# target to generate assembly for a file
+src/math.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Just-Right.dir\build.make CMakeFiles/Just-Right.dir/src/math.c.s
+.PHONY : src/math.c.s
+
 src/mouse.obj: src/mouse.c.obj
 .PHONY : src/mouse.obj
 
@@ -449,6 +473,9 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/math.obj
+	@echo ... src/math.i
+	@echo ... src/math.s
 	@echo ... src/mouse.obj
 	@echo ... src/mouse.i
 	@echo ... src/mouse.s

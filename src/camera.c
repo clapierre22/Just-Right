@@ -124,15 +124,17 @@ void moveCamera(Camera *camera, const Entity *player) {
 	//}	
 }
 
-void worldToScreen(const Camera *camera, float worldX, float worldY, int *screenX, int *screenY) {
-	// TODO: Implement conversion from given x, y to camera zoom adjusted x, y
+void reportCamera(const Camera *camera, float *x, float *y, float *w, float *h) {
+	// Reports the current state of the camera, used in math and render
+	// float cW = camera->w / camera->zoom;
+	// float cH = camera->h / camera->zoom;
+
+	// float cX = camera->x - cW / 2;
+	// float cY = camera->y - cH / 2;
 	
-	float eW = camera->w / camera->zoom;
-	float eH = camera->h / camera->zoom;
+	*w = camera->w / camera->zoom;
+	*h = camera->h / camera->zoom;
 
-	float cX = camera->x - eW / 2;
-	float cY = camera->y - eH / 2;
-
-	*screenX = (int)((worldX - cX) * camera->zoom);
-	*screenY = (int)((worldY - cY) * camera->zoom);	
+	*x = camera->x - (*w / 2); // These could be wrong, want to use int in memory
+	*y = camera->y - (*h / 2);
 }

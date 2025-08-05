@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 
 #include "camera.h"
+#include "math.h"
 
 //SDL_Renderer renderInit(void);
 

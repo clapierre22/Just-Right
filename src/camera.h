@@ -11,5 +11,5 @@ int withinCameraTile(const Camera *camera, const RoomTile *tile);
 int withinCameraPoint(const Camera *camera, const Point *point);
 int withinCameraMouse(const Camera *camera, const Mouse *mouse);
 void moveCamera(Camera *camera, const Entity *player);
-void worldToScreen(const Camera *camera, float worldX, float worldY, int *screenX, int *screenY);
+void reportCamera(const Camera *camera, float *x, float *y, float *w, float *h);
 
